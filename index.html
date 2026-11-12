@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Celestial Lions">
+<title>Celestial Lions Mecha – Fiche de jeu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Plan : fiche minimaliste, fond blanc, un seul thème clair. Texte noir, un accent bleu (le bleu du chapitre),
+   séparateurs fins plutôt que des cartes. Une colonne, sections ancrées. */
+:root{
+  --bg:#ffffff;
+  --ink:#16181d;
+  --muted:#5f6673;
+  --line:#e4e6eb;
+  --soft:#f5f6f8;
+  --accent:#1d4e9e;
+  --head:"Barlow Condensed", "Arial Narrow", sans-serif;
+  --body:"Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 64px}
+header.top .wrap{padding-top:36px;padding-bottom:18px}
+.eyebrow{font:600 13px/1 var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(30px,6vw,42px)/1.1 var(--head);letter-spacing:.01em;margin:8px 0 12px;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px;color:var(--muted)}
+.chip{font:600 15px/1.4 var(--head);letter-spacing:.03em}
+.chip.gold{color:var(--accent)}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:2px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+nav.toc a{flex:none;font:600 14px/1 var(--head);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 9px;border-radius:4px}
+nav.toc a:hover{color:var(--ink);background:var(--soft)}
+section{padding-top:40px;scroll-margin-top:50px}
+h2{font:700 24px/1.15 var(--head);letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 18px;max-width:65ch}
+h3{font:700 18px/1.25 var(--head);letter-spacing:.02em;margin:0}
+.grid{display:grid;gap:0 28px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{border-top:1px solid var(--line);padding:14px 0 16px}
+.card p{margin:4px 0 0}
+.card .small,.small{font-size:14px;color:var(--muted)}
+.note{border-left:2px solid var(--ink);padding:8px 14px;font-size:15px;margin-top:16px;background:var(--soft)}
+.tip{font-size:14px;color:var(--muted);margin-top:6px}
+.tip::before{content:"Conseil · ";color:var(--accent);font-weight:600}
+ol.phases{list-style:none;margin:0;padding:0}
+ol.phases li{display:grid;grid-template-columns:34px 1fr;gap:12px;border-top:1px solid var(--line);padding:14px 0}
+.num{font:700 22px/1 var(--head);color:var(--accent)}
+ol.phases ul{margin:4px 0 0;padding-left:18px}
+ol.phases li li{margin:2px 0;border:0;padding:0;display:list-item}
+.plan{counter-reset:p}
+.plan .card h3::before{counter-increment:p;content:counter(p) ". ";color:var(--accent)}
+.doc .tag{font:600 12px/1 var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.strat{display:grid;gap:4px}
+.strat-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.cp{flex:none;font:700 15px/1 var(--head);border:1.5px solid var(--ink);border-radius:4px;padding:5px 7px;min-width:44px;text-align:center}
+.cp.two{background:var(--ink);color:var(--bg)}
+.src{font:600 12px/1 var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.src.ic::before,.src.ts::before,.src.gs::before,.src.core::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:1px}
+.src.ic::before{background:#1d4e9e}
+.src.ts::before{background:#8a3fa0}
+.src.gs::before{background:#2f8a4a}
+.src.core::before{background:#9aa0aa}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:4px}
+dl.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:4px 0 0;font-size:15px}
+dl.kv dt{color:var(--muted);font:600 13px/1.6 var(--head);letter-spacing:.05em;text-transform:uppercase}
+dl.kv dd{margin:0}
+.when-title{font:700 15px/1.2 var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:26px 0 4px}
+.unit{padding:18px 0 20px}
+.unit-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;margin-bottom:10px}
+.unit-head .pts{font:600 16px/1 var(--head);font-variant-numeric:tabular-nums}
+.role{font:600 12px/1 var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.unit-body{display:grid;gap:10px}
+.stats{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));text-align:center;border:1px solid var(--line);border-radius:4px}
+.stats div{padding:5px 2px;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0}
+.stats b{display:block;font:600 11px/1.2 var(--head);letter-spacing:.08em;color:var(--muted)}
+.stats span{font:700 18px/1.2 var(--head);font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums;min-width:600px}
+th,td{padding:5px 6px;text-align:center;border-bottom:1px solid var(--line)}
+th{font:600 12px/1.2 var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td:first-child,th:first-child{text-align:left}
+td.kw{text-align:left;color:var(--muted);font-size:13px}
+ul.ab{margin:0;padding-left:18px;font-size:15px}
+ul.ab li{margin:3px 0}
+ul.ab b{font-weight:600}
+tr.grp td{background:var(--soft);font:700 14px/1.3 var(--head);letter-spacing:.03em;text-align:left;padding-top:7px;border-bottom:0;box-shadow:inset 3px 0 var(--accent)}
+tr.grp td span{font:500 13px/1 var(--body);color:var(--muted);letter-spacing:0}
+tr.prof td{background:var(--soft)}
+tr.prof td:first-child{padding-left:14px;box-shadow:inset 3px 0 var(--accent);font-weight:600}
+.sl{border-top:1px dashed var(--line);padding-top:10px}
+.sl-t{font:600 12px/1 var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.sl ul{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:14px}
+.sl li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:baseline}
+.cpi{font:700 13px/1 var(--head);border:1.5px solid var(--ink);border-radius:4px;padding:3px 0;text-align:center}
+.cpi.two{background:var(--ink);color:var(--bg)}
+td.kw{white-space:normal;line-height:1.9}
+.k{font:600 12px/1 var(--head);letter-spacing:.04em;color:var(--accent);background:#eef3fb;border:1px solid #c9d7ef;border-radius:4px;padding:3px 6px;margin:0 4px 0 0;cursor:pointer;white-space:nowrap}
+.k:hover{background:#e2ebf8}
+.k:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.k.b{background:var(--bg);color:var(--muted);border-style:dashed;border-color:#b9c0cc}
+.sheet-bg{position:fixed;inset:0;background:rgba(20,24,30,.35);z-index:20}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--bg);border-top:1px solid var(--line);border-radius:14px 14px 0 0;padding:16px 20px 26px;max-width:860px;margin:0 auto;box-shadow:0 -6px 24px rgba(0,0,0,.12)}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sheet h3{font-size:22px}
+.sheet p{margin:8px 0 0;font-size:16px;max-width:65ch}
+.x{font:400 26px/1 var(--body);width:38px;height:38px;border-radius:50%;border:0;background:var(--soft);color:var(--ink);cursor:pointer}
+[hidden]{display:none!important}
+@media (max-width:640px){
+  nav.toc{position:static}
+  nav.toc .wrap{flex-wrap:wrap;overflow:visible}
+  .tbl{overflow:visible}
+  table{min-width:0;display:block}
+  thead{display:none}
+  tbody{display:block}
+  tr{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-bottom:1px solid var(--line);padding:8px 0}
+  td{border:0;padding:2px 0;text-align:center;background:none!important;box-shadow:none!important}
+  td:first-child{grid-column:1/-1;text-align:left;font-weight:600;padding-bottom:4px}
+  td[data-label]:not(:first-child):not(.kw)::before{content:attr(data-label);display:block;font:600 10px/1.3 var(--head);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+  td.kw{grid-column:1/-1;text-align:left;padding-top:6px}
+  td.kw:empty{display:none}
+  tr.grp{display:block;border-bottom:0;padding:10px 10px 2px;background:var(--soft);box-shadow:inset 3px 0 var(--accent)}
+  tr.grp td{display:block;padding:0}
+  tr.prof{background:var(--soft);box-shadow:inset 3px 0 var(--accent);padding-left:10px;padding-right:6px}
+  tr.prof td:first-child{padding-left:0}
+  .k{margin-bottom:4px}
+}
+details.scn{border:1px solid var(--line);border-radius:6px;margin-top:4px}
+details.scn summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;padding:14px 16px}
+details.scn summary::-webkit-details-marker{display:none}
+details.scn summary::after{content:"+";font:700 22px/1 var(--head);color:var(--accent);margin-left:auto}
+details.scn[open] summary::after{content:"−"}
+details.scn summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.scn-t{font:700 20px/1.2 var(--head);letter-spacing:.02em}
+.scn-s{font-size:14px;color:var(--muted);flex-basis:100%}
+.scn-body{padding:0 16px 18px;border-top:1px solid var(--line);display:grid;gap:10px}
+.scn-body h3{margin-top:14px;color:var(--accent)}
+.scn-body p{margin:0;max-width:65ch}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ol.steps li{display:grid;grid-template-columns:120px 1fr;gap:12px;font-size:15px;border-left:2px solid var(--accent);padding:2px 0 2px 10px}
+ol.steps .ph{font:600 13px/1.5 var(--head);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+ol.steps .cpi{display:inline-block;padding:2px 5px;margin:0 2px}
+table.plain{min-width:0}
+table.plain td,table.plain th{white-space:nowrap}
+@media (max-width:640px){
+  ol.steps li{grid-template-columns:1fr;gap:2px}
+  .scn-body table.plain{display:table}
+  .scn-body table.plain thead{display:table-header-group}
+  .scn-body table.plain tbody{display:table-row-group}
+  .scn-body table.plain tr{display:table-row;padding:0}
+  .scn-body table.plain td{display:table-cell;padding:5px 4px;text-align:center;border-bottom:1px solid var(--line)}
+  .scn-body table.plain td:first-child{text-align:left;font-weight:600}
+  .scn-body table.plain td::before{content:none!important}
+  .scn-body .tbl{overflow-x:auto}
+  table.plain td,table.plain th{white-space:normal;font-size:13px}
+}
+.res{display:grid;gap:8px}
+.res-row{border:1px solid var(--line);border-radius:4px;padding:8px 10px}
+.res-h{font:600 15px/1.3 var(--head);margin-bottom:6px}
+.res-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;text-align:center}
+.res-g b{display:block;font:600 11px/1.25 var(--head);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.res-g span{font:700 18px/1.3 var(--head);font-variant-numeric:tabular-nums}
+.stats.dist{grid-template-columns:repeat(6,minmax(0,1fr))}
+.stats.dist span{font-size:16px;white-space:nowrap}
+.m-btn{position:fixed;right:16px;bottom:16px;z-index:15;background:#000;color:#fff;border:0;border-radius:999px;padding:12px 20px;font:600 15px/1 var(--head);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.m-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.m-ov{position:fixed;inset:0;z-index:30;background:#000;color:#fff;display:flex;flex-direction:column}
+.m-top{display:flex;align-items:center;justify-content:center;position:relative;padding:18px 48px 10px}
+.m-tabs{display:flex;gap:14px;justify-content:center}
+.m-tab{background:none;border:0;color:#777;font:600 13px/1 var(--head);letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;padding:6px 0;border-bottom:1px solid transparent;cursor:pointer}
+.m-tab[aria-selected="true"]{color:#fff;border-bottom-color:#fff}
+.m-tab:focus-visible,.m-x:focus-visible,.m-panel a:focus-visible{outline:1px solid #fff;outline-offset:4px}
+.m-x{position:absolute;right:14px;top:12px;width:40px;height:40px;border:0;background:none;color:#fff;font:300 30px/1 var(--body);cursor:pointer}
+.m-track{flex:1;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.m-track::-webkit-scrollbar{display:none}
+.m-panel{flex:0 0 100%;scroll-snap-align:start;overflow-y:auto;display:flex;align-items:safe center;justify-content:center;padding:12px 20px}
+.m-panel ul{list-style:none;margin:auto 0;padding:0;text-align:center;display:grid;gap:4px}
+.m-panel a{display:inline-block;color:#fff;text-decoration:none;font:500 20px/1.3 var(--head);letter-spacing:.03em;padding:8px 6px}
+.m-panel a:hover{color:#bbb}
+.m-cp{font:500 13px/1 var(--body);color:#888;margin-left:4px;white-space:nowrap}
+.m-dots{display:flex;justify-content:center;gap:8px;padding:6px 0}
+.m-dots span{width:6px;height:6px;border-radius:50%;background:#444}
+.m-dots span.on{background:#fff}
+.m-hint{margin:0;padding:4px 16px 20px;text-align:center;color:#666;font-size:13px}
+@media (min-width:641px){.m-hint{display:none}}
+footer{padding-bottom:70px}
+.m-ov{opacity:0;transition:opacity .25s ease}
+.m-ov.show{opacity:1}
+.m-ov .m-panel ul{transform:translateY(8px);transition:transform .3s ease}
+.m-ov.show .m-panel ul{transform:none}
+@keyframes flash{0%{background:#e3ebf8}100%{background:transparent}}
+.flash{animation:flash 1.4s ease-out}
+.card[id]:focus{outline:none}
+@media (prefers-reduced-motion:reduce){.m-ov,.m-ov .m-panel ul{transition:none}.flash{animation:none}}
+footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:440px){.stats span{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">Warhammer 40 000 · V11 · Space Marines</div>
+    <h1>Celestial Lions Mecha</h1>
+    <div class="meta">
+      <span class="chip gold">1995 / 2000 pts</span>
+      <span class="chip">Strike Force · 3 DP</span>
+      <span class="chip">Take and Hold</span>
+      <span class="chip">Warlord : Capitaine Terminator</span>
+      <span class="chip">À acheter : Techmarine, 10 Intercesseurs lourds</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#tour">Tour de jeu</a>
+    <a href="#plan">Plan</a>
+    <a href="#scenarios">Scénarios</a>
+    <a href="#doctrines">Doctrines</a>
+    <a href="#detachements">Détachements</a>
+    <a href="#ameliorations">Améliorations</a>
+    <a href="#strats">Stratagèmes</a>
+    <a href="#unites">Unités</a>
+    <a href="#mots-cles">Mots-clés</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ===================== TOUR DE JEU ===================== -->
+<section id="tour">
+  <h2>Ton tour, phase par phase</h2>
+  <p class="lede">À chaque tour, tu fais ces 5 phases dans l'ordre. Ce qui est en or, c'est ce qu'il ne faut pas oublier.</p>
+  <ol class="phases">
+    <li><span class="num">1</span><div><h3>Commandement</h3>
+      <ul>
+        <li>Les deux joueurs gagnent <b>1 PC</b> (à chaque phase de Commandement, la tienne et la sienne).</li>
+        <li><b>Transhuman Strategist</b> : au début de chaque round, si ton Capitaine Terminator est ton Warlord, <b>+1 PC</b>. Ça marche aussi quand il est en réserve.</li>
+        <li>Total : <b>3 PC par round</b> si tu ne dépenses rien.</li>
+        <li>Choisis une <b>Doctrine</b> si tu veux (chacune une seule fois par partie).</li>
+        <li>Le Capitaine peut aussi activer une Doctrine <b>pour son unité seulement</b> (Strategic Acumen).</li>
+        <li>Tests de moral (battle-shock) des unités à moins de la moitié de leur effectif.</li>
+      </ul></div></li>
+    <li><span class="num">2</span><div><h3>Mouvement</h3>
+      <ul>
+        <li><b>Techmarine</b> : au début ou à la fin de son mouvement, il bénit un véhicule à 3" (soigne D3 PV, <i>ou</i> ignore les modificateurs pour toucher et blesser).</li>
+        <li>Arrivée des Terminators en <b>Frappe en Profondeur</b> : à plus de 8" de tout ennemi (à partir du tour 2).</li>
+      </ul></div></li>
+    <li><span class="num">3</span><div><h3>Tir</h3>
+      <ul>
+        <li>Ballistus à <b>24" ou moins</b> de la cible : <b>Sustained Hits 1</b>.</li>
+        <li>Terminator Squad à <b>9" ou moins</b> : +1 PA (Fury of the First).</li>
+        <li>Intercesseurs sur un objectif (ou cible sur un objectif) : <b>+1 pour toucher</b>.</li>
+      </ul></div></li>
+    <li><span class="num">4</span><div><h3>Charge</h3>
+      <ul>
+        <li>Tous les Terminators : <b>+1 au jet de charge</b> (Death Blow). Après une Frappe en Profondeur, il faut donc 8" au lieu de 9".</li>
+        <li>Le Capitaine Terminator <b>relance</b> ses jets de charge (Unstoppable Valour).</li>
+      </ul></div></li>
+    <li><span class="num">5</span><div><h3>Combat</h3>
+      <ul>
+        <li>Assault Terminators qui ont chargé : <b>Sustained Hits 1</b> (marteaux contre monstres et véhicules, griffes contre le reste).</li>
+        <li>Unité du Capitaine : <b>Lethal Hits</b> au corps à corps (Champion of the First Company).</li>
+      </ul></div></li>
+  </ol>
+  <div class="note"><b>Règles des stratagèmes en V11 :</b> chaque stratagème ne s'utilise qu'<b>une fois par phase</b>, et une unité ne peut être la cible que d'<b>un seul stratagème par phase</b>.</div>
+</section>
+
+<!-- ===================== PLAN ===================== -->
+<section id="plan">
+  <h2>Plan de jeu</h2>
+  <p class="lede">On gagne en tenant les objectifs, pas en tuant tout. Ton armée est une enclume qui ne bouge pas, avec deux marteaux.</p>
+  <div class="grid g2 plan">
+    <div class="card"><h3>Déploiement</h3><p>Sur ta base : 5 Intercesseurs, les 2 Ballistus et le Techmarine. Les 2 escouades d'Intercesseurs lourds au plus près de leurs objectifs (elles ne font que 5"). Les 10 Assault Terminators et le Capitaine en réserve pour la Frappe en Profondeur.</p></div>
+    <div class="card"><h3>Tour 1</h3><p>Les Intercesseurs lourds prennent l'objectif du centre et un 2e objectif. La Terminator Squad avance au centre. Le Knight Gallant part sur un flanc pour menacer l'adversaire.</p></div>
+    <div class="card"><h3>Tour 2</h3><p>Les Assault Terminators arrivent sur ce qui menace tes objectifs et chargent. Les Ballistus tirent en priorité sur les véhicules et les monstres.</p></div>
+    <div class="card"><h3>Toute la partie</h3><p>Les Intercesseurs lourds ne lâchent jamais leur objectif. Le Techmarine reste collé aux Ballistus. Garde 2 PC pour protéger les Terminators avec <i>Tactical Dreadnought Fortitude</i>.</p></div>
+  </div>
+</section>
+
+<!-- ===================== SCENARIOS ===================== -->
+<section id="scenarios">
+  <h2>Scénarios</h2>
+  <p class="lede">Plans de jeu préparés contre des menaces précises. Touche un scénario pour l'ouvrir.</p>
+
+  <details class="scn">
+    <summary><span class="scn-t">Contrer un C'tan</span><span class="scn-s">C'tan Shard of the Nightbringer · Necrons</span></summary>
+    <div class="scn-body">
+
+      <h3>L'ennemi</h3>
+      <div class="stats"><div><b>M</b><span>10"</span></div><div><b>E</b><span>11</span></div><div><b>Svg</b><span>3+</span></div><div><b>PV</b><span>16</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>4</span></div><div><b>Inv</b><span>4+</span></div></div>
+      <ul class="ab">
+        <li><b>Très résistant</b> : Feel No Pain 5+, <b>Necrodermis</b> (-1 aux dégâts de chaque attaque), invulnérable 4+.</li>
+        <li><b>Faux en Strike</b> : 6 attaques, 2+, F14, PA-4, D6+2, Devastating Wounds. Ton Knight et tes Ballistus n'ont <b>aucune sauvegarde</b> contre elle.</li>
+        <li><b>Drain Life</b> : à la fin de chaque combat, sur 4+, D3 blessures mortelles à chaque unité ennemie à 6".</li>
+        <li><b>Deep Strike</b> : il peut arriver n'importe où à plus de 8" de tes unités, puis charger.</li>
+      </ul>
+
+      <h3>La règle d'or</h3>
+      <p>Celui qui frappe en premier gagne. Ne laisse jamais le C'tan charger ton Knight : le Knight ne gagne alors que <b>21 %</b> des duels. Dans ta base, il tue un Ballistus <b>7 fois sur 10</b>.</p>
+
+      <h3>Cas 1 : il arrive en Deep Strike sur ta base</h3>
+      <p class="small">Le plan principal, sans le Knight. Tes Assault Terminators et le Capitaine restent en réserve tant que le C'tan n'est pas apparu.</p>
+      <ol class="steps">
+        <li><span class="ph">Son Mouvement</span><span>Le C'tan tombe. À la fin de la phase, <b>Rapid Ingress</b> <span class="cpi">1 PC</span> : tes Terminators arrivent à 9-10" de lui, du côté de ta base.</span></li>
+        <li><span class="ph">Sa Charge</span><span>Il charge ta base. À la fin de la phase, <b>Heroic Intervention</b> (<i>Leap to Defend</i>) <span class="cpi">1 PC</span> : tes Terminators le chargent. +1 à la charge et relance du Capitaine.</span></li>
+        <li><span class="ph">Son Combat</span><span>Il frappe en premier. S'il vise tes Terminators : <b>Tactical Dreadnought Fortitude</b> <span class="cpi two">2 PC</span>. Puis tes Terminators frappent tout de suite, avec Sustained Hits 1 (charge) et Lethal Hits (Capitaine).</span></li>
+        <li><span class="ph">Ton tour</span><span>Ils frappent une 2e fois. Si besoin, <b>Command Re-roll</b> <span class="cpi">1 PC</span> sur une attaque ratée.</span></li>
+      </ol>
+      <div class="res">
+        <div class="res-row"><div class="res-h">S'il frappe ta base</div><div class="res-g"><div><b>Victoire</b><span>99 %</span></div><div><b>Tué avant de refrapper</b><span>74 %</span></div><div><b>Terminators restants</b><span>9 / 11</span></div></div></div>
+        <div class="res-row"><div class="res-h">S'il frappe tes Terminators (avec Fortitude)</div><div class="res-g"><div><b>Victoire</b><span>90 %</span></div><div><b>Tué avant de refrapper</b><span>53 %</span></div><div><b>Terminators restants</b><span>7 / 11</span></div></div></div>
+      </div>
+      <p class="small">Il tue au plus 1 Terminator par attaque, donc 6 au maximum, et en pratique 1 ou 2. Il ne peut pas détruire l'escouade en un combat.</p>
+
+      <h3>Cas 2 : il est sur la table dès le début</h3>
+      <ol class="steps">
+        <li><span class="ph">Toute la partie</span><span>Garde ton Knight à <b>23" ou plus</b> du C'tan : à cette distance, sa charge est impossible.</span></li>
+        <li><span class="ph">Ton Tir</span><span>Les 2 Ballistus (à 24" ou moins, avec <b>Mercy is Weakness</b> <span class="cpi">1 PC</span>) et les Intercesseurs lourds (avec <b>Annihilating Force</b> <span class="cpi">1 PC</span>) lui enlèvent ~10 PV.</span></li>
+        <li><span class="ph">Ta Charge</span><span>Le Knight charge, puis <b>Crushing Impact</b> <span class="cpi">1 PC</span> (11 dés, chaque 5+ fait 1 blessure mortelle).</span></li>
+        <li><span class="ph">Ton Combat</span><span>Le Knight frappe en premier avec le <b>Strike du gantelet</b>. <b>91 % de victoire</b>.</span></li>
+      </ol>
+      <p class="small">Chance que le C'tan charge ton Knight, selon la distance entre eux :</p>
+      <div class="stats dist"><div><b>14"</b><span>92 %</span></div><div><b>16"</b><span>72 %</span></div><div><b>18"</b><span>42 %</span></div><div><b>20"</b><span>17 %</span></div><div><b>22"</b><span>3 %</span></div><div><b>23"+</b><span>0 %</span></div></div>
+
+      <h3>Prépare ta base</h3>
+      <ul class="ab">
+        <li>Ballistus <b>contre ton bord de table ou dans un coin</b> : moins d'endroits où il peut atterrir.</li>
+        <li>Les 5 Intercesseurs <b>devant</b> les Ballistus : mieux vaut qu'il perde son tour sur 85 pts.</li>
+        <li>Le Ballistus le plus exposé porte l'<b>Artificer Sarcophagus</b>.</li>
+      </ul>
+
+      <h3>Les PC</h3>
+      <p>Le plan coûte <b>4 PC</b> : Rapid Ingress (Mouvement), Heroic Intervention (Charge) et Fortitude (Combat). C'est autorisé sur la même unité, car il n'y a qu'<b>un stratagème par phase</b>.</p>
+      <p>Tu gagnes <b>3 PC par round</b> : 1 à ta phase de Commandement, 1 à la sienne, et 1 grâce au Capitaine (même en réserve). Le C'tan ne peut pas arriver avant le round 2. Au moment où il tombe au round 2, tu as donc :</p>
+      <div class="res">
+        <div class="res-row"><div class="res-h">Tu joues en premier</div><div class="res-g"><div><b>PC disponibles</b><span>6</span></div><div><b>Tu peux dépenser avant</b><span>2 PC</span></div><div><b>Jouable</b><span>Dès le round 2</span></div></div></div>
+        <div class="res-row"><div class="res-h">Il joue en premier</div><div class="res-g"><div><b>PC disponibles</b><span>5</span></div><div><b>Tu peux dépenser avant</b><span>1 PC</span></div><div><b>Jouable</b><span>Dès le round 2</span></div></div></div>
+      </div>
+      <p class="small">Sans compter d'éventuels PC de départ. S'il attend le round 3, tu as 3 PC de plus : tu peux jouer normalement au round 2.</p>
+
+      <p class="small">Simulations de 20 000 à 50 000 combats par cas. Hypothèses : aucun stratagème Necron, la faux toujours en Strike, Heroic Intervention compte comme une charge (Terminatus Assault). Vérifie ce dernier point dans BattleBase.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ===================== DOCTRINES ===================== -->
+<section id="doctrines">
+  <h2>Les Doctrines</h2>
+  <p class="lede">Règle d'armée. Au début de ta phase de Commandement, tu en choisis une. Elle s'applique à toutes tes unités Adeptus Astartes jusqu'à ta phase de Commandement suivante. <b>Chacune ne s'utilise qu'une fois par partie.</b> Le Knight n'en profite pas.</p>
+  <div class="grid g3 doc">
+    <div class="card"><span class="tag">Assaut</span><h3>Avancer et charger</h3><p>Faire une Avance n'empêche plus de déclarer une charge.</p><p class="small">Quand : le tour où tes Terminators à pied ou ta Terminator Squad doivent traverser la table et charger.</p></div>
+    <div class="card"><span class="tag">Dévastateur</span><h3>Avancer et tirer</h3><p>Les armes à distance gagnent [ASSAULT] : tu peux faire une Avance et tirer quand même.</p><p class="small">Quand : le tour où les Ballistus doivent se rapprocher à 24" de leur cible.</p></div>
+    <div class="card"><span class="tag">Tactique</span><h3>Se désengager et continuer</h3><p>Faire une Retraite n'empêche plus de tirer ni de charger.</p><p class="small">Quand : un Ballistus ou une escouade bloqués au corps à corps qui doivent se dégager et tirer.</p></div>
+  </div>
+</section>
+
+<!-- ===================== DETACHEMENTS ===================== -->
+<section id="detachements">
+  <h2>Règles des détachements</h2>
+  <p class="lede">Ces bonus sont actifs en permanence, sans dépenser de PC.</p>
+  <div class="grid g3">
+    <div class="card"><span class="src ic">Ironclad Champions · 1 DP</span><h3 style="margin-top:6px">Enduring Vengeance</h3><p>Tes <b>Dreadnoughts</b> (les Ballistus) relancent les jets de touche de 1.</p></div>
+    <div class="card"><span class="src gs">Gravis Siege Force · 1 DP</span><h3 style="margin-top:6px">Indomitable Defence</h3><p>Tant qu'une unité <b>Gravis</b> (Intercesseurs lourds) est à portée d'un objectif, les attaques qui la ciblent avec une Force supérieure à son Endurance ont <b>-1 pour blesser</b>.</p></div>
+    <div class="card"><span class="src ts">Terminator Storm Force · 1 DP</span><h3 style="margin-top:6px">Death Blow</h3><p>Tes unités <b>Terminator</b> ont <b>+1 aux jets de charge</b>.</p></div>
+  </div>
+</section>
+
+<!-- ===================== AMELIORATIONS ===================== -->
+<section id="ameliorations">
+  <h2>Améliorations</h2>
+  <p class="lede">3 améliorations sur les 4 autorisées.</p>
+  <div class="grid g3">
+    <div class="card"><span class="src ts">Terminator Storm Force · 20 pts</span><h3 style="margin-top:6px">Champion of the First Company</h3><p>Sur le <b>Capitaine Terminator</b>. Les attaques de corps à corps de son unité ont <b>[Lethal Hits]</b> : un 6 pour toucher blesse automatiquement.</p></div>
+    <div class="card"><span class="src ic">Ironclad Champions · 40 pts</span><h3 style="margin-top:6px">Artificer Sarcophagus</h3><p>Sur un <b>Ballistus</b>. Les attaques qui le ciblent ont <b>-1 aux dégâts</b>.</p></div>
+    <div class="card"><span class="src gs">Gravis Siege Force · 15 pts</span><h3 style="margin-top:6px">Immovable Conquerors</h3><p>Sur la 1re escouade de <b>10 Intercesseurs lourds</b>. <b>+1 CO</b> : chaque figurine passe à CO 3, soit 30 sur l'objectif.</p></div>
+  </div>
+</section>
+
+<!-- ===================== STRATAGEMES ===================== -->
+<section id="strats">
+  <h2>Stratagèmes (PC)</h2>
+  <p class="lede">Classés par moment d'utilisation. Les stratagèmes de détachement ne marchent que sur tes unités Adeptus Astartes, pas sur le Knight. Les stratagèmes de base marchent pour tout le monde.</p>
+  <div class="legend"><span class="src ic">Ironclad</span><span class="src gs">Gravis Siege</span><span class="src ts">Terminator</span><span class="src core">Base</span></div>
+
+  <div class="when-title">Pendant ton tour</div>
+  <div class="grid g2">
+    <div class="card strat" id="s-mercy-is-weakness"><div class="strat-head"><div><span class="src ic">Ironclad</span><h3 style="margin-top:6px">Mercy is Weakness</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Phase de Tir ou de Combat, quand un Dreadnought est choisi pour attaquer.</dd><dt>Cible</dt><dd>Un Ballistus.</dd><dt>Effet</dt><dd>Ses attaques gagnent <b>[Lethal Hits]</b> ou <b>[Sustained Hits 1]</b> (au choix).</dd></dl>
+      <div class="tip">Sur un Ballistus qui tire sur un véhicule : prends Lethal Hits.</div></div>
+
+    <div class="card strat" id="s-unstoppable-advance"><div class="strat-head"><div><span class="src ic">Ironclad</span><h3 style="margin-top:6px">Unstoppable Advance</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Quand un Dreadnought est choisi pour bouger ou déclare une charge.</dd><dt>Cible</dt><dd>Un Ballistus.</dd><dt>Effet</dt><dd>Il gagne le mot-clé <b>MOBILE</b> pour ce mouvement, utile pour passer à travers un décor et ouvrir une ligne de tir.</dd></dl></div>
+
+    <div class="card strat" id="s-merciless-veterans"><div class="strat-head"><div><span class="src ts">Terminator</span><h3 style="margin-top:6px">Merciless Veterans</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Ta phase de Tir, quand une unité Terminator est choisie pour tirer.</dd><dt>Cible</dt><dd>Une unité Terminator (surtout la Terminator Squad).</dd><dt>Effet</dt><dd>Ses tirs gagnent <b>[Lethal Hits]</b> et <b>[Sustained Hits 1]</b>.</dd></dl></div>
+
+    <div class="card strat" id="s-suppression-volleys"><div class="strat-head"><div><span class="src gs">Gravis Siege</span><h3 style="margin-top:6px">Suppression Volleys</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Ta phase de Tir, après qu'une unité Gravis a tiré.</dd><dt>Cible</dt><dd>Cette unité d'Intercesseurs lourds.</dd><dt>Effet</dt><dd>Une unité ennemie touchée fait un test de moral (battle-shock) avec <b>-1</b>.</dd></dl>
+      <div class="tip">Une unité en battle-shock a CO 0 : idéal pour lui voler un objectif.</div></div>
+
+    <div class="card strat" id="s-annihilating-force"><div class="strat-head"><div><span class="src gs">Gravis Siege</span><h3 style="margin-top:6px">Annihilating Force</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Ta phase de Tir ou la phase de Combat, quand une unité Gravis est choisie pour attaquer.</dd><dt>Cible</dt><dd>Cette unité d'Intercesseurs lourds.</dd><dt>Effet</dt><dd>Ses attaques ont <b>[Lethal Hits]</b>.</dd></dl>
+      <div class="tip">Contre un véhicule ou une cible à grosse Endurance, que tes bolters ont du mal à blesser.</div></div>
+
+    <div class="card strat" id="s-stand-unyielding"><div class="strat-head"><div><span class="src gs">Gravis Siege</span><h3 style="margin-top:6px">Stand Unyielding</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Fin de ta phase de Mouvement.</dd><dt>Cible</dt><dd>Une unité Gravis.</dd><dt>Effet</dt><dd>Choisis un objectif qu'elle contrôle : cet objectif est <b>sécurisé</b>. Il reste à toi même si ton unité le quitte, tant que l'adversaire ne le reprend pas.</dd></dl>
+      <div class="tip">Sécurise ton objectif, puis avance tes Intercesseurs lourds vers le suivant.</div></div>
+
+    <div class="card strat" id="s-crushing-impact"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Crushing Impact</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Après la charge d'un monstre ou d'un véhicule.</dd><dt>Cible</dt><dd>Une unité ennemie au contact.</dd><dt>Effet</dt><dd>Lance autant de D6 que l'Endurance de ton unité. Chaque 5+ = 1 blessure mortelle (6 maximum). Chaque 1 = 1 blessure mortelle pour toi.</dd></dl>
+      <div class="tip">Parfait avec le Knight Gallant (E11 = 11 dés).</div></div>
+
+    <div class="card strat" id="s-epic-challenge"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Epic Challenge</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Phase de Combat.</dd><dt>Cible</dt><dd>Un de tes personnages (Capitaine Terminator).</dd><dt>Effet</dt><dd>Il gagne <b>[Precision]</b> : il peut frapper un personnage ennemi caché dans son escouade.</dd></dl></div>
+  </div>
+
+  <div class="when-title">Pendant le tour adverse</div>
+  <div class="grid g2">
+    <div class="card strat" id="s-tactical-dreadnought-fortitude"><div class="strat-head"><div><span class="src ts">Terminator</span><h3 style="margin-top:6px">Tactical Dreadnought Fortitude</h3></div><span class="cp two">2 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Phase de Tir ou de Combat adverse, quand une unité ennemie cible une unité Terminator.</dd><dt>Cible</dt><dd>Ton unité Terminator ciblée.</dd><dt>Effet</dt><dd><b>-1 aux dégâts</b> subis jusqu'à la fin des attaques de cette unité ennemie.</dd></dl>
+      <div class="tip">Garde toujours 2 PC pour protéger tes 10 Assault Terminators (495 pts avec le Capitaine).</div></div>
+
+    <div class="card strat" id="s-gunship-extraction"><div class="strat-head"><div><span class="src ts">Terminator</span><h3 style="margin-top:6px">Gunship Extraction</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Fin de la phase de Combat adverse.</dd><dt>Cible</dt><dd>Une unité Terminator qui n'est pas au contact.</dd><dt>Effet</dt><dd>Elle retourne en <b>réserve stratégique</b> pour revenir ailleurs plus tard.</dd></dl></div>
+
+    <div class="card strat" id="s-rapid-ingress"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Rapid Ingress</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Fin de la phase de Mouvement adverse (pas au round 1).</dd><dt>Cible</dt><dd>Une unité en réserve.</dd><dt>Effet</dt><dd>Elle arrive tout de suite, par exemple en Frappe en Profondeur.</dd></dl>
+      <div class="tip">Fais tomber tes Assault Terminators dans son tour, puis charge dans le tien.</div></div>
+
+    <div class="card strat" id="s-fire-overwatch"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Fire Overwatch</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Fin de la phase de Mouvement adverse.</dd><dt>Cible</dt><dd>Une de tes unités non engagée, à 24" d'un ennemi (pas le Knight).</dd><dt>Effet</dt><dd>Elle tire, mais ne touche que sur des <b>6</b>, sans relance.</dd></dl></div>
+
+    <div class="card strat" id="s-heroic-intervention"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Heroic Intervention</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Fin de la phase de Charge adverse.</dd><dt>Cible</dt><dd>Une unité non engagée à 12" d'un ennemi (véhicule seulement si Walker ou Personnage).</dd><dt>Effet</dt><dd>Elle charge. <i>Leap to Defend</i> : seulement une unité qui a chargé ce tour. <i>Into the Fray</i> (+1 PC) : n'importe quel ennemi à 6", jet de charge plafonné à 6.</dd></dl></div>
+
+    <div class="card strat" id="s-go-to-ground"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Go to Ground</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Quand une de tes unités d'infanterie est ciblée par un tir.</dd><dt>Cible</dt><dd>Une unité d'infanterie (Intercesseurs, Intercesseurs lourds).</dd><dt>Effet</dt><dd>Couvert et invulnérable 6+ pour la phase.</dd></dl></div>
+  </div>
+
+  <div class="when-title">Dans n'importe quel tour</div>
+  <div class="grid g2">
+    <div class="card strat" id="s-adamantine-terror"><div class="strat-head"><div><span class="src ic">Ironclad</span><h3 style="margin-top:6px">Adamantine Terror</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Début de la phase de Combat.</dd><dt>Cible</dt><dd>Un Ballistus au corps à corps.</dd><dt>Effet</dt><dd>Chaque unité ennemie au contact fait un test de moral avec <b>-1</b>.</dd></dl></div>
+
+    <div class="card strat" id="s-command-re-roll"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Command Re-roll</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Juste après un jet.</dd><dt>Cible</dt><dd>Une unité.</dd><dt>Effet</dt><dd>Relance un jet de touche, blessure, dégâts, sauvegarde, Avance, charge (tous les dés), Hazardous, ou le nombre d'attaques.</dd></dl>
+      <div class="tip">Le grand classique : relancer une charge ratée des Terminators.</div></div>
+
+    <div class="card strat" id="s-insane-bravery"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Insane Bravery</h3></div><span class="cp">1 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Après un test de moral raté en phase de Commandement.</dd><dt>Cible</dt><dd>Cette unité.</dd><dt>Effet</dt><dd>Le test compte comme réussi.</dd></dl></div>
+
+    <div class="card strat" id="s-counteroffensive"><div class="strat-head"><div><span class="src core">Base</span><h3 style="margin-top:6px">Counteroffensive</h3></div><span class="cp two">2 PC</span></div>
+      <dl class="kv"><dt>Quand</dt><dd>Phase de Combat, après qu'une unité ennemie a combattu.</dd><dt>Cible</dt><dd>Une de tes unités qui n'a pas encore combattu.</dd><dt>Effet</dt><dd>Elle combat juste après.</dd></dl></div>
+  </div>
+
+</section>
+
+<!-- ===================== UNITES ===================== -->
+<section id="unites">
+  <h2>Tes unités</h2>
+  <p class="lede">M Mouvement · E Endurance · Svg Sauvegarde · PV Points de vie · CO Contrôle d'objectif · Inv Invulnérable.</p>
+
+  <div class="grid">
+
+    <!-- Capitaine + Assault Terminators -->
+    <article class="card unit" id="u-capitaine-terminator-10-assault-terminators">
+      <div class="unit-head"><div><span class="role">Marteau · Warlord</span><h3>Capitaine Terminator + 10 Assault Terminators</h3></div><span class="pts">495 pts</span></div>
+      <div class="unit-body">
+        <div class="small">Capitaine</div>
+        <div class="stats"><div><b>M</b><span>5"</span></div><div><b>E</b><span>6</span></div><div><b>Svg</b><span>2+</span></div><div><b>PV</b><span>6</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>1</span></div><div><b>Inv</b><span>4+</span></div></div>
+        <div class="small">Assault Terminators (bouclier : +1 PV)</div>
+        <div class="stats"><div><b>M</b><span>5"</span></div><div><b>E</b><span>6</span></div><div><b>Svg</b><span>2+</span></div><div><b>PV</b><span>4</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>1</span></div><div><b>Inv</b><span>4+</span></div></div>
+        <div class="tbl"><table>
+          <thead><tr><th>Arme</th><th>Portée</th><th>A</th><th>CT/CC</th><th>F</th><th>PA</th><th>D</th><th>Règles</th></tr></thead>
+          <tbody>
+            <tr class="grp"><td colspan="8">Combi-weapon <span>· choisis 1 profil à chaque tir</span></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Infernus</td><td data-label="Portée">12"</td><td data-label="A">3</td><td data-label="CT/CC">–</td><td data-label="F">4</td><td data-label="PA">0</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="torrent">Torrent</button><button type="button" class="k" data-k="blast">Blast 1</button></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Purgatus</td><td data-label="Portée">24"</td><td data-label="A">2</td><td data-label="CT/CC">2+</td><td data-label="F">7</td><td data-label="PA">-2</td><td data-label="D">2</td><td class="kw" data-label="Règles"></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Damnatus</td><td data-label="Portée">12"</td><td data-label="A">1</td><td data-label="CT/CC">2+</td><td data-label="F">9</td><td data-label="PA">-3</td><td data-label="D">D3+2</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="melta">Melta 2</button></td></tr>
+            <tr><td data-label="Arme">Relic Fist (Capitaine)</td><td data-label="Portée">Mêlée</td><td data-label="A">5</td><td data-label="CT/CC">2+</td><td data-label="F">8</td><td data-label="PA">-2</td><td data-label="D">2</td><td class="kw" data-label="Règles"><button type="button" class="k b" data-k="champion">Lethal Hits · Champion</button></td></tr>
+            <tr><td data-label="Arme">Thunder Hammer</td><td data-label="Portée">Mêlée</td><td data-label="A">3</td><td data-label="CT/CC">3+</td><td data-label="F">8</td><td data-label="PA">-2</td><td data-label="D">3</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="dev">Devastating Wounds</button><button type="button" class="k b" data-k="champion">Lethal Hits · Champion</button><button type="button" class="k b" data-k="terminatus">Sustained Hits 1 vs Monstre/Véhicule · après charge</button></td></tr>
+            <tr><td data-label="Arme">Twin Lightning Claws (Sergent)</td><td data-label="Portée">Mêlée</td><td data-label="A">6</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-2</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="twin">Twin-linked</button><button type="button" class="k b" data-k="champion">Lethal Hits · Champion</button><button type="button" class="k b" data-k="terminatus">Sustained Hits 1 vs le reste · après charge</button></td></tr>
+          </tbody></table></div>
+        <ul class="ab">
+          <li><b>*Champion of the First Company</b> : Lethal Hits sur toute l'unité au corps à corps.</li>
+          <li><b>Terminatus Assault</b> : après une charge, marteaux Sustained Hits 1 contre monstres et véhicules, griffes Sustained Hits 1 contre le reste.</li>
+          <li><b>Frappe en Profondeur</b>, <b>Unstoppable Valour</b> (relance les charges), <b>Strategic Acumen</b> (Doctrine pour son unité).</li>
+          <li><b>Transhuman Strategist</b> : +1 PC au début de chaque round tant qu'il est ton Warlord, même en réserve. Protège ce bloc avec <i>Tactical Dreadnought Fortitude</i> : les blessures vont aux Terminators avant lui.</li>
+        </ul>
+        <div class="sl"><div class="sl-t">Stratagèmes utiles</div><ul><li><span class="cpi two">2 PC</span><span><b>Tactical Dreadnought Fortitude</b> · -1 aux dégâts subis (tour adverse)</span></li><li><span class="cpi">1 PC</span><span><b>Rapid Ingress</b> · arrive en Frappe en Profondeur à la fin du Mouvement adverse</span></li><li><span class="cpi">1 PC</span><span><b>Command Re-roll</b> · relance une charge ratée</span></li><li><span class="cpi">1 PC</span><span><b>Epic Challenge</b> · le Capitaine gagne Precision contre un personnage</span></li><li><span class="cpi">1 PC</span><span><b>Gunship Extraction</b> · retour en réserve à la fin du Combat adverse</span></li></ul></div>
+      </div>
+    </article>
+
+    <!-- Terminator Squad -->
+    <article class="card unit" id="u-terminator-squad-5">
+      <div class="unit-head"><div><span class="role">Centre</span><h3>Terminator Squad (5)</h3></div><span class="pts">190 pts</span></div>
+      <div class="unit-body">
+        <div class="stats"><div><b>M</b><span>5"</span></div><div><b>E</b><span>6</span></div><div><b>Svg</b><span>2+</span></div><div><b>PV</b><span>3</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>1</span></div><div><b>Inv</b><span>4+</span></div></div>
+        <div class="tbl"><table>
+          <thead><tr><th>Arme</th><th>Portée</th><th>A</th><th>CT/CC</th><th>F</th><th>PA</th><th>D</th><th>Règles</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Arme">Storm Bolter</td><td data-label="Portée">24"</td><td data-label="A">2</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="rapid">Rapid Fire 2</button><button type="button" class="k b" data-k="fury">+1 PA à 9" · Fury</button></td></tr>
+            <tr><td data-label="Arme">Power Fist (×4, épées)</td><td data-label="Portée">Mêlée</td><td data-label="A">3</td><td data-label="CT/CC">3+</td><td data-label="F">8</td><td data-label="PA">-2</td><td data-label="D">2</td><td class="kw" data-label="Règles"><button type="button" class="k b" data-k="fury">+1 PA à 9" · Fury</button></td></tr>
+            <tr><td data-label="Arme">Power Weapon (Sergent)</td><td data-label="Portée">Mêlée</td><td data-label="A">5</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-2</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k b" data-k="fury">+1 PA à 9" · Fury</button></td></tr>
+          </tbody></table></div>
+        <ul class="ab">
+          <li><b>Fury of the First</b> : +1 PA contre une cible à 9" ou moins (tir et mêlée).</li>
+          <li><b>Frappe en Profondeur</b>.</li>
+          <li><b>Counts-as</b> : les épées des 4 Terminators comptent comme des poings énergétiques. Annonce-le avant la partie.</li>
+        </ul>
+        <div class="sl"><div class="sl-t">Stratagèmes utiles</div><ul><li><span class="cpi">1 PC</span><span><b>Merciless Veterans</b> · Lethal Hits + Sustained Hits 1 au tir</span></li><li><span class="cpi two">2 PC</span><span><b>Tactical Dreadnought Fortitude</b> · -1 aux dégâts subis (tour adverse)</span></li><li><span class="cpi">1 PC</span><span><b>Rapid Ingress</b> · arrive en Frappe en Profondeur à la fin du Mouvement adverse</span></li><li><span class="cpi">1 PC</span><span><b>Gunship Extraction</b> · retour en réserve à la fin du Combat adverse</span></li></ul></div>
+      </div>
+    </article>
+
+    <!-- Heavy Intercessors -->
+    <article class="card unit" id="u-2-10-intercesseurs-lourds">
+      <div class="unit-head"><div><span class="role">Enclume · Gravis</span><h3>2 × 10 Intercesseurs lourds</h3></div><span class="pts">245 + 230 pts</span></div>
+      <div class="unit-body">
+        <div class="stats"><div><b>M</b><span>5"</span></div><div><b>E</b><span>6</span></div><div><b>Svg</b><span>3+</span></div><div><b>PV</b><span>3</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>2/3</span></div><div><b>Inv</b><span>–</span></div></div>
+        <div class="tbl"><table>
+          <thead><tr><th>Arme</th><th>Portée</th><th>A</th><th>CT/CC</th><th>F</th><th>PA</th><th>D</th><th>Règles</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Arme">Heavy Bolt Rifle</td><td data-label="Portée">30"</td><td data-label="A">2</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">2</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="heavy">Heavy</button><button type="button" class="k" data-k="rapid">Rapid Fire 1</button></td></tr>
+            <tr><td data-label="Arme">Heavy Bolter (×2, 1re escouade)</td><td data-label="Portée">36"</td><td data-label="A">3</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">2</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="heavy">Heavy</button><button type="button" class="k" data-k="sustained">Sustained Hits 1</button><button type="button" class="k" data-k="rapid">Rapid Fire 2</button></td></tr>
+            <tr><td data-label="Arme">Bolt Pistol</td><td data-label="Portée">12"</td><td data-label="A">1</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="cq">Close-quarters</button></td></tr>
+            <tr><td data-label="Arme">Ceramite Fists</td><td data-label="Portée">Mêlée</td><td data-label="A">3</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">0</td><td data-label="D">1</td><td class="kw" data-label="Règles"></td></tr>
+          </tbody></table></div>
+        <ul class="ab">
+          <li><b>Unyielding in the Face of the Foe</b> : +1 à la sauvegarde tant qu'elle contrôle un objectif.</li>
+          <li><b>Indomitable Defence</b> (Gravis Siege) : -1 pour blesser contre les attaques de Force supérieure à 6, sur objectif.</li>
+          <li><b>Immovable Conquerors</b> : la 1re escouade a CO 3 par figurine.</li>
+          <li><b>Heavy</b> : +1 pour toucher si l'unité n'a pas bougé.</li>
+          <li><b>Équipement</b> : la 1re escouade a 8 Heavy Bolt Rifles et 2 Heavy Bolters. La 2e escouade a 10 Heavy Bolt Rifles.</li>
+        </ul>
+        <div class="sl"><div class="sl-t">Stratagèmes utiles</div><ul><li><span class="cpi">1 PC</span><span><b>Suppression Volleys</b> · après son tir, une cible touchée teste son moral à -1</span></li><li><span class="cpi">1 PC</span><span><b>Annihilating Force</b> · Lethal Hits pour ses attaques (tir ou combat)</span></li><li><span class="cpi">1 PC</span><span><b>Stand Unyielding</b> · fin de ton Mouvement : l'objectif qu'elle contrôle devient sécurisé</span></li><li><span class="cpi">1 PC</span><span><b>Go to Ground</b> · couvert + invulnérable 6+ contre un tir</span></li><li><span class="cpi">1 PC</span><span><b>Fire Overwatch</b> · tire sur un ennemi qui vient de bouger (touche sur 6)</span></li></ul></div>
+      </div>
+    </article>
+
+    <!-- Intercessors -->
+    <article class="card unit" id="u-5-intercesseurs">
+      <div class="unit-head"><div><span class="role">Garde la base</span><h3>5 Intercesseurs</h3></div><span class="pts">85 pts</span></div>
+      <div class="unit-body">
+        <div class="stats"><div><b>M</b><span>6"</span></div><div><b>E</b><span>5</span></div><div><b>Svg</b><span>3+</span></div><div><b>PV</b><span>2</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>2</span></div><div><b>Inv</b><span>–</span></div></div>
+        <div class="tbl"><table>
+          <thead><tr><th>Arme</th><th>Portée</th><th>A</th><th>CT/CC</th><th>F</th><th>PA</th><th>D</th><th>Règles</th></tr></thead>
+          <tbody>
+            <tr class="grp"><td colspan="8">Bolt Rifle <span>· choisis 1 profil à chaque tir</span></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Focused Fire</td><td data-label="Portée">24"</td><td data-label="A">1</td><td data-label="CT/CC">3+</td><td data-label="F">6</td><td data-label="PA">-1</td><td data-label="D">2</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="rapid">Rapid Fire 1</button><button type="button" class="k" data-k="heavy">Heavy</button><button type="button" class="k b" data-k="bolterd">+1 touche sur objectif</button></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Saturation</td><td data-label="Portée">24"</td><td data-label="A">2</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="assault">Assault</button><button type="button" class="k" data-k="rapid">Rapid Fire 1</button><button type="button" class="k b" data-k="bolterd">+1 touche sur objectif</button></td></tr>
+            <tr><td data-label="Arme">Bolt Pistol</td><td data-label="Portée">12"</td><td data-label="A">1</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="cq">Close-quarters</button></td></tr>
+            <tr><td data-label="Arme">Knives and Fists</td><td data-label="Portée">Mêlée</td><td data-label="A">3</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">0</td><td data-label="D">1</td><td class="kw" data-label="Règles"></td></tr>
+          </tbody></table></div>
+        <ul class="ab">
+          <li><b>Bolter Discipline</b> : +1 pour toucher au tir si l'unité ou sa cible est à portée d'un objectif.</li>
+          <li><b>Tactical Mainstay</b> : peut lancer une action même engagée ou en battle-shock, et tirer quand même.</li>
+          <li><b>Bolt Rifle</b> : <i>Focused Fire</i> contre les cibles solides, <i>Saturation</i> contre l'infanterie légère.</li>
+        </ul>
+        <div class="sl"><div class="sl-t">Stratagèmes utiles</div><ul><li><span class="cpi">1 PC</span><span><b>Go to Ground</b> · couvert + invulnérable 6+ contre un tir</span></li><li><span class="cpi">1 PC</span><span><b>Fire Overwatch</b> · tire sur un ennemi qui vient de bouger (touche sur 6)</span></li><li><span class="cpi">1 PC</span><span><b>Insane Bravery</b> · réussit automatiquement un test de moral raté</span></li></ul></div>
+      </div>
+    </article>
+
+    <!-- Ballistus -->
+    <article class="card unit" id="u-2-ballistus-dreadnought">
+      <div class="unit-head"><div><span class="role">Antichar · Dreadnought</span><h3>2 × Ballistus Dreadnought</h3></div><span class="pts">190 + 150 pts</span></div>
+      <div class="unit-body">
+        <div class="stats"><div><b>M</b><span>8"</span></div><div><b>E</b><span>10</span></div><div><b>Svg</b><span>2+</span></div><div><b>PV</b><span>12</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>4</span></div><div><b>Inv</b><span>–</span></div></div>
+        <div class="tbl"><table>
+          <thead><tr><th>Arme</th><th>Portée</th><th>A</th><th>CT/CC</th><th>F</th><th>PA</th><th>D</th><th>Règles</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Arme">Ballistus Lascannon</td><td data-label="Portée">48"</td><td data-label="A">2</td><td data-label="CT/CC">3+</td><td data-label="F">12</td><td data-label="PA">-3</td><td data-label="D">D3+3</td><td class="kw" data-label="Règles"><button type="button" class="k b" data-k="bstrike">Sustained Hits 1 à 24"</button><button type="button" class="k b" data-k="ironclad">Relance les 1</button></td></tr>
+            <tr class="grp"><td colspan="8">Ballistus Missile Launcher <span>· choisis 1 profil à chaque tir</span></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Krak</td><td data-label="Portée">48"</td><td data-label="A">2</td><td data-label="CT/CC">3+</td><td data-label="F">10</td><td data-label="PA">-2</td><td data-label="D">D3+3</td><td class="kw" data-label="Règles"><button type="button" class="k b" data-k="bstrike">Sustained Hits 1 à 24"</button><button type="button" class="k b" data-k="ironclad">Relance les 1</button></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Frag</td><td data-label="Portée">48"</td><td data-label="A">D6+6</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="blast">Blast 2</button><button type="button" class="k b" data-k="bstrike">Sustained Hits 1 à 24"</button><button type="button" class="k b" data-k="ironclad">Relance les 1</button></td></tr>
+            <tr><td data-label="Arme">Storm Bolters</td><td data-label="Portée">24"</td><td data-label="A">4</td><td data-label="CT/CC">3+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="rapid">Rapid Fire 4</button><button type="button" class="k b" data-k="bstrike">Sustained Hits 1 à 24"</button><button type="button" class="k b" data-k="ironclad">Relance les 1</button></td></tr>
+            <tr><td data-label="Arme">Armoured Feet</td><td data-label="Portée">Mêlée</td><td data-label="A">5</td><td data-label="CT/CC">3+</td><td data-label="F">7</td><td data-label="PA">0</td><td data-label="D">1</td><td class="kw" data-label="Règles"><button type="button" class="k b" data-k="ironclad">Relance les 1</button></td></tr>
+          </tbody></table></div>
+        <ul class="ab">
+          <li><b>Ballistus Strike</b> : Sustained Hits 1 contre une cible à 24" ou moins.</li>
+          <li><b>Enduring Vengeance</b> (Ironclad) : relance les 1 pour toucher.</li>
+          <li><b>Artificer Sarcophagus</b> (Ballistus à 190 pts) : -1 aux dégâts subis.</li>
+          <li><b>Damaged 4</b> (malus quand il lui reste 4 PV ou moins), <b>Deadly Demise D3</b>.</li>
+        </ul>
+        <div class="sl"><div class="sl-t">Stratagèmes utiles</div><ul><li><span class="cpi">1 PC</span><span><b>Mercy is Weakness</b> · Lethal Hits ou Sustained Hits 1 pour ses attaques</span></li><li><span class="cpi">1 PC</span><span><b>Unstoppable Advance</b> · MOBILE pour ce mouvement ou cette charge</span></li><li><span class="cpi">1 PC</span><span><b>Adamantine Terror</b> · les ennemis au contact testent leur moral à -1</span></li><li><span class="cpi">1 PC</span><span><b>Fire Overwatch</b> · tire sur un ennemi qui vient de bouger (touche sur 6)</span></li></ul></div>
+      </div>
+    </article>
+
+    <!-- Techmarine -->
+    <article class="card unit" id="u-techmarine">
+      <div class="unit-head"><div><span class="role">Soutien</span><h3>Techmarine</h3></div><span class="pts">55 pts</span></div>
+      <div class="unit-body">
+        <div class="stats"><div><b>M</b><span>6"</span></div><div><b>E</b><span>5</span></div><div><b>Svg</b><span>2+</span></div><div><b>PV</b><span>4</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>1</span></div><div><b>Inv</b><span>–</span></div></div>
+        <div class="tbl"><table>
+          <thead><tr><th>Arme</th><th>Portée</th><th>A</th><th>CT/CC</th><th>F</th><th>PA</th><th>D</th><th>Règles</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Arme">Forge Bolter</td><td data-label="Portée">24"</td><td data-label="A">3</td><td data-label="CT/CC">2+</td><td data-label="F">5</td><td data-label="PA">-1</td><td data-label="D">2</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="sustained">Sustained Hits 1</button></td></tr>
+            <tr><td data-label="Arme">Grav-pistol</td><td data-label="Portée">12"</td><td data-label="A">2</td><td data-label="CT/CC">2+</td><td data-label="F">2</td><td data-label="PA">-1</td><td data-label="D">3</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="anti">Anti-Vehicle 2+</button><button type="button" class="k" data-k="cq">Close-quarters</button></td></tr>
+            <tr><td data-label="Arme">Omnissian Power Axe</td><td data-label="Portée">Mêlée</td><td data-label="A">5</td><td data-label="CT/CC">3+</td><td data-label="F">6</td><td data-label="PA">-2</td><td data-label="D">2</td><td class="kw" data-label="Règles"></td></tr>
+          </tbody></table></div>
+        <ul class="ab">
+          <li><b>Blessings of the Omnissiah</b> : au début ou à la fin de son mouvement, un véhicule à 3" récupère D3 PV, <i>ou</i> ignore les modificateurs pour toucher et blesser jusqu'à ton prochain Mouvement.</li>
+          <li><b>Lone Operative</b> tant qu'il est à 3" d'un véhicule Adeptus Astartes : difficile à cibler au tir.</li>
+          <li>Il ne peut <b>pas</b> soigner le Knight Gallant.</li>
+        </ul>
+        <div class="sl"><div class="sl-t">Stratagèmes utiles</div><ul><li><span class="cpi">1 PC</span><span><b>Go to Ground</b> · couvert + invulnérable 6+ contre un tir</span></li></ul></div>
+      </div>
+    </article>
+
+    <!-- Knight Gallant -->
+    <article class="card unit" id="u-knight-gallant">
+      <div class="unit-head"><div><span class="role">Menace rapide · Allié</span><h3>Knight Gallant</h3></div><span class="pts">355 pts</span></div>
+      <div class="unit-body">
+        <div class="stats"><div><b>M</b><span>12"</span></div><div><b>E</b><span>11</span></div><div><b>Svg</b><span>3+</span></div><div><b>PV</b><span>26</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>10</span></div><div><b>Inv</b><span>5+*</span></div></div>
+        <div class="tbl"><table>
+          <thead><tr><th>Arme</th><th>Portée</th><th>A</th><th>CT/CC</th><th>F</th><th>PA</th><th>D</th><th>Règles</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Arme">Meltagun</td><td data-label="Portée">12"</td><td data-label="A">1</td><td data-label="CT/CC">3+</td><td data-label="F">9</td><td data-label="PA">-4</td><td data-label="D">D6</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="melta">Melta 2</button></td></tr>
+            <tr class="grp"><td colspan="8">Thunderstrike Gauntlet <span>· choisis 1 profil à chaque combat</span></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Strike</td><td data-label="Portée">Mêlée</td><td data-label="A">6</td><td data-label="CT/CC">2+</td><td data-label="F">20</td><td data-label="PA">-3</td><td data-label="D">8</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="dev">Devastating Wounds</button></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Sweep</td><td data-label="Portée">Mêlée</td><td data-label="A">12</td><td data-label="CT/CC">2+</td><td data-label="F">10</td><td data-label="PA">-2</td><td data-label="D">3</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="lethal">Lethal Hits</button></td></tr>
+            <tr class="grp"><td colspan="8">Reaper Chainsword <span>· choisis 1 profil à chaque combat</span></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Strike</td><td data-label="Portée">Mêlée</td><td data-label="A">6</td><td data-label="CT/CC">2+</td><td data-label="F">14</td><td data-label="PA">-4</td><td data-label="D">6</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="dev">Devastating Wounds</button></td></tr>
+            <tr class="prof"><td data-label="Arme">↳ Sweep</td><td data-label="Portée">Mêlée</td><td data-label="A">18</td><td data-label="CT/CC">2+</td><td data-label="F">9</td><td data-label="PA">-3</td><td data-label="D">2</td><td class="kw" data-label="Règles"><button type="button" class="k" data-k="lethal">Lethal Hits</button></td></tr>
+          </tbody></table></div>
+        <ul class="ab">
+          <li><b>*Invulnérable 5+</b> contre les tirs uniquement.</li>
+          <li><b>Strike</b> contre les véhicules, monstres et personnages. <b>Sweep</b> contre l'infanterie. Une seule arme de mêlée par combat.</li>
+          <li><b>Martial Pride</b> : en consolidation, +3" s'il finit au contact d'un ennemi.</li>
+          <li><b>Endommagé (1 à 9 PV)</b> : CO -5 et -1 pour toucher. <b>Deadly Demise D6</b>.</li>
+          <li>Il n'est pas Adeptus Astartes : pas de Doctrines, ni de stratagèmes de détachement. Il ne peut pas utiliser <i>Fire Overwatch</i>, mais <i>Crushing Impact</i> oui.</li>
+        </ul>
+        <div class="sl"><div class="sl-t">Stratagèmes utiles</div><ul><li><span class="cpi">1 PC</span><span><b>Crushing Impact</b> · après sa charge : 11 D6, chaque 5+ = 1 blessure mortelle</span></li><li><span class="cpi">1 PC</span><span><b>Heroic Intervention</b> · charge à la fin de la phase de Charge adverse</span></li><li><span class="cpi">1 PC</span><span><b>Command Re-roll</b> · relance une charge ou un jet de touche</span></li></ul></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="mots-cles">
+  <h2>Mots-clés d'armes</h2>
+  <p class="lede">Touche un mot-clé dans les tableaux pour voir sa règle. Les mots-clés en pointillés sont des bonus qui viennent d'une règle de l'unité, du détachement ou d'une amélioration.</p>
+  <div class="grid g2"><div class="card"><h3>Rapid Fire X</h3><p>À la moitié de la portée de l&#x27;arme ou moins, elle fait X attaques de plus.</p></div><div class="card"><h3>Blast X</h3><p>Pour chaque tranche complète de 5 figurines dans l&#x27;unité ciblée, l&#x27;arme gagne X attaques. Exemple : Blast 2 contre 12 figurines = +4 attaques.</p></div><div class="card"><h3>Torrent</h3><p>Chaque attaque touche automatiquement la cible : pas de jet pour toucher.</p></div><div class="card"><h3>Heavy</h3><p>+1 pour toucher si l&#x27;unité n&#x27;a pas bougé pendant ce tour.</p></div><div class="card"><h3>Assault</h3><p>L&#x27;arme peut tirer même si l&#x27;unité a fait une Avance.</p></div><div class="card"><h3>Sustained Hits X</h3><p>Chaque 6 pour toucher (touche critique) donne X touches supplémentaires.</p></div><div class="card"><h3>Lethal Hits</h3><p>Chaque 6 pour toucher blesse automatiquement : pas de jet pour blesser.</p></div><div class="card"><h3>Devastating Wounds</h3><p>Chaque 6 pour blesser (blessure critique) ne permet aucune sauvegarde, même invulnérable.</p></div><div class="card"><h3>Melta X</h3><p>À la moitié de la portée de l&#x27;arme ou moins, chaque attaque fait X dégâts de plus.</p></div><div class="card"><h3>Twin-linked</h3><p>Tu relances les jets pour blesser ratés.</p></div><div class="card"><h3>Close-quarters</h3><p>Arme de poing : elle peut tirer même quand l&#x27;unité est au contact d&#x27;un ennemi.</p></div><div class="card"><h3>Anti-Vehicle 2+</h3><p>Contre un véhicule, un jet pour blesser de 2+ est une blessure critique : il blesse automatiquement.</p></div><div class="card"><h3>Champion of the First Company</h3><p>Amélioration du Capitaine : toute son unité a Lethal Hits au corps à corps.</p></div><div class="card"><h3>Terminatus Assault</h3><p>Si l&#x27;unité a chargé ce tour : marteaux Sustained Hits 1 contre monstres et véhicules, griffes Sustained Hits 1 contre le reste.</p></div><div class="card"><h3>Fury of the First</h3><p>Les attaques de la Terminator Squad contre une cible à 9&quot; ou moins ont +1 PA (tir et mêlée).</p></div><div class="card"><h3>Bolter Discipline</h3><p>Au tir, +1 pour toucher si les Intercesseurs ou leur cible sont à portée d&#x27;un objectif.</p></div><div class="card"><h3>Ballistus Strike</h3><p>Les tirs du Ballistus contre une cible à 24&quot; ou moins ont Sustained Hits 1.</p></div><div class="card"><h3>Enduring Vengeance</h3><p>Règle du détachement Ironclad Champions : les Dreadnoughts relancent les jets de touche de 1.</p></div></div>
+</section>
+
+<footer>
+  Profils vérifiés sur le roster BattleBase le 12 novembre 2026. Règles de détachement relevées sur Wahapedia, Warhammer Community et Tabletop Battles. En cas de doute, c'est l'app officielle ou BattleBase qui font foi.
+</footer>
+
+</main>
+
+<div class="sheet-bg" id="sheetBg" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetT" hidden>
+  <div class="sheet-head"><h3 id="sheetT"></h3><button type="button" class="x" id="sheetX" aria-label="Fermer">×</button></div>
+  <p id="sheetP"></p>
+</div>
+<script>
+(function(){
+  var D={"rapid": ["Rapid Fire X", "À la moitié de la portée de l'arme ou moins, elle fait X attaques de plus."], "blast": ["Blast X", "Pour chaque tranche complète de 5 figurines dans l'unité ciblée, l'arme gagne X attaques. Exemple : Blast 2 contre 12 figurines = +4 attaques."], "torrent": ["Torrent", "Chaque attaque touche automatiquement la cible : pas de jet pour toucher."], "heavy": ["Heavy", "+1 pour toucher si l'unité n'a pas bougé pendant ce tour."], "assault": ["Assault", "L'arme peut tirer même si l'unité a fait une Avance."], "sustained": ["Sustained Hits X", "Chaque 6 pour toucher (touche critique) donne X touches supplémentaires."], "lethal": ["Lethal Hits", "Chaque 6 pour toucher blesse automatiquement : pas de jet pour blesser."], "dev": ["Devastating Wounds", "Chaque 6 pour blesser (blessure critique) ne permet aucune sauvegarde, même invulnérable."], "melta": ["Melta X", "À la moitié de la portée de l'arme ou moins, chaque attaque fait X dégâts de plus."], "twin": ["Twin-linked", "Tu relances les jets pour blesser ratés."], "cq": ["Close-quarters", "Arme de poing : elle peut tirer même quand l'unité est au contact d'un ennemi."], "anti": ["Anti-Vehicle 2+", "Contre un véhicule, un jet pour blesser de 2+ est une blessure critique : il blesse automatiquement."], "champion": ["Champion of the First Company", "Amélioration du Capitaine : toute son unité a Lethal Hits au corps à corps."], "terminatus": ["Terminatus Assault", "Si l'unité a chargé ce tour : marteaux Sustained Hits 1 contre monstres et véhicules, griffes Sustained Hits 1 contre le reste."], "fury": ["Fury of the First", "Les attaques de la Terminator Squad contre une cible à 9\" ou moins ont +1 PA (tir et mêlée)."], "bolterd": ["Bolter Discipline", "Au tir, +1 pour toucher si les Intercesseurs ou leur cible sont à portée d'un objectif."], "bstrike": ["Ballistus Strike", "Les tirs du Ballistus contre une cible à 24\" ou moins ont Sustained Hits 1."], "ironclad": ["Enduring Vengeance", "Règle du détachement Ironclad Champions : les Dreadnoughts relancent les jets de touche de 1."]};
+  var bg=document.getElementById('sheetBg'),sh=document.getElementById('sheet'),t=document.getElementById('sheetT'),pp=document.getElementById('sheetP'),x=document.getElementById('sheetX'),last=null;
+  function open(key,btn){var d=D[key];if(!d)return;last=btn;t.textContent=btn.classList.contains('b')?btn.textContent+' — '+d[0]:d[0];pp.textContent=d[1];bg.hidden=false;sh.hidden=false;x.focus();}
+  function close(){bg.hidden=true;sh.hidden=true;if(last)last.focus();}
+  document.addEventListener('click',function(e){var b=e.target.closest('.k');if(b)open(b.getAttribute('data-k'),b);});
+  bg.addEventListener('click',close);x.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sh.hidden)close();});
+})();
+</script>
+
+<button type="button" class="m-btn" id="mBtn" aria-haspopup="dialog" aria-controls="mOv" aria-label="Ouvrir le menu">Menu</button>
+<div class="m-ov" id="mOv" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="m-top">
+    <div class="m-tabs" role="tablist">
+      <button type="button" role="tab" class="m-tab" data-i="0" aria-selected="true">Unités</button>
+      <button type="button" role="tab" class="m-tab" data-i="1" aria-selected="false">Stratagèmes</button>
+      <button type="button" role="tab" class="m-tab" data-i="2" aria-selected="false">Sections</button>
+    </div>
+    <button type="button" class="m-x" id="mX" aria-label="Fermer le menu">×</button>
+  </div>
+  <div class="m-track" id="mTrack">
+    <nav class="m-panel" aria-label="Unités"><ul><li><a href="#u-capitaine-terminator-10-assault-terminators">Capitaine Terminator + Assault Terminators</a></li><li><a href="#u-terminator-squad-5">Terminator Squad</a></li><li><a href="#u-2-10-intercesseurs-lourds">Intercesseurs lourds</a></li><li><a href="#u-5-intercesseurs">Intercesseurs</a></li><li><a href="#u-2-ballistus-dreadnought">Ballistus Dreadnought</a></li><li><a href="#u-techmarine">Techmarine</a></li><li><a href="#u-knight-gallant">Knight Gallant</a></li></ul></nav>
+    <nav class="m-panel" aria-label="Stratagèmes"><ul><li><a href="#s-mercy-is-weakness">Mercy is Weakness <span class="m-cp">1 PC</span></a></li><li><a href="#s-unstoppable-advance">Unstoppable Advance <span class="m-cp">1 PC</span></a></li><li><a href="#s-merciless-veterans">Merciless Veterans <span class="m-cp">1 PC</span></a></li><li><a href="#s-suppression-volleys">Suppression Volleys <span class="m-cp">1 PC</span></a></li><li><a href="#s-annihilating-force">Annihilating Force <span class="m-cp">1 PC</span></a></li><li><a href="#s-stand-unyielding">Stand Unyielding <span class="m-cp">1 PC</span></a></li><li><a href="#s-crushing-impact">Crushing Impact <span class="m-cp">1 PC</span></a></li><li><a href="#s-epic-challenge">Epic Challenge <span class="m-cp">1 PC</span></a></li><li><a href="#s-tactical-dreadnought-fortitude">Tactical Dreadnought Fortitude <span class="m-cp">2 PC</span></a></li><li><a href="#s-gunship-extraction">Gunship Extraction <span class="m-cp">1 PC</span></a></li><li><a href="#s-rapid-ingress">Rapid Ingress <span class="m-cp">1 PC</span></a></li><li><a href="#s-fire-overwatch">Fire Overwatch <span class="m-cp">1 PC</span></a></li><li><a href="#s-heroic-intervention">Heroic Intervention <span class="m-cp">1 PC</span></a></li><li><a href="#s-go-to-ground">Go to Ground <span class="m-cp">1 PC</span></a></li><li><a href="#s-adamantine-terror">Adamantine Terror <span class="m-cp">1 PC</span></a></li><li><a href="#s-command-re-roll">Command Re-roll <span class="m-cp">1 PC</span></a></li><li><a href="#s-insane-bravery">Insane Bravery <span class="m-cp">1 PC</span></a></li><li><a href="#s-counteroffensive">Counteroffensive <span class="m-cp">2 PC</span></a></li></ul></nav>
+    <nav class="m-panel" aria-label="Sections"><ul><li><a href="#tour">Tour de jeu</a></li><li><a href="#plan">Plan de jeu</a></li><li><a href="#scenarios">Scénarios</a></li><li><a href="#doctrines">Doctrines</a></li><li><a href="#detachements">Détachements</a></li><li><a href="#ameliorations">Améliorations</a></li><li><a href="#strats">Stratagèmes</a></li><li><a href="#unites">Unités</a></li><li><a href="#mots-cles">Mots-clés</a></li></ul></nav>
+  </div>
+  <div class="m-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('mBtn'),ov=document.getElementById('mOv'),tr=document.getElementById('mTrack'),x=document.getElementById('mX');
+  var tabs=ov.querySelectorAll('.m-tab'),dots=ov.querySelectorAll('.m-dots span');
+  function idx(){return Math.round(tr.scrollLeft/tr.clientWidth);}
+  function mark(){var i=idx();tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');});dots.forEach(function(d,k){d.classList.toggle('on',k===i);});}
+  function go(i){tr.scrollTo({left:i*tr.clientWidth,behavior:'smooth'});}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(){ov.hidden=false;document.body.style.overflow='hidden';tr.scrollLeft=0;mark();requestAnimationFrame(function(){requestAnimationFrame(function(){ov.classList.add('show');});});tabs[0].focus();}
+  function hide(after){ov.classList.remove('show');document.body.style.overflow='';var done=function(){ov.hidden=true;if(after)after();};if(reduce){done();}else{setTimeout(done,260);}}
+  function close(){hide(function(){b.focus();});}
+  b.addEventListener('click',show);x.addEventListener('click',close);
+  tabs.forEach(function(t){t.addEventListener('click',function(){go(+t.dataset.i);});});
+  tr.addEventListener('scroll',function(){window.requestAnimationFrame(mark);});
+  ov.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;e.preventDefault();
+    var id=a.getAttribute('href').slice(1),el=document.getElementById(id);
+    if(el){
+      var y=el.getBoundingClientRect().top+window.pageYOffset-16;
+      window.scrollTo({top:y,behavior:'instant'});      /* saut caché derrière le menu noir */
+      try{history.replaceState(null,'','#'+id);}catch(err){}
+      el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+    }
+    hide(function(){if(el){el.setAttribute('tabindex','-1');el.focus({preventScroll:true});}});
+  });
+  document.addEventListener('keydown',function(e){if(ov.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')go(Math.min(idx()+1,2));if(e.key==='ArrowLeft')go(Math.max(idx()-1,0));});
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); }); }
+</script>
+</body>
+</html>
