@@ -1,0 +1,406 @@
+{
+ "id": "celestial-lions-1500",
+ "name": "Celestial Lions 1500",
+ "subtitle": "Warhammer 40 000 · V11 · Space Marines",
+ "points": "1485 / 1500 pts",
+ "size": "3 DP (à confirmer avec l'adversaire)",
+ "disposition": "Take and Hold",
+ "warlord": "Capitaine Terminator",
+ "toBuy": "Techmarine, Chapelain à moto, 6 Outriders",
+ "detachments": [
+  "Ironclad Champions",
+  "Gravis Siege Force",
+  "Terminator Storm Force"
+ ],
+ "enhancements": [
+  {
+   "name": "Champion of the First Company",
+   "on": "Capitaine Terminator"
+  },
+  {
+   "name": "Artificer Sarcophagus",
+   "on": "un Ballistus"
+  },
+  {
+   "name": "Venerable Champion",
+   "on": "l'autre Ballistus"
+  },
+  {
+   "name": "Immovable Conquerors",
+   "on": "les 10 Intercesseurs lourds"
+  }
+ ],
+ "units": [
+  {
+   "id": "capitaine-assault-terminators",
+   "label": "Capitaine Terminator + 10 Assault Terminators",
+   "menu": "Capitaine Terminator + Assault Terminators",
+   "role": "Marteau · Warlord",
+   "points": "495 pts",
+   "datasheets": [
+    {
+     "name": "Captain in Terminator Armour",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Combi-weapon"
+      },
+      {
+       "name": "Relic Fist",
+       "note": "Capitaine"
+      }
+     ]
+    },
+    {
+     "name": "Terminator Assault Squad",
+     "source": "Imperium - Space Marines.json",
+     "models": [
+      "Assault Terminator w/ Storm Shield",
+      "Assault Terminator Sergeant"
+     ],
+     "weapons": [
+      {
+       "name": "Thunder Hammer",
+       "note": "×9"
+      },
+      {
+       "name": "Twin Lightning Claws",
+       "note": "Sergent"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Relic Fist": [
+     [
+      "champion",
+      "Lethal Hits · Champion"
+     ]
+    ],
+    "Thunder Hammer": [
+     [
+      "champion",
+      "Lethal Hits · Champion"
+     ],
+     [
+      "terminatus",
+      "Sustained Hits 1 vs Monstre/Véhicule · après charge"
+     ]
+    ],
+    "Twin Lightning Claws": [
+     [
+      "champion",
+      "Lethal Hits · Champion"
+     ],
+     [
+      "terminatus",
+      "Sustained Hits 1 vs le reste · après charge"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Champion of the First Company</b> : Lethal Hits sur toute l'unité au corps à corps.",
+    "<b>Terminatus Assault</b> : après une charge, marteaux Sustained Hits 1 contre monstres et véhicules, griffes Sustained Hits 1 contre le reste.",
+    "<b>Frappe en Profondeur</b>, <b>Unstoppable Valour</b> (relance les charges), <b>Strategic Acumen</b> (Doctrine pour son unité).",
+    "<b>Transhuman Strategist</b> : +1 PC au début de chaque round tant qu'il est ton Warlord, même en réserve. Les blessures vont aux Terminators avant lui."
+   ],
+   "strats": [
+    [
+     "Tactical Dreadnought Fortitude"
+    ],
+    [
+     "Rapid Ingress"
+    ],
+    [
+     "Heroic Intervention",
+     "charge le C'tan (ou tout chargeur) à la fin de sa phase de Charge"
+    ],
+    [
+     "Command Re-roll",
+     "relance une charge ratée"
+    ],
+    [
+     "Epic Challenge",
+     "le Capitaine gagne Precision contre un personnage"
+    ],
+    [
+     "Gunship Extraction"
+    ]
+   ]
+  },
+  {
+   "id": "intercesseurs-lourds",
+   "label": "10 Intercesseurs lourds",
+   "menu": "Intercesseurs lourds",
+   "role": "Enclume · Gravis",
+   "points": "245 pts",
+   "datasheets": [
+    {
+     "name": "Heavy Intercessor Squad",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Heavy Bolt Rifle"
+      },
+      {
+       "name": "Heavy Bolter",
+       "note": "×2"
+      },
+      {
+       "name": "Bolt pistol"
+      },
+      {
+       "name": "Ceramite Fists"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "<b>Unyielding in the Face of the Foe</b> : +1 à la sauvegarde tant qu'elle contrôle un objectif.",
+    "<b>Indomitable Defence</b> (Gravis Siege) : -1 pour blesser contre les attaques de Force supérieure à 6, sur objectif.",
+    "<b>Immovable Conquerors</b> : la 1re escouade a CO 3 par figurine.",
+    "<b>Équipement</b> : 8 Heavy Bolt Rifles et 2 Heavy Bolters."
+   ],
+   "strats": [
+    [
+     "Suppression Volleys"
+    ],
+    [
+     "Annihilating Force"
+    ],
+    [
+     "Stand Unyielding"
+    ],
+    [
+     "Go to Ground"
+    ],
+    [
+     "Fire Overwatch"
+    ]
+   ]
+  },
+  {
+   "id": "intercesseurs",
+   "label": "5 Intercesseurs",
+   "menu": "Intercesseurs",
+   "role": "Garde la base",
+   "points": "85 pts",
+   "datasheets": [
+    {
+     "name": "Intercessor Squad",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Bolt Rifle"
+      },
+      {
+       "name": "Bolt pistol"
+      },
+      {
+       "name": "Knives and Fists"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Bolt Rifle": [
+     [
+      "bolterd",
+      "+1 touche sur objectif"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Bolter Discipline</b> : +1 pour toucher au tir si l'unité ou sa cible est à portée d'un objectif.",
+    "<b>Tactical Mainstay</b> : peut lancer une action même engagée ou en battle-shock, et tirer quand même.",
+    "<b>Bolt Rifle</b> : <i>Focused Fire</i> contre les cibles solides, <i>Saturation</i> contre l'infanterie légère."
+   ],
+   "strats": [
+    [
+     "Go to Ground"
+    ],
+    [
+     "Fire Overwatch"
+    ],
+    [
+     "Insane Bravery"
+    ]
+   ]
+  },
+  {
+   "id": "ballistus",
+   "label": "2 × Ballistus Dreadnought",
+   "menu": "Ballistus Dreadnought",
+   "role": "Antichar · Dreadnought",
+   "points": "190 + 180 pts",
+   "datasheets": [
+    {
+     "name": "Ballistus Dreadnought",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Ballistus Lascannon"
+      },
+      {
+       "name": "Ballistus Missile Launcher"
+      },
+      {
+       "name": "Storm Bolters"
+      },
+      {
+       "name": "Armoured Feet"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Ballistus Lascannon": [
+     [
+      "bstrike",
+      "Sustained Hits 1 à 24\""
+     ],
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ],
+    "Ballistus Missile Launcher": [
+     [
+      "bstrike",
+      "Sustained Hits 1 à 24\""
+     ],
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ],
+    "Storm Bolters": [
+     [
+      "bstrike",
+      "Sustained Hits 1 à 24\""
+     ],
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ],
+    "Armoured Feet": [
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Ballistus Strike</b> : Sustained Hits 1 contre une cible à 24\" ou moins.",
+    "<b>Enduring Vengeance</b> (Ironclad) : relance les 1 pour toucher.",
+    "<b>Artificer Sarcophagus</b> sur l'un, <b>Venerable Champion</b> sur l'autre (garde les Intercesseurs à 6\").",
+    "<b>Damaged</b> (malus quand il lui reste peu de PV), <b>Deadly Demise D3</b>."
+   ],
+   "strats": [
+    [
+     "Mercy is Weakness"
+    ],
+    [
+     "Unstoppable Advance"
+    ],
+    [
+     "Adamantine Terror"
+    ],
+    [
+     "Fire Overwatch"
+    ]
+   ]
+  },
+  {
+   "id": "techmarine",
+   "label": "Techmarine",
+   "menu": "Techmarine",
+   "role": "Soutien",
+   "points": "55 pts",
+   "datasheets": [
+    {
+     "name": "Techmarine",
+     "source": "Imperium - Space Marines.json"
+    }
+   ],
+   "notes": [
+    "<b>Blessing of the Omnissiah</b> : au début ou à la fin de son mouvement, un véhicule à 3\" récupère D3 PV, <i>ou</i> ignore les modificateurs pour toucher et blesser jusqu'à ton prochain Mouvement.",
+    "<b>Lone Operative</b> tant qu'il est à 3\" d'un véhicule Adeptus Astartes : difficile à cibler au tir.",
+    "Il ne peut <b>pas</b> soigner un Knight allié."
+   ],
+   "strats": [
+    [
+     "Go to Ground"
+    ]
+   ]
+  },
+  {
+   "id": "chapelain-outriders",
+   "label": "Chapelain à moto + 6 Outriders",
+   "menu": "Chapelain + Outriders",
+   "role": "Raid",
+   "points": "235 pts",
+   "datasheets": [
+    {
+     "name": "Chaplain on Bike",
+     "source": "Imperium - Space Marines.json"
+    },
+    {
+     "name": "Outrider Squad",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Twin bolt rifle"
+      },
+      {
+       "name": "Heavy Bolt Pistol"
+      },
+      {
+       "name": "Chainsword"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Crozius arcanum": [
+     [
+      "litany",
+      "Lance · après charge"
+     ]
+    ],
+    "Chainsword": [
+     [
+      "litany",
+      "Lance · après charge"
+     ],
+     [
+      "fullthrottle",
+      "+1 D + Sustained Hits 1 · après charge"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Litany of Hate</b> : [Lance] pour l'unité au corps à corps.",
+    "<b>Catechism of Fire</b> : au tir, Devastating Wounds contre une cible choisie.",
+    "<b>Full-throttle Assault</b> : après une charge, +1 dégât et Sustained Hits 1 en mêlée.",
+    "<b>Rôle</b> : objectifs de côté, actions, fond de table adverse. Pas au centre."
+   ],
+   "strats": [
+    [
+     "Command Re-roll",
+     "relance une charge ratée"
+    ],
+    [
+     "Heroic Intervention"
+    ]
+   ]
+  }
+ ],
+ "stratTips": {},
+ "pages": {
+  "tour": "<h2>Ton tour, phase par phase</h2>\n  <p class=\"lede\">À chaque tour, tu fais ces 5 phases dans l'ordre. Ce qui est en or, c'est ce qu'il ne faut pas oublier.</p>\n  <ol class=\"phases\">\n    <li><span class=\"num\">1</span><div><h3>Commandement</h3>\n      <ul>\n        <li>Les deux joueurs gagnent <b>1 PC</b> (à chaque phase de Commandement, la tienne et la sienne).</li>\n        <li><b>Transhuman Strategist</b> : au début de chaque round, si ton Capitaine Terminator est ton Warlord, <b>+1 PC</b>. Ça marche aussi quand il est en réserve.</li>\n        <li>Total : <b>3 PC par round</b> si tu ne dépenses rien.</li>\n        <li>Choisis une <b>Doctrine</b> si tu veux (chacune une seule fois par partie).</li>\n        <li>Le Capitaine peut aussi activer une Doctrine <b>pour son unité seulement</b> (Strategic Acumen).</li>\n        <li>Tests de moral (battle-shock) des unités à moins de la moitié de leur effectif.</li>\n      </ul></div></li>\n    <li><span class=\"num\">2</span><div><h3>Mouvement</h3>\n      <ul>\n        <li><b>Techmarine</b> : au début ou à la fin de son mouvement, il bénit un véhicule à 3\" (soigne D3 PV, <i>ou</i> ignore les modificateurs pour toucher et blesser).</li>\n        <li>Arrivée des Terminators en <b>Frappe en Profondeur</b> : à plus de 8\" de tout ennemi (à partir du tour 2).</li>\n      </ul></div></li>\n    <li><span class=\"num\">3</span><div><h3>Tir</h3>\n      <ul>\n        <li>Ballistus à <b>24\" ou moins</b> de la cible : <b>Sustained Hits 1</b>.</li>\n        <li>Chapelain : au tir, <b>Devastating Wounds</b> contre une cible choisie (Catechism of Fire).</li>\n        <li>Intercesseurs sur un objectif (ou cible sur un objectif) : <b>+1 pour toucher</b>.</li>\n      </ul></div></li>\n    <li><span class=\"num\">4</span><div><h3>Charge</h3>\n      <ul>\n        <li>Tous les Terminators : <b>+1 au jet de charge</b> (Death Blow). Après une Frappe en Profondeur, il faut donc 8\" au lieu de 9\".</li>\n        <li>Le Capitaine Terminator <b>relance</b> ses jets de charge (Unstoppable Valour).</li>\n      </ul></div></li>\n    <li><span class=\"num\">5</span><div><h3>Combat</h3>\n      <ul>\n        <li>Assault Terminators qui ont chargé : <b>Sustained Hits 1</b> (marteaux contre monstres et véhicules, griffes contre le reste).</li>\n        <li>Unité du Capitaine : <b>Lethal Hits</b> au corps à corps (Champion of the First Company).</li>\n      </ul></div></li>\n  </ol>\n  <div class=\"note\"><b>Règles des stratagèmes en V11 :</b> chaque stratagème ne s'utilise qu'<b>une fois par phase</b>, et une unité ne peut être la cible que d'<b>un seul stratagème par phase</b>.</div>",
+  "plan": "<h2>Plan de jeu</h2>\n  <p class=\"lede\">Une enclume au centre, un marteau en Frappe en Profondeur, et des motos qui vont chercher les objectifs de côté.</p>\n  <div class=\"grid g2 plan\">\n    <div class=\"card\"><h3>Déploiement</h3><p>Sur ta base : 5 Intercesseurs, les 2 Ballistus et le Techmarine. Les 10 Intercesseurs lourds près de l'objectif du centre. Les motos cachées derrière un grand décor. Les Assault Terminators et le Capitaine en réserve.</p></div>\n    <div class=\"card\"><h3>Tour 1</h3><p>Les Intercesseurs lourds prennent le centre. Les motos avancent à couvert sur un flanc. Les Ballistus tirent sur les véhicules.</p></div>\n    <div class=\"card\"><h3>Tour 2</h3><p>Doctrine Assaut : les motos et le Chapelain chargent une cible fragile au fond de table adverse. Les Assault Terminators arrivent sur ce qui menace le centre.</p></div>\n    <div class=\"card\"><h3>Toute la partie</h3><p>Les Intercesseurs lourds ne lâchent pas le centre. Les motos prennent les objectifs vides et font les actions. Garde 2 PC pour <i>Tactical Dreadnought Fortitude</i>.</p></div>\n  </div>",
+  "scenarios": "<h2>Scénarios</h2>\n  <p class=\"lede\">Aucun scénario préparé pour cette liste pour l'instant.</p>"
+ }
+}

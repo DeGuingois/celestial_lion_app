@@ -1,0 +1,454 @@
+{
+ "id": "celestial-lions-2000",
+ "name": "Celestial Lions Mecha",
+ "subtitle": "Warhammer 40 000 · V11 · Space Marines",
+ "points": "1995 / 2000 pts",
+ "size": "Strike Force · 3 DP",
+ "disposition": "Take and Hold",
+ "warlord": "Capitaine Terminator",
+ "toBuy": "Techmarine, 10 Intercesseurs lourds",
+ "detachments": [
+  "Ironclad Champions",
+  "Gravis Siege Force",
+  "Terminator Storm Force"
+ ],
+ "enhancements": [
+  {
+   "name": "Champion of the First Company",
+   "on": "Capitaine Terminator"
+  },
+  {
+   "name": "Artificer Sarcophagus",
+   "on": "un Ballistus"
+  },
+  {
+   "name": "Immovable Conquerors",
+   "on": "la 1re escouade de 10 Intercesseurs lourds"
+  }
+ ],
+ "units": [
+  {
+   "id": "capitaine-assault-terminators",
+   "label": "Capitaine Terminator + 10 Assault Terminators",
+   "menu": "Capitaine Terminator + Assault Terminators",
+   "role": "Marteau · Warlord",
+   "points": "495 pts",
+   "datasheets": [
+    {
+     "name": "Captain in Terminator Armour",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Combi-weapon"
+      },
+      {
+       "name": "Relic Fist",
+       "note": "Capitaine"
+      }
+     ]
+    },
+    {
+     "name": "Terminator Assault Squad",
+     "source": "Imperium - Space Marines.json",
+     "models": [
+      "Assault Terminator w/ Storm Shield",
+      "Assault Terminator Sergeant"
+     ],
+     "weapons": [
+      {
+       "name": "Thunder Hammer",
+       "note": "×9"
+      },
+      {
+       "name": "Twin Lightning Claws",
+       "note": "Sergent"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Relic Fist": [
+     [
+      "champion",
+      "Lethal Hits · Champion"
+     ]
+    ],
+    "Thunder Hammer": [
+     [
+      "champion",
+      "Lethal Hits · Champion"
+     ],
+     [
+      "terminatus",
+      "Sustained Hits 1 vs Monstre/Véhicule · après charge"
+     ]
+    ],
+    "Twin Lightning Claws": [
+     [
+      "champion",
+      "Lethal Hits · Champion"
+     ],
+     [
+      "terminatus",
+      "Sustained Hits 1 vs le reste · après charge"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Champion of the First Company</b> : Lethal Hits sur toute l'unité au corps à corps.",
+    "<b>Terminatus Assault</b> : après une charge, marteaux Sustained Hits 1 contre monstres et véhicules, griffes Sustained Hits 1 contre le reste.",
+    "<b>Frappe en Profondeur</b>, <b>Unstoppable Valour</b> (relance les charges), <b>Strategic Acumen</b> (Doctrine pour son unité).",
+    "<b>Transhuman Strategist</b> : +1 PC au début de chaque round tant qu'il est ton Warlord, même en réserve. Les blessures vont aux Terminators avant lui."
+   ],
+   "strats": [
+    [
+     "Tactical Dreadnought Fortitude"
+    ],
+    [
+     "Rapid Ingress"
+    ],
+    [
+     "Heroic Intervention",
+     "charge le C'tan (ou tout chargeur) à la fin de sa phase de Charge"
+    ],
+    [
+     "Command Re-roll",
+     "relance une charge ratée"
+    ],
+    [
+     "Epic Challenge",
+     "le Capitaine gagne Precision contre un personnage"
+    ],
+    [
+     "Gunship Extraction"
+    ]
+   ]
+  },
+  {
+   "id": "terminator-squad",
+   "label": "Terminator Squad (5)",
+   "menu": "Terminator Squad",
+   "role": "Centre",
+   "points": "190 pts",
+   "datasheets": [
+    {
+     "name": "Terminator Squad",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Storm bolter"
+      },
+      {
+       "name": "Power fist",
+       "note": "×4, les épées comptent comme poings"
+      },
+      {
+       "name": "Power weapon",
+       "note": "Sergent"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Storm bolter": [
+     [
+      "fury",
+      "+1 PA à 9\" · Fury"
+     ]
+    ],
+    "Power fist": [
+     [
+      "fury",
+      "+1 PA à 9\" · Fury"
+     ]
+    ],
+    "Power weapon": [
+     [
+      "fury",
+      "+1 PA à 9\" · Fury"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Fury of the First</b> : +1 PA contre une cible à 9\" ou moins (tir et mêlée).",
+    "<b>Frappe en Profondeur</b>.",
+    "<b>Counts-as</b> : les épées des 4 Terminators comptent comme des poings énergétiques. Annonce-le avant la partie."
+   ],
+   "strats": [
+    [
+     "Merciless Veterans"
+    ],
+    [
+     "Tactical Dreadnought Fortitude"
+    ],
+    [
+     "Rapid Ingress"
+    ],
+    [
+     "Gunship Extraction"
+    ]
+   ]
+  },
+  {
+   "id": "intercesseurs-lourds",
+   "label": "2 × 10 Intercesseurs lourds",
+   "menu": "Intercesseurs lourds",
+   "role": "Enclume · Gravis",
+   "points": "245 + 230 pts",
+   "datasheets": [
+    {
+     "name": "Heavy Intercessor Squad",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Heavy Bolt Rifle"
+      },
+      {
+       "name": "Heavy Bolter",
+       "note": "×2, 1re escouade"
+      },
+      {
+       "name": "Bolt pistol"
+      },
+      {
+       "name": "Ceramite Fists"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "<b>Unyielding in the Face of the Foe</b> : +1 à la sauvegarde tant qu'elle contrôle un objectif.",
+    "<b>Indomitable Defence</b> (Gravis Siege) : -1 pour blesser contre les attaques de Force supérieure à 6, sur objectif.",
+    "<b>Immovable Conquerors</b> : la 1re escouade a CO 3 par figurine.",
+    "<b>Équipement</b> : la 1re escouade a 8 Heavy Bolt Rifles et 2 Heavy Bolters. La 2e escouade a 10 Heavy Bolt Rifles."
+   ],
+   "strats": [
+    [
+     "Suppression Volleys"
+    ],
+    [
+     "Annihilating Force"
+    ],
+    [
+     "Stand Unyielding"
+    ],
+    [
+     "Go to Ground"
+    ],
+    [
+     "Fire Overwatch"
+    ]
+   ]
+  },
+  {
+   "id": "intercesseurs",
+   "label": "5 Intercesseurs",
+   "menu": "Intercesseurs",
+   "role": "Garde la base",
+   "points": "85 pts",
+   "datasheets": [
+    {
+     "name": "Intercessor Squad",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Bolt Rifle"
+      },
+      {
+       "name": "Bolt pistol"
+      },
+      {
+       "name": "Knives and Fists"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Bolt Rifle": [
+     [
+      "bolterd",
+      "+1 touche sur objectif"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Bolter Discipline</b> : +1 pour toucher au tir si l'unité ou sa cible est à portée d'un objectif.",
+    "<b>Tactical Mainstay</b> : peut lancer une action même engagée ou en battle-shock, et tirer quand même.",
+    "<b>Bolt Rifle</b> : <i>Focused Fire</i> contre les cibles solides, <i>Saturation</i> contre l'infanterie légère."
+   ],
+   "strats": [
+    [
+     "Go to Ground"
+    ],
+    [
+     "Fire Overwatch"
+    ],
+    [
+     "Insane Bravery"
+    ]
+   ]
+  },
+  {
+   "id": "ballistus",
+   "label": "2 × Ballistus Dreadnought",
+   "menu": "Ballistus Dreadnought",
+   "role": "Antichar · Dreadnought",
+   "points": "190 + 150 pts",
+   "datasheets": [
+    {
+     "name": "Ballistus Dreadnought",
+     "source": "Imperium - Space Marines.json",
+     "weapons": [
+      {
+       "name": "Ballistus Lascannon"
+      },
+      {
+       "name": "Ballistus Missile Launcher"
+      },
+      {
+       "name": "Storm Bolters"
+      },
+      {
+       "name": "Armoured Feet"
+      }
+     ]
+    }
+   ],
+   "bonuses": {
+    "Ballistus Lascannon": [
+     [
+      "bstrike",
+      "Sustained Hits 1 à 24\""
+     ],
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ],
+    "Ballistus Missile Launcher": [
+     [
+      "bstrike",
+      "Sustained Hits 1 à 24\""
+     ],
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ],
+    "Storm Bolters": [
+     [
+      "bstrike",
+      "Sustained Hits 1 à 24\""
+     ],
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ],
+    "Armoured Feet": [
+     [
+      "ironclad",
+      "Relance les 1"
+     ]
+    ]
+   },
+   "notes": [
+    "<b>Ballistus Strike</b> : Sustained Hits 1 contre une cible à 24\" ou moins.",
+    "<b>Enduring Vengeance</b> (Ironclad) : relance les 1 pour toucher.",
+    "<b>Artificer Sarcophagus</b> (Ballistus à 190 pts) : -1 aux dégâts subis.",
+    "<b>Damaged</b> (malus quand il lui reste peu de PV), <b>Deadly Demise D3</b>."
+   ],
+   "strats": [
+    [
+     "Mercy is Weakness"
+    ],
+    [
+     "Unstoppable Advance"
+    ],
+    [
+     "Adamantine Terror"
+    ],
+    [
+     "Fire Overwatch"
+    ]
+   ]
+  },
+  {
+   "id": "techmarine",
+   "label": "Techmarine",
+   "menu": "Techmarine",
+   "role": "Soutien",
+   "points": "55 pts",
+   "datasheets": [
+    {
+     "name": "Techmarine",
+     "source": "Imperium - Space Marines.json"
+    }
+   ],
+   "notes": [
+    "<b>Blessing of the Omnissiah</b> : au début ou à la fin de son mouvement, un véhicule à 3\" récupère D3 PV, <i>ou</i> ignore les modificateurs pour toucher et blesser jusqu'à ton prochain Mouvement.",
+    "<b>Lone Operative</b> tant qu'il est à 3\" d'un véhicule Adeptus Astartes : difficile à cibler au tir.",
+    "Il ne peut <b>pas</b> soigner un Knight allié."
+   ],
+   "strats": [
+    [
+     "Go to Ground"
+    ]
+   ]
+  },
+  {
+   "id": "knight-gallant",
+   "label": "Knight Gallant",
+   "menu": "Knight Gallant",
+   "role": "Menace rapide · Allié",
+   "points": "355 pts",
+   "datasheets": [
+    {
+     "name": "Knight Gallant",
+     "source": "Imperium - Imperial Knights - Library.json",
+     "weapons": [
+      {
+       "name": "Meltagun"
+      },
+      {
+       "name": "Thunderstrike gauntlet"
+      },
+      {
+       "name": "Reaper chainsword"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "<b>Invulnérable 5+</b> contre les tirs uniquement.",
+    "<b>Strike</b> contre les véhicules, monstres et personnages. <b>Sweep</b> contre l'infanterie. Une seule arme de mêlée par combat.",
+    "<b>Martial Pride</b> : en consolidation, +3\" s'il finit au contact d'un ennemi.",
+    "<b>Endommagé (1 à 9 PV)</b> : CO -5 et -1 pour toucher. <b>Deadly Demise D6</b>.",
+    "Il n'est pas Adeptus Astartes : pas de Doctrines, ni de stratagèmes de détachement. Pas de <i>Fire Overwatch</i>, mais <i>Crushing Impact</i> oui."
+   ],
+   "strats": [
+    [
+     "Crushing Impact",
+     "après sa charge : 11 D6, chaque 5+ fait 1 blessure mortelle"
+    ],
+    [
+     "Heroic Intervention"
+    ],
+    [
+     "Command Re-roll",
+     "relance une charge ou un jet de touche"
+    ]
+   ]
+  }
+ ],
+ "stratTips": {
+  "Crushing Impact": "Parfait avec le Knight Gallant (E11 = 11 dés).",
+  "Tactical Dreadnought Fortitude": "Garde toujours 2 PC pour protéger tes 10 Assault Terminators (495 pts avec le Capitaine).",
+  "Rapid Ingress": "Fais tomber tes Assault Terminators dans son tour, puis charge dans le tien."
+ },
+ "pages": {
+  "tour": "<h2>Ton tour, phase par phase</h2>\n  <p class=\"lede\">À chaque tour, tu fais ces 5 phases dans l'ordre. Ce qui est en or, c'est ce qu'il ne faut pas oublier.</p>\n  <ol class=\"phases\">\n    <li><span class=\"num\">1</span><div><h3>Commandement</h3>\n      <ul>\n        <li>Les deux joueurs gagnent <b>1 PC</b> (à chaque phase de Commandement, la tienne et la sienne).</li>\n        <li><b>Transhuman Strategist</b> : au début de chaque round, si ton Capitaine Terminator est ton Warlord, <b>+1 PC</b>. Ça marche aussi quand il est en réserve.</li>\n        <li>Total : <b>3 PC par round</b> si tu ne dépenses rien.</li>\n        <li>Choisis une <b>Doctrine</b> si tu veux (chacune une seule fois par partie).</li>\n        <li>Le Capitaine peut aussi activer une Doctrine <b>pour son unité seulement</b> (Strategic Acumen).</li>\n        <li>Tests de moral (battle-shock) des unités à moins de la moitié de leur effectif.</li>\n      </ul></div></li>\n    <li><span class=\"num\">2</span><div><h3>Mouvement</h3>\n      <ul>\n        <li><b>Techmarine</b> : au début ou à la fin de son mouvement, il bénit un véhicule à 3\" (soigne D3 PV, <i>ou</i> ignore les modificateurs pour toucher et blesser).</li>\n        <li>Arrivée des Terminators en <b>Frappe en Profondeur</b> : à plus de 8\" de tout ennemi (à partir du tour 2).</li>\n      </ul></div></li>\n    <li><span class=\"num\">3</span><div><h3>Tir</h3>\n      <ul>\n        <li>Ballistus à <b>24\" ou moins</b> de la cible : <b>Sustained Hits 1</b>.</li>\n        <li>Terminator Squad à <b>9\" ou moins</b> : +1 PA (Fury of the First).</li>\n        <li>Intercesseurs sur un objectif (ou cible sur un objectif) : <b>+1 pour toucher</b>.</li>\n      </ul></div></li>\n    <li><span class=\"num\">4</span><div><h3>Charge</h3>\n      <ul>\n        <li>Tous les Terminators : <b>+1 au jet de charge</b> (Death Blow). Après une Frappe en Profondeur, il faut donc 8\" au lieu de 9\".</li>\n        <li>Le Capitaine Terminator <b>relance</b> ses jets de charge (Unstoppable Valour).</li>\n      </ul></div></li>\n    <li><span class=\"num\">5</span><div><h3>Combat</h3>\n      <ul>\n        <li>Assault Terminators qui ont chargé : <b>Sustained Hits 1</b> (marteaux contre monstres et véhicules, griffes contre le reste).</li>\n        <li>Unité du Capitaine : <b>Lethal Hits</b> au corps à corps (Champion of the First Company).</li>\n      </ul></div></li>\n  </ol>\n  <div class=\"note\"><b>Règles des stratagèmes en V11 :</b> chaque stratagème ne s'utilise qu'<b>une fois par phase</b>, et une unité ne peut être la cible que d'<b>un seul stratagème par phase</b>.</div>",
+  "plan": "<h2>Plan de jeu</h2>\n  <p class=\"lede\">On gagne en tenant les objectifs, pas en tuant tout. Ton armée est une enclume qui ne bouge pas, avec deux marteaux.</p>\n  <div class=\"grid g2 plan\">\n    <div class=\"card\"><h3>Déploiement</h3><p>Sur ta base : 5 Intercesseurs, les 2 Ballistus et le Techmarine. Les 2 escouades d'Intercesseurs lourds au plus près de leurs objectifs (elles ne font que 5\"). Les 10 Assault Terminators et le Capitaine en réserve pour la Frappe en Profondeur.</p></div>\n    <div class=\"card\"><h3>Tour 1</h3><p>Les Intercesseurs lourds prennent l'objectif du centre et un 2e objectif. La Terminator Squad avance au centre. Le Knight Gallant part sur un flanc pour menacer l'adversaire.</p></div>\n    <div class=\"card\"><h3>Tour 2</h3><p>Les Assault Terminators arrivent sur ce qui menace tes objectifs et chargent. Les Ballistus tirent en priorité sur les véhicules et les monstres.</p></div>\n    <div class=\"card\"><h3>Toute la partie</h3><p>Les Intercesseurs lourds ne lâchent jamais leur objectif. Le Techmarine reste collé aux Ballistus. Garde 2 PC pour protéger les Terminators avec <i>Tactical Dreadnought Fortitude</i>.</p></div>\n  </div>",
+  "scenarios": "<h2>Scénarios</h2>\n  <p class=\"lede\">Plans de jeu préparés contre des menaces précises. Touche un scénario pour l'ouvrir.</p>\n\n  <details class=\"scn\">\n    <summary><span class=\"scn-t\">Contrer un C'tan</span><span class=\"scn-s\">C'tan Shard of the Nightbringer · Necrons</span></summary>\n    <div class=\"scn-body\">\n\n      <h3>L'ennemi</h3>\n      <div class=\"stats\"><div><b>M</b><span>10\"</span></div><div><b>E</b><span>11</span></div><div><b>Svg</b><span>3+</span></div><div><b>PV</b><span>16</span></div><div><b>Cd</b><span>6+</span></div><div><b>CO</b><span>4</span></div><div><b>Inv</b><span>4+</span></div></div>\n      <ul class=\"ab\">\n        <li><b>Très résistant</b> : Feel No Pain 5+, <b>Necrodermis</b> (-1 aux dégâts de chaque attaque), invulnérable 4+.</li>\n        <li><b>Faux en Strike</b> : 6 attaques, 2+, F14, PA-4, D6+2, Devastating Wounds. Ton Knight et tes Ballistus n'ont <b>aucune sauvegarde</b> contre elle.</li>\n        <li><b>Drain Life</b> : à la fin de chaque combat, sur 4+, D3 blessures mortelles à chaque unité ennemie à 6\".</li>\n        <li><b>Deep Strike</b> : il peut arriver n'importe où à plus de 8\" de tes unités, puis charger.</li>\n      </ul>\n\n      <h3>La règle d'or</h3>\n      <p>Celui qui frappe en premier gagne. Ne laisse jamais le C'tan charger ton Knight : le Knight ne gagne alors que <b>21 %</b> des duels. Dans ta base, il tue un Ballistus <b>7 fois sur 10</b>.</p>\n\n      <h3>Cas 1 : il arrive en Deep Strike sur ta base</h3>\n      <p class=\"small\">Le plan principal, sans le Knight. Tes Assault Terminators et le Capitaine restent en réserve tant que le C'tan n'est pas apparu.</p>\n      <ol class=\"steps\">\n        <li><span class=\"ph\">Son Mouvement</span><span>Le C'tan tombe. À la fin de la phase, <b>Rapid Ingress</b> <span class=\"cpi\">1 PC</span> : tes Terminators arrivent à 9-10\" de lui, du côté de ta base.</span></li>\n        <li><span class=\"ph\">Sa Charge</span><span>Il charge ta base. À la fin de la phase, <b>Heroic Intervention</b> (<i>Leap to Defend</i>) <span class=\"cpi\">1 PC</span> : tes Terminators le chargent. +1 à la charge et relance du Capitaine.</span></li>\n        <li><span class=\"ph\">Son Combat</span><span>Il frappe en premier. S'il vise tes Terminators : <b>Tactical Dreadnought Fortitude</b> <span class=\"cpi two\">2 PC</span>. Puis tes Terminators frappent tout de suite, avec Sustained Hits 1 (charge) et Lethal Hits (Capitaine).</span></li>\n        <li><span class=\"ph\">Ton tour</span><span>Ils frappent une 2e fois. Si besoin, <b>Command Re-roll</b> <span class=\"cpi\">1 PC</span> sur une attaque ratée.</span></li>\n      </ol>\n      <div class=\"res\">\n        <div class=\"res-row\"><div class=\"res-h\">S'il frappe ta base</div><div class=\"res-g\"><div><b>Victoire</b><span>99 %</span></div><div><b>Tué avant de refrapper</b><span>74 %</span></div><div><b>Terminators restants</b><span>9 / 11</span></div></div></div>\n        <div class=\"res-row\"><div class=\"res-h\">S'il frappe tes Terminators (avec Fortitude)</div><div class=\"res-g\"><div><b>Victoire</b><span>90 %</span></div><div><b>Tué avant de refrapper</b><span>53 %</span></div><div><b>Terminators restants</b><span>7 / 11</span></div></div></div>\n      </div>\n      <p class=\"small\">Il tue au plus 1 Terminator par attaque, donc 6 au maximum, et en pratique 1 ou 2. Il ne peut pas détruire l'escouade en un combat.</p>\n\n      <h3>Cas 2 : il est sur la table dès le début</h3>\n      <ol class=\"steps\">\n        <li><span class=\"ph\">Toute la partie</span><span>Garde ton Knight à <b>23\" ou plus</b> du C'tan : à cette distance, sa charge est impossible.</span></li>\n        <li><span class=\"ph\">Ton Tir</span><span>Les 2 Ballistus (à 24\" ou moins, avec <b>Mercy is Weakness</b> <span class=\"cpi\">1 PC</span>) et les Intercesseurs lourds (avec <b>Annihilating Force</b> <span class=\"cpi\">1 PC</span>) lui enlèvent ~10 PV.</span></li>\n        <li><span class=\"ph\">Ta Charge</span><span>Le Knight charge, puis <b>Crushing Impact</b> <span class=\"cpi\">1 PC</span> (11 dés, chaque 5+ fait 1 blessure mortelle).</span></li>\n        <li><span class=\"ph\">Ton Combat</span><span>Le Knight frappe en premier avec le <b>Strike du gantelet</b>. <b>91 % de victoire</b>.</span></li>\n      </ol>\n      <p class=\"small\">Chance que le C'tan charge ton Knight, selon la distance entre eux :</p>\n      <div class=\"stats dist\"><div><b>14\"</b><span>92 %</span></div><div><b>16\"</b><span>72 %</span></div><div><b>18\"</b><span>42 %</span></div><div><b>20\"</b><span>17 %</span></div><div><b>22\"</b><span>3 %</span></div><div><b>23\"+</b><span>0 %</span></div></div>\n\n      <h3>Prépare ta base</h3>\n      <ul class=\"ab\">\n        <li>Ballistus <b>contre ton bord de table ou dans un coin</b> : moins d'endroits où il peut atterrir.</li>\n        <li>Les 5 Intercesseurs <b>devant</b> les Ballistus : mieux vaut qu'il perde son tour sur 85 pts.</li>\n        <li>Le Ballistus le plus exposé porte l'<b>Artificer Sarcophagus</b>.</li>\n      </ul>\n\n      <h3>Les PC</h3>\n      <p>Le plan coûte <b>4 PC</b> : Rapid Ingress (Mouvement), Heroic Intervention (Charge) et Fortitude (Combat). C'est autorisé sur la même unité, car il n'y a qu'<b>un stratagème par phase</b>.</p>\n      <p>Tu gagnes <b>3 PC par round</b> : 1 à ta phase de Commandement, 1 à la sienne, et 1 grâce au Capitaine (même en réserve). Le C'tan ne peut pas arriver avant le round 2. Au moment où il tombe au round 2, tu as donc :</p>\n      <div class=\"res\">\n        <div class=\"res-row\"><div class=\"res-h\">Tu joues en premier</div><div class=\"res-g\"><div><b>PC disponibles</b><span>6</span></div><div><b>Tu peux dépenser avant</b><span>2 PC</span></div><div><b>Jouable</b><span>Dès le round 2</span></div></div></div>\n        <div class=\"res-row\"><div class=\"res-h\">Il joue en premier</div><div class=\"res-g\"><div><b>PC disponibles</b><span>5</span></div><div><b>Tu peux dépenser avant</b><span>1 PC</span></div><div><b>Jouable</b><span>Dès le round 2</span></div></div></div>\n      </div>\n      <p class=\"small\">Sans compter d'éventuels PC de départ. S'il attend le round 3, tu as 3 PC de plus : tu peux jouer normalement au round 2.</p>\n\n      <p class=\"small\">Simulations de 20 000 à 50 000 combats par cas. Hypothèses : aucun stratagème Necron, la faux toujours en Strike, Heroic Intervention compte comme une charge (Terminatus Assault). Vérifie ce dernier point dans BattleBase.</p>\n    </div>\n  </details>"
+ }
+}

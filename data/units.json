@@ -1,0 +1,1404 @@
+{
+ "meta": {
+  "repo": "BSData/wh40k-11e",
+  "sha": "f015101d4c495173283e1b97e9d59f2befb877ad",
+  "date": "2026-11-11T21:34:40+00:00",
+  "gameSystem": "Warhammer 40,000.json"
+ },
+ "units": {
+  "Captain in Terminator Armour": {
+   "name": "Captain in Terminator Armour",
+   "pts": 90,
+   "models": [
+    {
+     "name": "Captain in Terminator Armour",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "2+",
+     "W": "6",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": "4+"
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Leader",
+     "text": "This model can be attached to the following units: DEATHWATCH TERMINATOR SQUAD, DEATHWING KNIGHTS, DEATHWING TERMINATOR SQUAD, RELIC TERMINATOR SQUAD, TERMINATOR ASSAULT SQUAD, TERMINATOR SQUAD"
+    },
+    {
+     "name": "Unstoppable Valour",
+     "text": "You can re-roll Charge rolls made for this unit."
+    },
+    {
+     "name": "Strategic Acumen",
+     "text": "In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase."
+    }
+   ],
+   "rules": [
+    "Leader",
+    "Deep Strike"
+   ],
+   "weapons": [
+    {
+     "name": "Combi-weapon",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": "Infernus",
+       "range": "12\"",
+       "A": "3",
+       "skill": "-",
+       "S": "4",
+       "AP": "0",
+       "D": "1",
+       "keywords": [
+        "Blast 1",
+        "Torrent"
+       ]
+      },
+      {
+       "label": "Purgatus",
+       "range": "24\"",
+       "A": "2",
+       "skill": "2+",
+       "S": "7",
+       "AP": "-2",
+       "D": "2",
+       "keywords": []
+      },
+      {
+       "label": "Damnatus",
+       "range": "12\"",
+       "A": "1",
+       "skill": "2+",
+       "S": "9",
+       "AP": "-3",
+       "D": "D3+2",
+       "keywords": [
+        "Melta 2"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Storm bolter",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "24\"",
+       "A": "2",
+       "skill": "2+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Rapid Fire 2"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Relic Fist",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "5",
+       "skill": "2+",
+       "S": "8",
+       "AP": "-2",
+       "D": "2",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Relic Weapon",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "6",
+       "skill": "2+",
+       "S": "6",
+       "AP": "-2",
+       "D": "2",
+       "keywords": []
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Terminator Assault Squad": {
+   "name": "Terminator Assault Squad",
+   "pts": 170,
+   "models": [
+    {
+     "name": "Assault Terminator w/ Storm Shield",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "2+",
+     "W": "4",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": "4+"
+    },
+    {
+     "name": "Assault Terminator w/ Lightning Claws",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "2+",
+     "W": "3",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": "4+"
+    },
+    {
+     "name": "Assault Terminator Sergeant",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "2+",
+     "W": "3",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": "4+"
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Terminatus Assault",
+     "text": "If this unit made a charge move this turn, this unit's: \n▪ Lightning Claws weapons have [SUSTAINED HITS 1: NON-MONSTER/VEHICLE] \n▪ Thunder Hammer weapons have [SUSTAINED HITS 1: MONSTER/VEHICLE]."
+    },
+    {
+     "name": "Teleport Homer",
+     "text": "(Once per battle, per unit) At the start of the battle, you can set up one Teleport Homer token for this unit on the battlefield. If you do: When you target this unit with the Rapid Ingress stratagem, you can use that Teleport Homer token. If you do, that use is -1 CP, but when resolving that stratagem, this unit must be set up within 3\" of that Teleport Homer token and not within 8\" of an enemy unit. That Teleport Homer token is then removed from the battlefield. If an enemy unit ends a move within 1\" of that Teleport Homer token, that Teleport Homer token is removed from the battlefield."
+    },
+    {
+     "name": "Storm Shield",
+     "text": "The bearer has a Wounds characteristic of 4."
+    }
+   ],
+   "rules": [
+    "Deep Strike"
+   ],
+   "weapons": [
+    {
+     "name": "Thunder Hammer",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "3+",
+       "S": "8",
+       "AP": "-2",
+       "D": "3",
+       "keywords": [
+        "Devastating Wounds"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Twin Lightning Claws",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "6",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-2",
+       "D": "1",
+       "keywords": [
+        "Twin-linked"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Terminator Squad": {
+   "name": "Terminator Squad",
+   "pts": 190,
+   "models": [
+    {
+     "name": "Terminator Sergeant",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "2+",
+     "W": "3",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": "4+"
+    },
+    {
+     "name": "Terminator Squad",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "2+",
+     "W": "3",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": "4+"
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Fury of the First",
+     "text": "This unit's attacks that target a unit within 9\" of this unit have +1 AP."
+    },
+    {
+     "name": "Teleport Homer",
+     "text": "(Once per battle, per unit) At the start of the battle, you can set up one Teleport Homer token for this unit on the battlefield. If you do: When you target this unit with the Rapid Ingress stratagem, you can use that Teleport Homer token. If you do, that use is -1 CP, but when resolving that stratagem, this unit must be set up within 3\" of that Teleport Homer token and not within 8\" of an enemy unit. That Teleport Homer token is then removed from the battlefield. If an enemy unit ends a move within 1\" of that Teleport Homer token, that Teleport Homer token is removed from the battlefield."
+    }
+   ],
+   "rules": [
+    "Deep Strike"
+   ],
+   "weapons": [
+    {
+     "name": "Power weapon",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "5",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-2",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Chainfist",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": "Standard",
+       "range": "Melee",
+       "A": "2",
+       "skill": "4+",
+       "S": "8",
+       "AP": "-2",
+       "D": "2",
+       "keywords": []
+      },
+      {
+       "label": "Hunter: Monster/Vehicle",
+       "range": "Melee",
+       "A": "3",
+       "skill": "3+",
+       "S": "12",
+       "AP": "-2",
+       "D": "3",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Power fist",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "3+",
+       "S": "8",
+       "AP": "-2",
+       "D": "2",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Storm bolter",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "24\"",
+       "A": "2",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Rapid Fire 2"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Cyclone missile launcher",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": "frag",
+       "range": "36\"",
+       "A": "8",
+       "skill": "3+",
+       "S": "4",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Blast 2"
+       ]
+      },
+      {
+       "label": "krak",
+       "range": "36\"",
+       "A": "2",
+       "skill": "3+",
+       "S": "10",
+       "AP": "-2",
+       "D": "D3+3",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Heavy Flamer",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "12\"",
+       "A": "3",
+       "skill": "-",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Blast 2",
+        "Torrent"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Assault Cannon",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "24\"",
+       "A": "6",
+       "skill": "3+",
+       "S": "6",
+       "AP": "-2",
+       "D": "1",
+       "keywords": [
+        "Sustained Hits 1"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Heavy Intercessor Squad": {
+   "name": "Heavy Intercessor Squad",
+   "pts": 115,
+   "models": [
+    {
+     "name": "Heavy intercessor Squad",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "3+",
+     "W": "3",
+     "Ld": "6+",
+     "OC": "2",
+     "Inv": ""
+    },
+    {
+     "name": "Heavy Intercessor Sergeant",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "3+",
+     "W": "3",
+     "Ld": "6+",
+     "OC": "2",
+     "Inv": ""
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Unyielding in the Face of the Foe",
+     "text": "While this unit is controlling an objective, this unit has +1 to save rolls."
+    }
+   ],
+   "rules": [],
+   "weapons": [
+    {
+     "name": "Heavy Bolt Rifle",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "30\"",
+       "A": "2",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "2",
+       "keywords": [
+        "Heavy",
+        "Rapid Fire 1"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Bolt pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "12\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Close-quarters"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Ceramite Fists",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "3+",
+       "S": "5",
+       "AP": "0",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Heavy Bolter",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "36\"",
+       "A": "3",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "2",
+       "keywords": [
+        "Heavy",
+        "Rapid Fire 2",
+        "Sustained Hits 1"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Intercessor Squad": {
+   "name": "Intercessor Squad",
+   "pts": 85,
+   "models": [
+    {
+     "name": "Intercessor Sergeant",
+     "M": "6\"",
+     "T": "5",
+     "Sv": "3+",
+     "W": "2",
+     "Ld": "6+",
+     "OC": "2",
+     "Inv": ""
+    },
+    {
+     "name": "Intercessor Squad",
+     "M": "6\"",
+     "T": "5",
+     "Sv": "3+",
+     "W": "2",
+     "Ld": "6+",
+     "OC": "2",
+     "Inv": ""
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Bolter Discipline",
+     "text": "In your Shooting phase, if any of the following apply, this unit's ranged attacks have +1 to hit rolls: \n▪ This unit is within range of an objective. \n▪ The target of that attack is within range of an objective."
+    },
+    {
+     "name": "Tactical Mainstay",
+     "text": "▪ Being engaged/battle-shocked does not prevent this unit from being eligible to start an action. \n▪ When this unit starts an action, that action does not prevent this unit from being eligible to shoot."
+    }
+   ],
+   "rules": [],
+   "weapons": [
+    {
+     "name": "Hand flamer",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "9\"",
+       "A": "3",
+       "skill": "-",
+       "S": "4",
+       "AP": "0",
+       "D": "1",
+       "keywords": [
+        "Close-quarters",
+        "Torrent"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Power weapon",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "4",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-2",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Plasma pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": "Supercharge",
+       "range": "12\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "8",
+       "AP": "-3",
+       "D": "2",
+       "keywords": [
+        "Hazardous",
+        "Close-quarters"
+       ]
+      },
+      {
+       "label": "Standard",
+       "range": "12\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "7",
+       "AP": "-2",
+       "D": "1",
+       "keywords": [
+        "Close-quarters"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Chainsword",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "5",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Bolt Rifle",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": "Focused Fire",
+       "range": "24\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "6",
+       "AP": "-1",
+       "D": "2",
+       "keywords": [
+        "Heavy",
+        "Rapid Fire 1"
+       ]
+      },
+      {
+       "label": "Saturation",
+       "range": "24\"",
+       "A": "2",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Assault",
+        "Rapid Fire 1"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Thunder Hammer",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "4+",
+       "S": "8",
+       "AP": "-2",
+       "D": "3",
+       "keywords": [
+        "Devastating Wounds"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Power fist",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "3+",
+       "S": "8",
+       "AP": "-2",
+       "D": "2",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Knives and Fists",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "3+",
+       "S": "5",
+       "AP": "0",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Bolt pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "12\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Close-quarters"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Grenade Launcher",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": "Krak",
+       "range": "24\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "10",
+       "AP": "-2",
+       "D": "3",
+       "keywords": [
+        "Rapid Fire 1"
+       ]
+      },
+      {
+       "label": "Frag",
+       "range": "24\"",
+       "A": "4",
+       "skill": "3+",
+       "S": "4",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Blast 1"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Ballistus Dreadnought": {
+   "name": "Ballistus Dreadnought",
+   "pts": 150,
+   "models": [
+    {
+     "name": "Ballistus Dreadnought",
+     "M": "8\"",
+     "T": "10",
+     "Sv": "2+",
+     "W": "12",
+     "Ld": "6+",
+     "OC": "4",
+     "Inv": ""
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Ballistus Strike",
+     "text": "This unit's ranged attacks that target an enemy unit within 24\" of this unit have [SUSTAINED HITS 1]"
+    }
+   ],
+   "rules": [
+    "Deadly Demise",
+    "Damaged"
+   ],
+   "weapons": [
+    {
+     "name": "Armoured Feet",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "5",
+       "skill": "3+",
+       "S": "7",
+       "AP": "0",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Ballistus Lascannon",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "48\"",
+       "A": "2",
+       "skill": "3+",
+       "S": "12",
+       "AP": "-3",
+       "D": "D3+3",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Ballistus Missile Launcher",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": "Frag",
+       "range": "48\"",
+       "A": "D6+6",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Blast 2"
+       ]
+      },
+      {
+       "label": "Krak",
+       "range": "48\"",
+       "A": "2",
+       "skill": "3+",
+       "S": "10",
+       "AP": "-2",
+       "D": "D3+3",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Storm Bolters",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "24\"",
+       "A": "4",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Rapid Fire 4"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Techmarine": {
+   "name": "Techmarine",
+   "pts": 55,
+   "models": [
+    {
+     "name": "Techmarine",
+     "M": "6\"",
+     "T": "5",
+     "Sv": "2+",
+     "W": "4",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": ""
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Techmarine",
+     "text": "While this model is within 3\" of a friendly ADEPTUS ASTARTES VEHICLE unit, this model has Lone Operative."
+    },
+    {
+     "name": "Blessing of the Omnissiah",
+     "text": "In your Movement phase, at the start or end of this unit's move, you can select one friendly ADEPTUS ASTARTES VEHICLE model within 3\" of this model: \n▪ That VEHICLE model heals D3 wounds. \n▪ That VEHICLE model's attacks can ignore modifiers to hit rolls and wound rolls until the start of your next Movement phase."
+    },
+    {
+     "name": "Leader",
+     "text": "This model can be attached to the following units: \nASSAULT INTERCESSOR SQUAD, CRUSADER SQUAD, DECIMUS KILL TEAM, DESOLATION SQUAD, FORTIS KILL TEAM, INTERCESSOR SQUAD, SWORD BRETHREN SQUAD"
+    }
+   ],
+   "rules": [
+    "Leader"
+   ],
+   "weapons": [
+    {
+     "name": "Forge Bolter",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "24\"",
+       "A": "3",
+       "skill": "2+",
+       "S": "5",
+       "AP": "-1",
+       "D": "2",
+       "keywords": [
+        "Sustained Hits 1"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Omnissian Power Axe and Servo-arm",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "5",
+       "skill": "3+",
+       "S": "6",
+       "AP": "-2",
+       "D": "2",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Grav-pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "12\"",
+       "A": "2",
+       "skill": "2+",
+       "S": "2",
+       "AP": "-1",
+       "D": "3",
+       "keywords": [
+        "Anti-vehicle 2+",
+        "Close-quarters"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Chaplain on Bike": {
+   "name": "Chaplain on Bike",
+   "pts": 75,
+   "models": [
+    {
+     "name": "Chaplain on Bike",
+     "M": "12\"",
+     "T": "6",
+     "Sv": "3+",
+     "W": "5",
+     "Ld": "5+",
+     "OC": "2",
+     "Inv": "4+"
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Catechism of Fire",
+     "text": "In your Shooting phase, when this unit is selected to shoot, you can select one visible enemy unit. This unit's ranged attacks that target that unit have [DEVASTATING WOUNDS]."
+    },
+    {
+     "name": "Leader",
+     "text": "This model can be attached to the following units: BIKE SQUAD, COMPANY VETERANS ON BIKES, OUTRIDER SQUAD, RAVENWING BLACK KNIGHTS"
+    },
+    {
+     "name": "Litany of Hate",
+     "text": "This unit's melee attacks have [LANCE]"
+    }
+   ],
+   "rules": [
+    "Leader"
+   ],
+   "weapons": [
+    {
+     "name": "Twin Bolt Rifle",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "24\"",
+       "A": "2",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Rapid Fire 2",
+        "Twin-linked"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Absolvor bolt pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "18\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-2",
+       "D": "2",
+       "keywords": [
+        "Close-quarters"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Crozius arcanum",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "5",
+       "skill": "2+",
+       "S": "6",
+       "AP": "-1",
+       "D": "2",
+       "keywords": [
+        "Cleave 1"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Outrider Squad": {
+   "name": "Outrider Squad",
+   "pts": 80,
+   "models": [
+    {
+     "name": "Outrider Squad",
+     "M": "12\"",
+     "T": "6",
+     "Sv": "3+",
+     "W": "4",
+     "Ld": "6+",
+     "OC": "2",
+     "Inv": ""
+    },
+    {
+     "name": "Outrider Sergeant",
+     "M": "12\"",
+     "T": "6",
+     "Sv": "3+",
+     "W": "4",
+     "Ld": "6+",
+     "OC": "2",
+     "Inv": ""
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Full-throttle Assault",
+     "text": "If this unit made a charge move this turn, this unit's: \n▪ Thunder Hammer weapons have +1 to hit rolls and [SUSTAINED HITS 1]. \n▪ Other melee weapons have +1 D and [SUSTAINED HITS 1]."
+    }
+   ],
+   "rules": [],
+   "weapons": [
+    {
+     "name": "Chainsword",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "4",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Heavy Bolt Pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "18\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Close-quarters"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Twin bolt rifle",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "24\"",
+       "A": "2",
+       "skill": "2+",
+       "S": "5",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Assault",
+        "Rapid Fire 2",
+        "Twin-linked"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Power weapon",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-2",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Thunder Hammer",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "3",
+       "skill": "4+",
+       "S": "8",
+       "AP": "-2",
+       "D": "3",
+       "keywords": [
+        "Devastating Wounds"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Plasma pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": "Supercharge",
+       "range": "12\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "8",
+       "AP": "-3",
+       "D": "2",
+       "keywords": [
+        "Hazardous",
+        "Close-quarters"
+       ]
+      },
+      {
+       "label": "Standard",
+       "range": "12\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "7",
+       "AP": "-2",
+       "D": "1",
+       "keywords": [
+        "Close-quarters"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
+  },
+  "Knight Gallant": {
+   "name": "Knight Gallant",
+   "pts": 355,
+   "models": [
+    {
+     "name": "Knight Gallant",
+     "M": "12\"",
+     "T": "11",
+     "Sv": "3+",
+     "W": "26",
+     "Ld": "6+",
+     "OC": "10",
+     "Inv": "5+*"
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Martial Pride",
+     "text": "Each time this unit Consolidates, models in it can move an additional 3\" provided your unit can end that move within Engagement Range of one or more enemy units."
+    },
+    {
+     "name": "Invulnerable Save (5+*)",
+     "text": "This model has a 5+ invulnerable save against ranged attacks."
+    },
+    {
+     "name": "Damaged: 1-9 Wounds Remaining",
+     "text": "While this model has 1-9 wounds remaining, subtract 5 from this model's Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+    }
+   ],
+   "rules": [
+    "Deadly Demise",
+    "Super-Heavy Walker",
+    "Code Chivalric"
+   ],
+   "weapons": [
+    {
+     "name": "Reaper chainsword",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": "sweep",
+       "range": "Melee",
+       "A": "18",
+       "skill": "2+",
+       "S": "9",
+       "AP": "-3",
+       "D": "2",
+       "keywords": [
+        "Lethal Hits"
+       ]
+      },
+      {
+       "label": "strike",
+       "range": "Melee",
+       "A": "6",
+       "skill": "2+",
+       "S": "14",
+       "AP": "-4",
+       "D": "6",
+       "keywords": [
+        "Devastating Wounds"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Thunderstrike gauntlet",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": "strike",
+       "range": "Melee",
+       "A": "6",
+       "skill": "2+",
+       "S": "20",
+       "AP": "-3",
+       "D": "8",
+       "keywords": [
+        "Devastating Wounds"
+       ]
+      },
+      {
+       "label": "sweep",
+       "range": "Melee",
+       "A": "12",
+       "skill": "2+",
+       "S": "10",
+       "AP": "-2",
+       "D": "3",
+       "keywords": [
+        "Lethal Hits"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Twin Icarus autocannon",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "48\"",
+       "A": "3",
+       "skill": "3+",
+       "S": "7",
+       "AP": "-1",
+       "D": "2",
+       "keywords": [
+        "Anti-Fly 2+",
+        "Twin-Linked"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Ironstorm missile pod",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "48\"",
+       "A": "D6+1",
+       "skill": "3+",
+       "S": "5",
+       "AP": "0",
+       "D": "1",
+       "keywords": [
+        "Blast",
+        "Indirect Fire"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Stormspear rocket pod",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "48\"",
+       "A": "3",
+       "skill": "3+",
+       "S": "8",
+       "AP": "-2",
+       "D": "D6",
+       "keywords": []
+      }
+     ]
+    },
+    {
+     "name": "Meltagun",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "12\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "9",
+       "AP": "-4",
+       "D": "D6",
+       "keywords": [
+        "Melta 2"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Questoris heavy stubber",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "36\"",
+       "A": "3",
+       "skill": "3+",
+       "S": "4",
+       "AP": "-1",
+       "D": "1",
+       "keywords": [
+        "Rapid Fire 3"
+       ]
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Imperial Knights - Library.json"
+  }
+ }
+}

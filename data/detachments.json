@@ -1,0 +1,157 @@
+{
+ "Ironclad Champions": {
+  "cost": 1,
+  "key": "ic",
+  "label": "Ironclad",
+  "rule": {
+   "name": "Enduring Vengeance",
+   "text": "Tes Dreadnoughts relancent les jets de touche de 1."
+  },
+  "enhancements": [
+   {
+    "name": "Artificer Sarcophagus",
+    "pts": 40,
+    "text": "Dreadnought seulement. Les attaques qui le ciblent ont -1 aux dégâts."
+   },
+   {
+    "name": "Venerable Champion",
+    "pts": 30,
+    "text": "Dreadnought seulement (aura). L'infanterie et les motos Adeptus Astartes amies à 6\" relancent leurs 1 pour toucher."
+   }
+  ],
+  "strats": [
+   {
+    "name": "Mercy is Weakness",
+    "cp": 1,
+    "moment": "mine",
+    "when": "Ta phase de Tir ou la phase de Combat, quand un Dreadnought est choisi pour attaquer.",
+    "target": "Ce Dreadnought.",
+    "effect": "Ses attaques gagnent [Lethal Hits] ou [Sustained Hits 1] (au choix).",
+    "short": "Lethal Hits ou Sustained Hits 1 pour ses attaques",
+    "tip": "Contre un véhicule : prends Lethal Hits."
+   },
+   {
+    "name": "Unstoppable Advance",
+    "cp": 1,
+    "moment": "mine",
+    "when": "Tes phases de Mouvement ou de Charge, quand un Dreadnought est choisi pour bouger ou déclare une charge.",
+    "target": "Ce Dreadnought.",
+    "effect": "Il a le mot-clé MOBILE, utile pour passer à travers un décor.",
+    "short": "MOBILE pour ce mouvement ou cette charge"
+   },
+   {
+    "name": "Adamantine Terror",
+    "cp": 1,
+    "moment": "any",
+    "when": "Début de la phase de Combat.",
+    "target": "Un Dreadnought.",
+    "effect": "Chaque unité ennemie à son contact fait un test de moral avec -1.",
+    "short": "les ennemis au contact testent leur moral à -1"
+   }
+  ]
+ },
+ "Gravis Siege Force": {
+  "cost": 1,
+  "key": "gs",
+  "label": "Gravis Siege",
+  "rule": {
+   "name": "Indomitable Defence",
+   "text": "Tant qu'une unité Gravis est à portée d'un objectif, les attaques qui la ciblent avec une Force supérieure à son Endurance ont -1 pour blesser."
+  },
+  "enhancements": [
+   {
+    "name": "Immovable Conquerors",
+    "pts": 15,
+    "text": "Unité Gravis seulement. +1 CO."
+   },
+   {
+    "name": "Narthecis Gauntlet",
+    "pts": 20,
+    "text": "Apothecary Biologis seulement. Dans ta phase de Commandement, son unité soigne D3+1 PV."
+   }
+  ],
+  "strats": [
+   {
+    "name": "Stand Unyielding",
+    "cp": 1,
+    "moment": "mine",
+    "when": "Fin de ta phase de Mouvement.",
+    "target": "Une unité Gravis.",
+    "effect": "Choisis un objectif qu'elle contrôle : il est sécurisé. Il reste à toi même si ton unité le quitte, tant que l'adversaire ne le reprend pas.",
+    "short": "l'objectif qu'elle contrôle devient sécurisé",
+    "tip": "Sécurise ton objectif, puis avance vers le suivant."
+   },
+   {
+    "name": "Suppression Volleys",
+    "cp": 1,
+    "moment": "mine",
+    "when": "Ta phase de Tir, après qu'une unité Gravis a tiré.",
+    "target": "Cette unité Gravis.",
+    "effect": "Une unité ennemie touchée fait un test de moral avec -1.",
+    "short": "une cible touchée teste son moral à -1",
+    "tip": "Une unité en battle-shock a CO 0 : idéal pour voler un objectif."
+   },
+   {
+    "name": "Annihilating Force",
+    "cp": 1,
+    "moment": "mine",
+    "when": "Ta phase de Tir ou la phase de Combat, quand une unité Gravis est choisie pour attaquer.",
+    "target": "Cette unité Gravis.",
+    "effect": "Ses attaques ont [Lethal Hits].",
+    "short": "Lethal Hits pour ses attaques",
+    "tip": "Contre une cible à grosse Endurance."
+   }
+  ]
+ },
+ "Terminator Storm Force": {
+  "cost": 1,
+  "key": "ts",
+  "label": "Terminator",
+  "rule": {
+   "name": "Death Blow",
+   "text": "Tes unités Terminator ont +1 aux jets de charge."
+  },
+  "enhancements": [
+   {
+    "name": "Champion of the First Company",
+    "pts": 20,
+    "text": "Terminator seulement. Les attaques de mêlée de son unité ont [Lethal Hits]."
+   },
+   {
+    "name": "Corporeum Reliquary",
+    "pts": 25,
+    "text": "Terminator seulement. Dans ton premier Mouvement, l'unité peut faire un mouvement d'arrivée depuis la réserve."
+   }
+  ],
+  "strats": [
+   {
+    "name": "Tactical Dreadnought Fortitude",
+    "cp": 2,
+    "moment": "theirs",
+    "when": "Phase de Tir ou de Combat adverse, quand une unité ennemie cible une unité Terminator.",
+    "target": "Ton unité Terminator ciblée.",
+    "effect": "-1 aux dégâts subis jusqu'à la fin des attaques de cette unité ennemie.",
+    "short": "-1 aux dégâts subis (tour adverse)",
+    "tip": "Garde toujours 2 PC pour protéger ton plus gros bloc."
+   },
+   {
+    "name": "Merciless Veterans",
+    "cp": 1,
+    "moment": "mine",
+    "when": "Ta phase de Tir, quand une unité Terminator est choisie pour tirer.",
+    "target": "Cette unité.",
+    "effect": "Ses tirs gagnent [Lethal Hits] et [Sustained Hits 1].",
+    "short": "Lethal Hits + Sustained Hits 1 au tir"
+   },
+   {
+    "name": "Gunship Extraction",
+    "cp": 1,
+    "moment": "theirs",
+    "when": "Fin de la phase de Combat adverse.",
+    "target": "Une unité Terminator qui n'est pas au contact.",
+    "effect": "Elle retourne en réserve stratégique pour revenir ailleurs plus tard.",
+    "short": "retour en réserve à la fin du Combat adverse"
+   }
+  ]
+ }
+}

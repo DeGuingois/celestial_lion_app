@@ -1,0 +1,169 @@
+{
+ "keywords": {
+  "Rapid Fire": "À la moitié de la portée de l'arme ou moins, elle fait X attaques de plus.",
+  "Blast": "Pour chaque tranche complète de 5 figurines dans l'unité ciblée, l'arme gagne X attaques (1 si aucun chiffre). Exemple : Blast 2 contre 12 figurines = +4 attaques.",
+  "Torrent": "Chaque attaque touche automatiquement la cible : pas de jet pour toucher.",
+  "Heavy": "+1 pour toucher si l'unité n'a pas bougé pendant ce tour.",
+  "Assault": "L'arme peut tirer même si l'unité a fait une Avance.",
+  "Sustained Hits": "Chaque 6 pour toucher (touche critique) donne X touches supplémentaires.",
+  "Lethal Hits": "Chaque 6 pour toucher blesse automatiquement : pas de jet pour blesser.",
+  "Devastating Wounds": "Chaque 6 pour blesser (blessure critique) inflige des blessures mortelles égales aux dégâts de l'arme : aucune sauvegarde possible. Elles ne tuent qu'une figurine par blessure critique.",
+  "Melta": "À la moitié de la portée de l'arme ou moins, chaque attaque fait X dégâts de plus.",
+  "Twin-linked": "Tu relances les jets pour blesser ratés.",
+  "Close-quarters": "Arme de poing : elle peut tirer même quand l'unité est au contact d'un ennemi.",
+  "Anti": "Contre le type de cible indiqué (véhicule, vol…), un jet pour blesser égal ou supérieur au chiffre est une blessure critique : il blesse automatiquement.",
+  "Hazardous": "Après avoir tiré ou combattu avec cette arme, lance un dé par arme utilisée : sur un 1, l'unité subit des dégâts.",
+  "Precision": "L'arme peut viser un personnage caché dans son escouade.",
+  "Cleave": "Plus d'attaques contre les unités nombreuses (voir le texte officiel).",
+  "Indirect Fire": "L'arme peut tirer sur une cible hors de vue, avec un malus.",
+  "Lance": "+1 pour blesser si l'unité a chargé ce tour.",
+  "Ignores Cover": "La cible ne bénéficie pas du couvert."
+ },
+ "bonuses": {
+  "champion": [
+   "Champion of the First Company",
+   "Amélioration du Capitaine : toute son unité a Lethal Hits au corps à corps."
+  ],
+  "terminatus": [
+   "Terminatus Assault",
+   "Si l'unité a chargé ce tour : marteaux Sustained Hits 1 contre monstres et véhicules, griffes Sustained Hits 1 contre le reste."
+  ],
+  "fury": [
+   "Fury of the First",
+   "Les attaques de la Terminator Squad contre une cible à 9\" ou moins ont +1 PA (tir et mêlée)."
+  ],
+  "bolterd": [
+   "Bolter Discipline",
+   "Au tir, +1 pour toucher si les Intercesseurs ou leur cible sont à portée d'un objectif."
+  ],
+  "bstrike": [
+   "Ballistus Strike",
+   "Les tirs du Ballistus contre une cible à 24\" ou moins ont Sustained Hits 1."
+  ],
+  "ironclad": [
+   "Enduring Vengeance",
+   "Règle du détachement Ironclad Champions : les Dreadnoughts relancent les jets de touche de 1."
+  ],
+  "venerable": [
+   "Venerable Champion",
+   "L'infanterie et les motos amies à 6\" du Ballistus qui porte cette amélioration relancent leurs 1 pour toucher."
+  ],
+  "litany": [
+   "Litany of Hate",
+   "Le Chapelain donne [Lance] à son unité au corps à corps : +1 pour blesser après une charge."
+  ],
+  "fullthrottle": [
+   "Full-throttle Assault",
+   "Après une charge, les armes de mêlée des Outriders gagnent +1 dégât et Sustained Hits 1."
+  ]
+ },
+ "doctrines": {
+  "intro": "Règle d'armée. Au début de ta phase de Commandement, tu en choisis une. Elle s'applique à toutes tes unités Adeptus Astartes jusqu'à ta phase de Commandement suivante. Chacune ne s'utilise qu'une fois par partie. Les alliés (Knight) n'en profitent pas.",
+  "list": [
+   {
+    "tag": "Assaut",
+    "title": "Avancer et charger",
+    "text": "Faire une Avance n'empêche plus de déclarer une charge.",
+    "when": "Le tour où ton infanterie doit traverser la table et charger."
+   },
+   {
+    "tag": "Dévastateur",
+    "title": "Avancer et tirer",
+    "text": "Les armes à distance gagnent [ASSAULT] : tu peux faire une Avance et tirer quand même.",
+    "when": "Le tour où les Ballistus doivent se rapprocher à 24\" de leur cible."
+   },
+   {
+    "tag": "Tactique",
+    "title": "Se désengager et continuer",
+    "text": "Faire une Retraite n'empêche plus de tirer ni de charger.",
+    "when": "Une unité bloquée au corps à corps qui doit se dégager et tirer."
+   }
+  ]
+ },
+ "coreStrats": [
+  {
+   "name": "Command Re-roll",
+   "cp": 1,
+   "moment": "any",
+   "when": "Juste après un jet.",
+   "target": "Une unité.",
+   "effect": "Relance un jet de touche, blessure, dégâts, sauvegarde, Avance, charge (tous les dés), Hazardous, ou le nombre d'attaques.",
+   "short": "relance un jet raté",
+   "tip": "Le grand classique : relancer une charge ratée."
+  },
+  {
+   "name": "Insane Bravery",
+   "cp": 1,
+   "moment": "any",
+   "when": "Après un test de moral raté en phase de Commandement.",
+   "target": "Cette unité.",
+   "effect": "Le test compte comme réussi.",
+   "short": "réussit automatiquement un test de moral raté"
+  },
+  {
+   "name": "Rapid Ingress",
+   "cp": 1,
+   "moment": "theirs",
+   "when": "Fin de la phase de Mouvement adverse (pas au round 1).",
+   "target": "Une unité en réserve.",
+   "effect": "Elle arrive tout de suite, par exemple en Frappe en Profondeur.",
+   "short": "arrive en Frappe en Profondeur à la fin du Mouvement adverse",
+   "tip": "Fais tomber une unité dans son tour, puis charge dans le tien."
+  },
+  {
+   "name": "Fire Overwatch",
+   "cp": 1,
+   "moment": "theirs",
+   "when": "Fin de la phase de Mouvement adverse.",
+   "target": "Une de tes unités non engagée, à 24\" d'un ennemi (pas les unités Titanic).",
+   "effect": "Elle tire, mais ne touche que sur des 6, sans relance.",
+   "short": "tire sur un ennemi qui vient de bouger (touche sur 6)"
+  },
+  {
+   "name": "Heroic Intervention",
+   "cp": 1,
+   "moment": "theirs",
+   "when": "Fin de la phase de Charge adverse.",
+   "target": "Une unité non engagée à 12\" d'un ennemi (véhicule seulement si Walker ou Personnage).",
+   "effect": "Elle charge. Leap to Defend : seulement une unité qui a chargé ce tour. Into the Fray (+1 PC) : n'importe quel ennemi à 6\", jet de charge plafonné à 6.",
+   "short": "charge à la fin de la phase de Charge adverse"
+  },
+  {
+   "name": "Go to Ground",
+   "cp": 1,
+   "moment": "theirs",
+   "when": "Quand une de tes unités d'infanterie est ciblée par un tir.",
+   "target": "Une unité d'infanterie.",
+   "effect": "Couvert et invulnérable 6+ pour la phase.",
+   "short": "couvert + invulnérable 6+ contre un tir"
+  },
+  {
+   "name": "Crushing Impact",
+   "cp": 1,
+   "moment": "mine",
+   "when": "Après la charge d'un monstre ou d'un véhicule.",
+   "target": "Une unité ennemie au contact.",
+   "effect": "Lance autant de D6 que l'Endurance de ton unité. Chaque 5+ = 1 blessure mortelle (6 maximum). Chaque 1 = 1 blessure mortelle pour toi.",
+   "short": "après sa charge : 1 blessure mortelle par 5+"
+  },
+  {
+   "name": "Epic Challenge",
+   "cp": 1,
+   "moment": "mine",
+   "when": "Phase de Combat.",
+   "target": "Un de tes personnages.",
+   "effect": "Il gagne [Precision] : il peut frapper un personnage ennemi caché dans son escouade.",
+   "short": "Precision contre un personnage"
+  },
+  {
+   "name": "Counteroffensive",
+   "cp": 2,
+   "moment": "any",
+   "when": "Phase de Combat, après qu'une unité ennemie a combattu.",
+   "target": "Une de tes unités qui n'a pas encore combattu.",
+   "effect": "Elle combat juste après.",
+   "short": "combat juste après l'ennemi"
+  }
+ ],
+ "stratRule": "Chaque stratagème ne s'utilise qu'une fois par phase, et une unité ne peut être la cible que d'un seul stratagème par phase."
+}
