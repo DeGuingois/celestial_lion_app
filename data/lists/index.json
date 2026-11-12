@@ -6,12 +6,6 @@
    "name": "Celestial Lions Mecha",
    "points": "2000 pts",
    "file": "celestial-lions-2000.json"
-  },
-  {
-   "id": "celestial-lions-1500",
-   "name": "Celestial Lions 1500",
-   "points": "1500 pts",
-   "file": "celestial-lions-1500.json"
   }
  ]
 }

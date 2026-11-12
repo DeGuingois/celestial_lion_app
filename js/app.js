@@ -215,12 +215,12 @@
     var L = D.list;
     var links = function (items) { return '<ul>' + items.map(function (i) { return '<li><a href="#' + i[0] + '">' + i[1] + '</a></li>'; }).join('') + '</ul>'; };
     panels = [
-      ['Unités', links(L.units.map(function (u) { return ['u-' + u.id, esc(u.menu || u.label)]; }))],
-      ['Stratagèmes', links(allStrats().map(function (s) { return ['s-' + slug(s.name), esc(s.name) + ' <span class="m-cp">' + s.cp + ' PC</span>']; }))],
-      ['Sections', links(PAGES.map(function (p) { return [p[0], p[1]]; }))],
       ['Listes', '<div class="m-list" style="margin:auto;display:grid;gap:10px;justify-items:center">' + D.index.lists.map(function (l) {
         return '<button type="button" data-list="' + esc(l.id) + '" class="' + (l.id === L.id ? 'on' : '') + '">' + esc(l.name) + '<small>' + esc(l.points) + (l.id === L.id ? ' · liste active' : '') + '</small></button>';
       }).join('') + '<p style="color:#666;font-size:13px;max-width:280px;text-align:center;margin:8px 0 0">Pour ajouter une liste, envoie l\'export ou les captures BattleBase à Claude.</p></div>'],
+      ['Unités', links(L.units.map(function (u) { return ['u-' + u.id, esc(u.menu || u.label)]; }))],
+      ['Stratagèmes', links(allStrats().map(function (s) { return ['s-' + slug(s.name), esc(s.name) + ' <span class="m-cp">' + s.cp + ' PC</span>']; }))],
+      ['Sections', links(PAGES.map(function (p) { return [p[0], p[1]]; }))],
       ['Mises à jour', updPanel()]
     ];
     $('mTrack').innerHTML = panels.map(function (p) { return '<nav class="m-panel" aria-label="' + p[0] + '">' + p[1] + '</nav>'; }).join('');
@@ -244,6 +244,14 @@
   $('mPrev').addEventListener('click', function () { go(Math.max(0, idx() - 1)); });
   $('mNext').addEventListener('click', function () { go(Math.min(panels.length - 1, idx() + 1)); });
   tr.addEventListener('scroll', function () { requestAnimationFrame(mark); });
+  /* Glisser : un seul menu à la fois, même avec un geste rapide */
+  var tx = null, ty = null;
+  tr.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  tr.addEventListener('touchend', function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty; tx = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) go(Math.max(0, Math.min(panels.length - 1, idx() + (dx < 0 ? 1 : -1))));
+  }, { passive: true });
   ov.addEventListener('click', function (e) {
     var a = e.target.closest('a');
     if (a) {
@@ -254,7 +262,12 @@
       return;
     }
     var lb = e.target.closest('[data-list]');
-    if (lb) { store(K_LIST, lb.getAttribute('data-list')); location.hash = ''; location.reload(); }
+    if (lb) {
+      var lid = lb.getAttribute('data-list');
+      if (lid === D.list.id) { if (location.hash !== '#tour') location.hash = 'tour'; else route(); hide(); return; }
+      store(K_LIST, lid); try { sessionStorage.setItem('cl-skip-start', '1'); } catch (er) {}
+      location.hash = ''; location.reload();
+    }
   });
   document.addEventListener('keydown', function (e) {
     if (!ov.hidden) {
@@ -298,6 +311,7 @@
     if ($('uReset')) $('uReset').addEventListener('click', function () { store(K_OVR, null); relaunch(); });
   }
   function relaunch() {
+    try { sessionStorage.setItem('cl-skip-start', '1'); } catch (er) {}
     var go = function () { location.reload(); };
     if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistration) {
       navigator.serviceWorker.getRegistration().then(function (r) { return r ? r.update() : null; }).then(go, go);
@@ -387,7 +401,12 @@
   }
 
   /* ---------- démarrage ---------- */
-  load().then(render).catch(function (e) {
+  function start() {
+    render();
+    var skip = false; try { skip = sessionStorage.getItem('cl-skip-start') === '1'; sessionStorage.removeItem('cl-skip-start'); } catch (er) {}
+    if (!skip) show();
+  }
+  load().then(start).catch(function (e) {
     $('app').innerHTML = '<div class="note">Impossible de charger les données (' + esc(e.message) + '). Ouvre l\'app une fois avec du réseau.</div>';
   });
 })();
