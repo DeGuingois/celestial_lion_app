@@ -1,8 +1,8 @@
 // Pages, scripts et données : réseau d'abord (dernière version dès l'ouverture), copie enregistrée sans réseau.
 // Icônes et polices : copie enregistrée d'abord. GitHub (vérification des mises à jour) : jamais mis en cache.
-const CACHE = 'celestial-lions-v4';
+const CACHE = 'celestial-lions-v5';
 const FILES = ['./', './index.html', './css/app.css', './js/app.js', './js/bsdata.js',
-  './data/rules.json', './data/detachments.json', './data/units.json', './data/official-rules.json',
+  './data/rules.json', './data/detachments.json', './data/units.json', './data/official-rules.json', './data/detachments-all.json', './data/detachments-fr.json',
   './data/lists/index.json', './data/lists/celestial-lions-2000.json',
   './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', e => {

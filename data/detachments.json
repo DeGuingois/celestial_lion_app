@@ -153,5 +153,55 @@
     "short": "retour en réserve à la fin du Combat adverse"
    }
   ]
+ },
+ "Devastator Brethren": {
+  "cost": 1,
+  "key": "db",
+  "label": "Devastator",
+  "rule": {
+   "name": "Devastator Mastery",
+   "text": "Tu peux utiliser la Doctrine Dévastateur une fois de plus dans la partie."
+  },
+  "enhancements": [
+   {
+    "name": "Master-Forged Firearms",
+    "pts": 15,
+    "text": "Figurine d'infanterie ou montée. Ses tirs (hors psychiques) ont +1 A, +1 F, +1 PA et +1 D."
+   },
+   {
+    "name": "Honour of Vigilance",
+    "pts": 20,
+    "text": "Figurine Adeptus Astartes. Ses tirs ont [Lethal Hits], et elle relance ses Avances pendant la Doctrine Dévastateur."
+   }
+  ],
+  "strats": [
+   {
+    "name": "Armour of Contempt",
+    "cp": 1,
+    "moment": "theirs",
+    "when": "Phase de Tir ou de Combat adverse, quand une unité ennemie cible une de tes unités.",
+    "target": "Ton unité ciblée.",
+    "effect": "Les attaques de cette unité ennemie ont -1 PA jusqu'à la fin de ses attaques.",
+    "short": "-1 PA aux attaques qui te ciblent"
+   },
+   {
+    "name": "Storm of Fire",
+    "cp": 1,
+    "moment": "mine",
+    "when": "Ta phase de Tir, quand une unité est choisie pour tirer.",
+    "target": "Cette unité.",
+    "effect": "Ses tirs ont [Ignores Cover]. Avec la Doctrine Dévastateur active, +1 PA en plus.",
+    "short": "Ignores Cover (+1 PA en Dévastateur)"
+   },
+   {
+    "name": "Hail of Vengeance",
+    "cp": 2,
+    "moment": "theirs",
+    "when": "Phase de Tir adverse, après qu'une unité ennemie a tiré et détruit une figurine d'une de tes unités.",
+    "target": "Ton unité touchée.",
+    "effect": "Elle tire tout de suite sur cette unité ennemie.",
+    "short": "riposte au tir pendant le tour adverse"
+   }
+  ]
  }
 }

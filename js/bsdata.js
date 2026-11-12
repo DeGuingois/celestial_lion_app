@@ -109,10 +109,47 @@
     return r;
   }
 
+
+  /* Détachements d'une faction : coût en DP, disposition, tags uniques, règle, améliorations */
+  var DISPOS = ['Priority Assets', 'Take and Hold', 'Purge the Foe', 'Disruption', 'Reconnaissance'];
+  function cleanEnh(n) { return n.replace(/\s*\((Upgrade|Aura)\)/g, function (m, x) { return x === 'Aura' ? ' (Aura)' : ''; }).trim(); }
+  function textOf(o, idx) {
+    var t = [];
+    (o.profiles || []).forEach(function (p) { var c = chars(p); if (c.Description) t.push(c.Description); });
+    (o.rules || []).forEach(function (r) { if (r.description) t.push(r.description); });
+    (o.infoLinks || []).forEach(function (l) { var x = idx[l.targetId]; if (l.type === 'profile' && x) { var c = chars(x); if (c.Description) t.push(c.Description); } });
+    return t.join('\n').replace(/\u00a0/g, ' ').trim();
+  }
+  function extractDetachments(idx) {
+    var grp = null, enh = null;
+    for (var id in idx) {
+      var o = idx[id];
+      if (o.name === 'Detachment' && o.selectionEntries && o.selectionEntries.length > 3) grp = o;
+      if (o.name === 'Enhancements' && o.selectionEntryGroups && o.selectionEntryGroups.length > 3) enh = o;
+    }
+    if (!grp) return [];
+    return grp.selectionEntries.map(function (d) {
+      var dp = null; (d.costs || []).forEach(function (c) { if (c.name === 'Detachment Points') dp = c.value; });
+      var cats = (d.categoryLinks || []).map(function (c) { return c.name; });
+      var hidden = (d.modifiers || []).some(function (m) { return m.field === 'hidden'; });
+      var eg = enh ? (enh.selectionEntryGroups || []).filter(function (g) { return g.name === d.name + ' Enhancements'; })[0] : null;
+      return {
+        name: d.name, dp: dp, available: !hidden,
+        disposition: cats.filter(function (c) { return DISPOS.indexOf(c) >= 0; }),
+        tags: cats.filter(function (c) { return DISPOS.indexOf(c) < 0 && !/DP Detachment/.test(c); }),
+        rules: (d.rules || []).map(function (r) { return { name: r.name, text: (r.description || '').replace(/\u00a0/g, ' ').trim() }; }),
+        enhancements: eg ? (eg.selectionEntries || []).map(function (e) {
+          var pts = null; (e.costs || []).forEach(function (c) { if (c.name === 'pts') pts = c.value; });
+          return { name: cleanEnh(e.name), pts: pts, text: textOf(e, idx) };
+        }) : []
+      };
+    });
+  }
+
   function rawUrl(sha, file) {
     return 'https://raw.githubusercontent.com/' + REPO + '/' + sha + '/' + encodeURIComponent(file);
   }
 
-  var api = { REPO: REPO, buildIndex: buildIndex, extractUnit: extractUnit, extractRules: extractRules, rawUrl: rawUrl };
+  var api = { REPO: REPO, buildIndex: buildIndex, extractUnit: extractUnit, extractRules: extractRules, extractDetachments: extractDetachments, rawUrl: rawUrl };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.BSX = api;
 })(this);

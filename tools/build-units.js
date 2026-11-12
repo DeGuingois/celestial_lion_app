@@ -25,5 +25,9 @@ let sha = '', date = '';
 try { sha = execSync('git -C "' + src + '" rev-parse HEAD').toString().trim(); date = execSync('git -C "' + src + '" log -1 --format=%cI').toString().trim(); } catch (e) {}
 const meta = { repo: BSX.REPO, sha, date, gameSystem: gsFile };
 fs.writeFileSync(path.join(root, 'data/units.json'), JSON.stringify({ meta, units }, null, 1));
+const factions = [...new Set(lists.map(l => l.faction).filter(Boolean))];
+const dets = {};
+factions.forEach(f => { dets[f] = BSX.extractDetachments(BSX.buildIndex([load(f), gs])); });
+fs.writeFileSync(path.join(root, 'data/detachments-all.json'), JSON.stringify({ meta, factions: dets }, null, 1));
 fs.writeFileSync(path.join(root, 'data/official-rules.json'), JSON.stringify({ meta, rules: BSX.extractRules(gs) }, null, 1));
 console.log('OK', Object.keys(units).length, 'fiches', sha.slice(0, 7), date);

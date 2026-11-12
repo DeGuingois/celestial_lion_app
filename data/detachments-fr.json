@@ -1,0 +1,122 @@
+{
+ "Gladius Task Force": {
+  "pour": "Le détachement polyvalent : il marche avec n'importe quelle armée, mais coûte 3 DP à lui seul.",
+  "rule": "Tu peux utiliser une Doctrine de ton choix une fois de plus dans la partie.",
+  "enh": {
+   "Artificer Armour": "Figurine Adeptus Astartes. Sauvegarde 2+ et Feel No Pain 5+.",
+   "Laurels of Triumph": "Figurine Adeptus Astartes. +1 F et +1 PA en mêlée, ou +2 F et +2 PA si la Doctrine Assaut est active pour son unité.",
+   "Adept of the Codex": "Capitaine. La Doctrine Tactique est toujours active pour son unité, en plus de l'autre Doctrine.",
+   "Standard of the Emperor Ascendant": "Ancient. +1 CO et +1 Cd, Feel No Pain 5+, et une fois par partie : +1 attaque en mêlée pour son unité pendant un combat."
+  }
+ },
+ "Ironstorm Spearhead": {
+  "pour": "Pour une armée de chars (hors Dreadnoughts et marcheurs).",
+  "rule": "Tes véhicules Adeptus Astartes (sauf Walkers) relancent un jet de touche et un jet de blessure à chaque tir.",
+  "enh": {
+   "Gunnery Honours": "Véhicule (pas transport, pas Fly, pas Walker). Ses tirs ont [Heavy].",
+   "Redoubtable Machine Spirit": "Véhicule (pas transport, pas Fly, pas Walker). Invulnérable 5+ et soigne 1 PV à la fin de ta phase de Commandement."
+  }
+ },
+ "Stormlance Task Force": {
+  "pour": "Pour une armée rapide de motos et de Land Speeders.",
+  "rule": "Tes unités Mounted (motos) et Speeder ont +2\" de mouvement.",
+  "enh": {
+   "Supercharged Engines": "Unité Mounted. Relance ses jets d'Avance.",
+   "Auspex Triangulation Shrines": "Unité Speeder. Au début de ta phase de Tir, une unité ennemie visible à 12\" est repérée : +3\" de portée de détection contre elle."
+  }
+ },
+ "Assault Brethren": {
+  "pour": "Pour jouer agressif au corps à corps. Un seul détachement « Brethren » par armée.",
+  "rule": "Tu peux utiliser la Doctrine Assaut une fois de plus dans la partie.",
+  "enh": {
+   "Imperium's Sword": "Arme de mêlée de héros (texte à vérifier dans BattleBase).",
+   "Furious Assault": "Unité d'infanterie. Ses attaques de mêlée ont [Sustained Hits 1] contre tout sauf monstres et véhicules."
+  }
+ },
+ "Tactical Brethren": {
+  "pour": "Pour tenir la ligne de front et réagir pendant le tour adverse. Un seul « Brethren » par armée.",
+  "rule": "Tu peux utiliser la Doctrine Tactique une fois de plus dans la partie.",
+  "enh": {
+   "Laurels of Vigilance": "Figurine Adeptus Astartes. Une fois par round : Fire Overwatch ou Heroic Intervention coûte 1 PC de moins sur une unité Battleline à 12\".",
+   "Tactical Insight": "Capitaine. La Doctrine Tactique est toujours active pour son unité, en plus de l'autre Doctrine."
+  }
+ },
+ "Devastator Brethren": {
+  "pour": "Pour une armée qui tire beaucoup. Un seul « Brethren » par armée.",
+  "rule": "Tu peux utiliser la Doctrine Dévastateur une fois de plus dans la partie.",
+  "enh": {
+   "Honour of Vigilance": "Figurine Adeptus Astartes. Ses tirs ont [Lethal Hits], et elle relance ses Avances pendant la Doctrine Dévastateur.",
+   "Master-Forged Firearms": "Figurine d'infanterie ou montée. Ses tirs (hors psychiques) ont +1 A, +1 F, +1 PA et +1 D."
+  }
+ },
+ "Terminator Storm Force": {
+  "pour": "Pour une armée de Terminators.",
+  "rule": "Tes unités Terminator ont +1 aux jets de charge.",
+  "enh": {
+   "Champion of the First Company": "Terminator. Les attaques de mêlée de son unité ont [Lethal Hits].",
+   "Corporeum Reliquary": "Terminator. Dans ton premier Mouvement, son unité peut arriver de la réserve."
+  }
+ },
+ "Tacticus Attack Force": {
+  "pour": "Pour l'infanterie Tacticus (Intercesseurs, Assault Intercessors…) qui avance vite.",
+  "rule": "Tes unités Tacticus relancent leurs jets d'Avance.",
+  "enh": {
+   "Martial Paragon": "Figurine Tacticus. Son unité relance un jet de touche et un jet de blessure par attaque.",
+   "Spearpoint War Leader": "Figurine Tacticus. Son unité a Scouts 6\"."
+  }
+ },
+ "Tacticus Firestorm Force": {
+  "pour": "Pour l'infanterie Tacticus qui tire au fusil.",
+  "rule": "Les armes [Rapid Fire] de tes unités Tacticus ont le bonus Rapid Fire à toute portée.",
+  "enh": {
+   "Cyber Familiar": "Figurine Tacticus. Après le déploiement, redéploie jusqu'à 3 unités, éventuellement en réserve.",
+   "Tempered in Battle (Aura)": "Figurine Tacticus. Les unités amies à 6\" relancent leurs tests de Commandement."
+  }
+ },
+ "Phobos Shadow Force": {
+  "pour": "Pour des Phobos et Scouts qui tirent puis se cachent.",
+  "rule": "Quand une unité Phobos ou Scout a tiré : elle reste cachée, ou elle fait un mouvement de D6\" (sans pouvoir charger ensuite).",
+  "enh": {
+   "Execute and Redeploy": "Figurine Phobos. Après avoir tiré, son unité non engagée peut bouger de 6\" (sans pouvoir charger ensuite)."
+  }
+ },
+ "Phobos Shock Force": {
+  "pour": "Pour des Phobos qui tendent des embuscades.",
+  "rule": "À la fin de ton Mouvement, une unité Phobos cachée relance ses 1 pour blesser jusqu'à la fin du tour.",
+  "enh": {
+   "Seal of Shrouding": "Figurine Phobos. L'ennemi ne peut pas lui tirer dessus en tir de riposte (snap shooting)."
+  }
+ },
+ "Gravis Linebreaker Force": {
+  "pour": "Pour des unités Gravis qui avancent en tirant.",
+  "rule": "Le tour où une unité Gravis a fait un mouvement normal, ses tirs perdent [Heavy] mais ont +1 pour toucher.",
+  "enh": {
+   "Indefatigable Fortitude": "Figurine Gravis. -1 pour blesser contre les attaques de Force supérieure à son Endurance.",
+   "Relentless Advance": "Figurine Gravis. Son unité a Scouts 5\"."
+  }
+ },
+ "Gravis Siege Force": {
+  "pour": "Pour des unités Gravis qui tiennent les objectifs.",
+  "rule": "Tant qu'une unité Gravis est à portée d'un objectif, les attaques de Force supérieure à son Endurance ont -1 pour blesser.",
+  "enh": {
+   "Immovable Conquerors": "Unité Gravis. +1 CO.",
+   "Narthecis Gauntlet": "Apothecary Biologis. Son unité soigne D3+1 PV dans ta phase de Commandement."
+  }
+ },
+ "Ironclad Champions": {
+  "pour": "Pour une armée avec plusieurs Dreadnoughts.",
+  "rule": "Tes Dreadnoughts relancent leurs 1 pour toucher.",
+  "enh": {
+   "Artificer Sarcophagus": "Dreadnought. Les attaques qui le ciblent ont -1 aux dégâts.",
+   "Venerable Champion (Aura)": "Dreadnought. L'infanterie et les motos amies à 6\" relancent leurs 1 pour toucher."
+  }
+ },
+ "Gauntlet Task Force": {
+  "pour": "Pour une armée en transports (Rhino, Impulsor, Repulsor…).",
+  "rule": "Quand un transport a tiré, une unité ennemie touchée est « assaillie » : les unités qui ont débarqué ce tour ont [Sustained Hits 1] contre elle.",
+  "enh": {
+   "Linebreaker Onslaught": "Figurine d'infanterie. Si son unité a débarqué ce tour : relance ses charges, et ne peut pas subir de tir de riposte.",
+   "Damocles-Class Uplink": "Capitaine embarqué. Dans ton Mouvement, donne une Doctrine à une unité d'infanterie à 6\" de son transport."
+  }
+ }
+}

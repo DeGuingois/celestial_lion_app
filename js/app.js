@@ -23,13 +23,13 @@
 
   /* ---------- chargement ---------- */
   function load() {
-    return Promise.all(['data/rules.json', 'data/detachments.json', 'data/units.json', 'data/official-rules.json', 'data/lists/index.json'].map(getJSON))
+    return Promise.all(['data/rules.json', 'data/detachments.json', 'data/units.json', 'data/official-rules.json', 'data/lists/index.json', 'data/detachments-all.json', 'data/detachments-fr.json'].map(getJSON))
       .then(function (r) {
-        D.rules = r[0]; D.det = r[1]; D.base = r[2]; D.official = r[3]; D.index = r[4];
+        D.rules = r[0]; D.det = r[1]; D.base = r[2]; D.official = r[3]; D.index = r[4]; D.detAll = r[5].factions; D.detFr = r[6];
         D.units = D.base.units; D.offRules = D.official.rules; D.meta = D.base.meta;
         var o = store(K_OVR);
         if (o && o.meta && (!D.meta.date || o.meta.date > D.meta.date)) {
-          D.units = Object.assign({}, D.base.units, o.units); D.offRules = Object.assign({}, D.offRules, o.rules || {}); D.meta = o.meta; D.override = true;
+          D.units = Object.assign({}, D.base.units, o.units); D.offRules = Object.assign({}, D.offRules, o.rules || {}); if (o.dets) D.detAll = Object.assign({}, D.detAll, o.dets); D.meta = o.meta; D.override = true;
         } else if (o) { store(K_OVR, null); }   // l'app contient déjà des données plus récentes
         var id = store(K_LIST) || D.index.default;
         var entry = D.index.lists.filter(function (l) { return l.id === id; })[0] || D.index.lists[0];
@@ -81,12 +81,44 @@
     return '<h2>Les Doctrines</h2><p class="lede">' + esc(d.intro) + '</p><div class="grid g3 doc">' +
       d.list.map(function (x) { return '<div class="card"><span class="tag">' + esc(x.tag) + '</span><h3>' + esc(x.title) + '</h3><p>' + esc(x.text) + '</p><p class="small">Quand : ' + esc(x.when) + '</p></div>'; }).join('') + '</div>';
   }
+  function availDets() {
+    var f = D.list.faction, all = (D.detAll && D.detAll[f]) || [];
+    return all.filter(function (d) { return d.available; });
+  }
+  function detLink(d) {
+    var mine = D.list.detachments.indexOf(d.name) >= 0, fr = D.detFr[d.name] || {};
+    return '<a class="card det-card" href="#d-' + slug(d.name) + '"><div class="det-top"><h3>' + esc(d.name) + '</h3><span class="cp' + (d.dp > 1 ? ' two' : '') + '">' + d.dp + ' DP</span></div>' +
+      '<p class="small">' + (mine ? '<span class="mine">dans ta liste</span> ' : '') + esc(d.disposition.join(' · ')) + (d.tags.length ? ' · tag ' + esc(d.tags.join(', ')) : '') + '</p>' +
+      (fr.pour ? '<p>' + esc(fr.pour) + '</p>' : '') + '</a>';
+  }
   function pageDetachements() {
-    return '<h2>Règles des détachements</h2><p class="lede">Ces bonus sont actifs en permanence, sans dépenser de PC.</p><div class="grid g3">' +
-      D.list.detachments.map(function (n) {
-        var d = D.det[n]; if (!d) return '';
-        return '<div class="card"><span class="src ' + d.key + '">' + esc(n) + ' · ' + d.cost + ' DP</span><h3 style="margin-top:6px">' + esc(d.rule.name) + '</h3><p>' + esc(d.rule.text) + '</p></div>';
-      }).join('') + '</div>';
+    var all = availDets(), mine = all.filter(function (d) { return D.list.detachments.indexOf(d.name) >= 0; }), other = all.filter(function (d) { return D.list.detachments.indexOf(d.name) < 0; });
+    return '<h2>Détachements</h2><p class="lede">Tu disposes de 3 DP à 2000 pts (2 DP à 1000 pts). Touche un détachement pour voir sa règle, ses améliorations et ses stratagèmes.</p>' +
+      '<div class="when-title">Dans ta liste</div><div class="grid g2">' + mine.map(detLink).join('') + '</div>' +
+      '<div class="when-title">Les autres détachements disponibles</div><div class="grid g2">' + other.map(detLink).join('') + '</div>' +
+      '<p class="small" style="margin-top:14px">Les détachements propres à un Chapitre (Ultramarines, Dark Angels…) ne sont pas listés : les Celestial Lions sont un Chapitre générique.</p>';
+  }
+  function pageDetachment(d) {
+    var fr = D.detFr[d.name] || {}, ours = D.det[d.name], mine = D.list.detachments.indexOf(d.name) >= 0;
+    var h = '<p class="small"><a href="#detachements">← Tous les détachements</a></p><h2>' + esc(d.name) + '</h2>' +
+      '<div class="meta" style="margin:6px 0 14px"><span class="chip gold">' + d.dp + ' DP</span>' + d.disposition.map(function (x) { return '<span class="chip">' + esc(x) + '</span>'; }).join('') +
+      d.tags.map(function (x) { return '<span class="chip">Tag : ' + esc(x) + '</span>'; }).join('') + (mine ? '<span class="chip gold">Dans ta liste</span>' : '') + '</div>';
+    if (fr.pour) h += '<p class="lede">' + esc(fr.pour) + '</p>';
+    d.rules.forEach(function (r) {
+      h += '<div class="when-title">Règle du détachement</div><div class="card"><h3>' + esc(r.name) + '</h3><p>' + esc(fr.rule || r.text) + '</p>' + (fr.rule ? '<details class="off"><summary>Texte officiel (anglais)</summary><p class="small">' + md(r.text) + '</p></details>' : '') + '</div>';
+    });
+    h += '<div class="when-title">Améliorations</div><div class="grid g2">' + d.enhancements.map(function (e) {
+      var t = (fr.enh || {})[e.name];
+      return '<div class="card"><div class="det-top"><h3>' + esc(e.name) + '</h3><span class="pts">' + esc(e.pts) + ' pts</span></div><p>' + esc(t || e.text || 'Texte à vérifier dans BattleBase.') + '</p>' + (t && e.text ? '<details class="off"><summary>Texte officiel (anglais)</summary><p class="small">' + md(e.text) + '</p></details>' : '') + '</div>';
+    }).join('') + '</div>';
+    h += '<div class="when-title">Stratagèmes</div>';
+    if (ours && ours.strats.length) h += '<div class="grid g2">' + ours.strats.map(function (s) { return stratCard(Object.assign({ src: ours.key, srcLabel: ours.label }, s), 'ds-'); }).join('') + '</div>';
+    else h += '<div class="note">Les stratagèmes de ce détachement ne sont pas encore dans l\'app (la base communautaire ne les contient pas). Envoie une capture BattleBase du détachement à Claude pour les ajouter.</div>';
+    if (d.tags.length) {
+      var conf = availDets().filter(function (x) { return x.name !== d.name && x.tags.some(function (t) { return d.tags.indexOf(t) >= 0; }); });
+      if (conf.length) h += '<div class="when-title">Compatibilité</div><p>Même tag unique, donc <b>incompatible</b> avec : ' + conf.map(function (x) { return '<a href="#d-' + slug(x.name) + '">' + esc(x.name) + '</a>'; }).join(', ') + '.</p>';
+    }
+    return h;
   }
   function pageAmeliorations() {
     var L = D.list;
@@ -98,9 +130,9 @@
         return '<div class="card"><span class="src ' + D.det[dn].key + '">' + esc(dn) + ' · ' + found.pts + ' pts</span><h3 style="margin-top:6px">' + esc(e.name) + '</h3><p>Sur <b>' + esc(e.on) + '</b>. ' + esc(found.text) + '</p></div>';
       }).join('') + '</div>';
   }
-  function stratCard(s) {
+  function stratCard(s, pre) {
     var tip = (D.list.stratTips || {})[s.name] || s.tip;
-    return '<div class="card strat" id="s-' + slug(s.name) + '"><div class="strat-head"><div><span class="src ' + s.src + '">' + esc(s.srcLabel) + '</span><h3 style="margin-top:6px">' + esc(s.name) + '</h3></div><span class="cp' + (s.cp > 1 ? ' two' : '') + '">' + s.cp + ' PC</span></div>' +
+    return '<div class="card strat" id="' + (pre || 's-') + slug(s.name) + '"><div class="strat-head"><div><span class="src ' + s.src + '">' + esc(s.srcLabel) + '</span><h3 style="margin-top:6px">' + esc(s.name) + '</h3></div><span class="cp' + (s.cp > 1 ? ' two' : '') + '">' + s.cp + ' PC</span></div>' +
       '<dl class="kv"><dt>Quand</dt><dd>' + esc(s.when) + '</dd><dt>Cible</dt><dd>' + esc(s.target) + '</dd><dt>Effet</dt><dd>' + esc(s.effect) + '</dd></dl>' +
       (tip ? '<div class="tip">' + esc(tip) + '</div>' : '') + '</div>';
   }
@@ -110,7 +142,7 @@
     return '<h2>Stratagèmes (PC)</h2><p class="lede">' + esc(D.rules.stratRule) + ' Les stratagèmes de détachement ne marchent que sur tes unités Adeptus Astartes.</p><div class="legend">' + legend + '</div>' +
       groups.map(function (g) {
         var l = all.filter(function (s) { return s.moment === g[0]; });
-        return l.length ? '<div class="when-title">' + g[1] + '</div><div class="grid g2">' + l.map(stratCard).join('') + '</div>' : '';
+        return l.length ? '<div class="when-title">' + g[1] + '</div><div class="grid g2">' + l.map(function (s) { return stratCard(s); }).join('') + '</div>' : '';
       }).join('');
   }
 
@@ -188,7 +220,8 @@
       doctrines: pageDoctrines(), detachements: pageDetachements(), ameliorations: pageAmeliorations(),
       strats: pageStrats(), unites: pageUnites(), 'mots-cles': pageMotsCles()
     };
-    $('app').innerHTML = PAGES.map(function (p) { return section(p[0], html[p[0]] || ''); }).join('');
+    $('app').innerHTML = PAGES.map(function (p) { return section(p[0], html[p[0]] || ''); }).join('') +
+      availDets().map(function (d) { return section('d-' + slug(d.name), pageDetachment(d)); }).join('');
     buildMenu();
     route();
   }
@@ -220,6 +253,7 @@
       }).join('') + '<p style="color:#666;font-size:13px;max-width:280px;text-align:center;margin:8px 0 0">Pour ajouter une liste, envoie l\'export ou les captures BattleBase à Claude.</p></div>'],
       ['Unités', links(L.units.map(function (u) { return ['u-' + u.id, esc(u.menu || u.label)]; }))],
       ['Stratagèmes', links(allStrats().map(function (s) { return ['s-' + slug(s.name), esc(s.name) + ' <span class="m-cp">' + s.cp + ' PC</span>']; }))],
+      ['Détachements', links(availDets().map(function (d) { return ['d-' + slug(d.name), (D.list.detachments.indexOf(d.name) >= 0 ? '★ ' : '') + esc(d.name) + ' <span class="m-cp">' + d.dp + ' DP</span>']; }))],
       ['Sections', links(PAGES.map(function (p) { return [p[0], p[1]]; }))],
       ['Mises à jour', updPanel()]
     ];
@@ -335,7 +369,7 @@
         lists = ls;
         var want = {};
         lists.forEach(function (l) { l.units.forEach(function (u) { u.datasheets.forEach(function (d) { want[d.name] = d.source; }); }); });
-        var files = Array.from(new Set(Object.keys(want).map(function (k) { return want[k]; })));
+        var files = Array.from(new Set(Object.keys(want).map(function (k) { return want[k]; }).concat(lists.map(function (l) { return l.faction; }).filter(Boolean))));
         var gsName = D.base.meta.gameSystem || 'Warhammer 40,000.json', n = 0, total = files.length + 1;
         var dl = function (f) { return getJSON(BSX.rawUrl(sha, f)).then(function (j) { n++; res('<p>Téléchargement ' + n + '/' + total + '…</p>'); return j; }); };
         return dl(gsName).then(function (gs) {
@@ -348,7 +382,9 @@
                 if (u) { u.source = f; units[k] = u; } else notFound.push(k);
               });
             });
-            return { units: units, rules: BSX.extractRules(gs), notFound: notFound };
+            var dets = {};
+            lists.forEach(function (l) { if (l.faction && files.indexOf(l.faction) >= 0) dets[l.faction] = BSX.extractDetachments(BSX.buildIndex([cats[files.indexOf(l.faction)], gs])); });
+            return { units: units, rules: BSX.extractRules(gs), dets: dets, notFound: notFound };
           });
         });
       })
@@ -356,21 +392,42 @@
         if (!r) return;
         var ch = diff(D.units, r.units), rc = 0;
         Object.keys(r.rules).forEach(function (k) { if (D.offRules[k] && D.offRules[k] !== r.rules[k]) rc++; });
-        pending = { meta: { repo: BSX.REPO, sha: sha, date: date, gameSystem: D.base.meta.gameSystem }, units: r.units, rules: r.rules };
+        pending = { meta: { repo: BSX.REPO, sha: sha, date: date, gameSystem: D.base.meta.gameSystem }, units: r.units, rules: r.rules, dets: r.dets };
+        var dch = detDiff(D.detAll, r.dets);
         var h = '<p>Nouvelle version des données : <b>' + esc(frDate(date)) + '</b>.</p>';
         var names = Object.keys(ch);
-        if (!names.length && !rc) h += '<p class="ok">Aucun changement pour tes unités.</p>';
+        if (!names.length && !rc && !dch.length) h += '<p class="ok">Aucun changement pour tes unités.</p>';
         names.forEach(function (n) { h += '<h4>' + esc(n) + '</h4><ul>' + ch[n].map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; });
+        if (dch.length) h += '<h4>Détachements</h4><ul>' + dch.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
         if (rc) h += '<h4>Mots-clés</h4><ul><li>' + rc + ' texte(s) officiel(s) modifié(s)</li></ul>';
         if (r.notFound.length) h += '<p class="err">Introuvable dans la nouvelle version : ' + esc(r.notFound.join(', ')) + ' (gardé tel quel).</p>';
         h += '<p style="margin-top:10px">Vérifie les points de ta liste dans BattleBase si des coûts ont changé.</p>' +
           '<div style="display:grid;gap:8px;margin-top:10px"><button type="button" class="m-btn2" id="uApply">Appliquer et relancer</button><button type="button" class="m-btn2 ghost" id="uSkip">Ignorer</button></div>';
         res(h);
-        $('uApply').addEventListener('click', function () { var keep = {}; Object.keys(D.units).forEach(function (k) { if (!pending.units[k]) keep[k] = D.units[k]; }); store(K_OVR, { meta: pending.meta, units: Object.assign(keep, pending.units), rules: pending.rules }); relaunch(); });
+        $('uApply').addEventListener('click', function () { var keep = {}; Object.keys(D.units).forEach(function (k) { if (!pending.units[k]) keep[k] = D.units[k]; }); store(K_OVR, { meta: pending.meta, units: Object.assign(keep, pending.units), rules: pending.rules, dets: pending.dets }); relaunch(); });
         $('uSkip').addEventListener('click', function () { $('uRes').hidden = true; pending = null; });
         btn.disabled = false;
       })
       .catch(function (e) { res('<p class="err">La vérification a échoué : ' + esc(e.message) + '. Réessaie plus tard.</p>'); btn.disabled = false; });
+  }
+  function detDiff(oldF, newF) {
+    var out = [];
+    Object.keys(newF || {}).forEach(function (f) {
+      var o = {}; ((oldF || {})[f] || []).forEach(function (d) { o[d.name] = d; });
+      newF[f].forEach(function (d) {
+        if (!d.available) return;
+        var x = o[d.name];
+        if (!x) { out.push('Nouveau : ' + esc(d.name)); return; }
+        if (x.dp !== d.dp) out.push(esc(d.name) + ' — coût : ' + x.dp + ' → <b>' + d.dp + ' DP</b>');
+        if (JSON.stringify(x.rules) !== JSON.stringify(d.rules)) out.push(esc(d.name) + ' — règle modifiée');
+        d.enhancements.forEach(function (e) {
+          var y = x.enhancements.filter(function (z) { return z.name === e.name; })[0];
+          if (!y) out.push(esc(d.name) + ' — nouvelle amélioration : ' + esc(e.name));
+          else { if (y.pts !== e.pts) out.push(esc(e.name) + ' : ' + y.pts + ' → <b>' + e.pts + ' pts</b>'); if (y.text !== e.text) out.push(esc(e.name) + ' — texte modifié'); }
+        });
+      });
+    });
+    return out;
   }
   function diff(oldU, newU) {
     var out = {}, add = function (n, t) { (out[n] = out[n] || []).push(t); };
