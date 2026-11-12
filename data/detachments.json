@@ -28,7 +28,8 @@
     "target": "Ce Dreadnought.",
     "effect": "Ses attaques gagnent [Lethal Hits] ou [Sustained Hits 1] (au choix).",
     "short": "Lethal Hits ou Sustained Hits 1 pour ses attaques",
-    "tip": "Contre un véhicule : prends Lethal Hits."
+    "tip": "Contre un véhicule : prends Lethal Hits.",
+    "use": "Rendre un Dreadnought plus meurtrier pour un tir ou un combat important."
    },
    {
     "name": "Unstoppable Advance",
@@ -37,7 +38,8 @@
     "when": "Tes phases de Mouvement ou de Charge, quand un Dreadnought est choisi pour bouger ou déclare une charge.",
     "target": "Ce Dreadnought.",
     "effect": "Il a le mot-clé MOBILE, utile pour passer à travers un décor.",
-    "short": "MOBILE pour ce mouvement ou cette charge"
+    "short": "MOBILE pour ce mouvement ou cette charge",
+    "use": "Faire passer un Dreadnought à travers un décor pour ouvrir une ligne de tir."
    },
    {
     "name": "Adamantine Terror",
@@ -46,7 +48,8 @@
     "when": "Début de la phase de Combat.",
     "target": "Un Dreadnought.",
     "effect": "Chaque unité ennemie à son contact fait un test de moral avec -1.",
-    "short": "les ennemis au contact testent leur moral à -1"
+    "short": "les ennemis au contact testent leur moral à -1",
+    "use": "Faire flancher les ennemis au contact d'un Dreadnought."
    }
   ]
  },
@@ -79,7 +82,8 @@
     "target": "Une unité Gravis.",
     "effect": "Choisis un objectif qu'elle contrôle : il est sécurisé. Il reste à toi même si ton unité le quitte, tant que l'adversaire ne le reprend pas.",
     "short": "l'objectif qu'elle contrôle devient sécurisé",
-    "tip": "Sécurise ton objectif, puis avance vers le suivant."
+    "tip": "Sécurise ton objectif, puis avance vers le suivant.",
+    "use": "Garder un objectif même après en être parti."
    },
    {
     "name": "Suppression Volleys",
@@ -89,7 +93,8 @@
     "target": "Cette unité Gravis.",
     "effect": "Une unité ennemie touchée fait un test de moral avec -1.",
     "short": "une cible touchée teste son moral à -1",
-    "tip": "Une unité en battle-shock a CO 0 : idéal pour voler un objectif."
+    "tip": "Une unité en battle-shock a CO 0 : idéal pour voler un objectif.",
+    "use": "Faire flancher l'ennemi au tir pour lui voler un objectif."
    },
    {
     "name": "Annihilating Force",
@@ -99,7 +104,8 @@
     "target": "Cette unité Gravis.",
     "effect": "Ses attaques ont [Lethal Hits].",
     "short": "Lethal Hits pour ses attaques",
-    "tip": "Contre une cible à grosse Endurance."
+    "tip": "Contre une cible à grosse Endurance.",
+    "use": "Blesser plus facilement une cible coriace (véhicule, monstre)."
    }
   ]
  },
@@ -132,7 +138,8 @@
     "target": "Ton unité Terminator ciblée.",
     "effect": "-1 aux dégâts subis jusqu'à la fin des attaques de cette unité ennemie.",
     "short": "-1 aux dégâts subis (tour adverse)",
-    "tip": "Garde toujours 2 PC pour protéger ton plus gros bloc."
+    "tip": "Garde toujours 2 PC pour protéger ton plus gros bloc.",
+    "use": "Protéger tes Terminators quand l'ennemi les vise."
    },
    {
     "name": "Merciless Veterans",
@@ -141,7 +148,8 @@
     "when": "Ta phase de Tir, quand une unité Terminator est choisie pour tirer.",
     "target": "Cette unité.",
     "effect": "Ses tirs gagnent [Lethal Hits] et [Sustained Hits 1].",
-    "short": "Lethal Hits + Sustained Hits 1 au tir"
+    "short": "Lethal Hits + Sustained Hits 1 au tir",
+    "use": "Rendre le tir de tes Terminators beaucoup plus meurtrier."
    },
    {
     "name": "Gunship Extraction",
@@ -150,7 +158,8 @@
     "when": "Fin de la phase de Combat adverse.",
     "target": "Une unité Terminator qui n'est pas au contact.",
     "effect": "Elle retourne en réserve stratégique pour revenir ailleurs plus tard.",
-    "short": "retour en réserve à la fin du Combat adverse"
+    "short": "retour en réserve à la fin du Combat adverse",
+    "use": "Sortir des Terminators de la table pour les faire revenir ailleurs."
    }
   ]
  },
@@ -182,7 +191,8 @@
     "when": "Phase de Tir ou de Combat adverse, quand une unité ennemie cible une de tes unités.",
     "target": "Ton unité ciblée.",
     "effect": "Les attaques de cette unité ennemie ont -1 PA jusqu'à la fin de ses attaques.",
-    "short": "-1 PA aux attaques qui te ciblent"
+    "short": "-1 PA aux attaques qui te ciblent",
+    "use": "Rendre une unité plus dure à percer quand l'ennemi l'attaque."
    },
    {
     "name": "Storm of Fire",
@@ -191,7 +201,8 @@
     "when": "Ta phase de Tir, quand une unité est choisie pour tirer.",
     "target": "Cette unité.",
     "effect": "Ses tirs ont [Ignores Cover]. Avec la Doctrine Dévastateur active, +1 PA en plus.",
-    "short": "Ignores Cover (+1 PA en Dévastateur)"
+    "short": "Ignores Cover (+1 PA en Dévastateur)",
+    "use": "Ignorer le couvert de la cible (et percer mieux en Doctrine Dévastateur)."
    },
    {
     "name": "Hail of Vengeance",
@@ -200,7 +211,8 @@
     "when": "Phase de Tir adverse, après qu'une unité ennemie a tiré et détruit une figurine d'une de tes unités.",
     "target": "Ton unité touchée.",
     "effect": "Elle tire tout de suite sur cette unité ennemie.",
-    "short": "riposte au tir pendant le tour adverse"
+    "short": "riposte au tir pendant le tour adverse",
+    "use": "Riposter immédiatement contre une unité qui vient de te tirer dessus."
    }
   ]
  }

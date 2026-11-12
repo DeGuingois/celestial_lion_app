@@ -89,7 +89,8 @@
    "target": "Une unité.",
    "effect": "Relance un jet de touche, blessure, dégâts, sauvegarde, Avance, charge (tous les dés), Hazardous, ou le nombre d'attaques.",
    "short": "relance un jet raté",
-   "tip": "Le grand classique : relancer une charge ratée."
+   "tip": "Le grand classique : relancer une charge ratée.",
+   "use": "Sauver un jet raté au mauvais moment (une charge, une sauvegarde importante)."
   },
   {
    "name": "Insane Bravery",
@@ -98,7 +99,8 @@
    "when": "Après un test de moral raté en phase de Commandement.",
    "target": "Cette unité.",
    "effect": "Le test compte comme réussi.",
-   "short": "réussit automatiquement un test de moral raté"
+   "short": "réussit automatiquement un test de moral raté",
+   "use": "Empêcher une unité de flancher quand elle rate son test de moral."
   },
   {
    "name": "Rapid Ingress",
@@ -108,7 +110,8 @@
    "target": "Une unité en réserve.",
    "effect": "Elle arrive tout de suite, par exemple en Frappe en Profondeur.",
    "short": "arrive en Frappe en Profondeur à la fin du Mouvement adverse",
-   "tip": "Fais tomber une unité dans son tour, puis charge dans le tien."
+   "tip": "Fais tomber une unité dans son tour, puis charge dans le tien.",
+   "use": "Faire arriver une unité de la réserve pendant le tour adverse, pour frapper dès ton tour."
   },
   {
    "name": "Fire Overwatch",
@@ -117,7 +120,8 @@
    "when": "Fin de la phase de Mouvement adverse.",
    "target": "Une de tes unités non engagée, à 24\" d'un ennemi (pas les unités Titanic).",
    "effect": "Elle tire, mais ne touche que sur des 6, sans relance.",
-   "short": "tire sur un ennemi qui vient de bouger (touche sur 6)"
+   "short": "tire sur un ennemi qui vient de bouger (touche sur 6)",
+   "use": "Tirer sur un ennemi qui s'approche, avant qu'il te charge."
   },
   {
    "name": "Heroic Intervention",
@@ -126,7 +130,8 @@
    "when": "Fin de la phase de Charge adverse.",
    "target": "Une unité non engagée à 12\" d'un ennemi (véhicule seulement si Walker ou Personnage).",
    "effect": "Elle charge. Leap to Defend : seulement une unité qui a chargé ce tour. Into the Fray (+1 PC) : n'importe quel ennemi à 6\", jet de charge plafonné à 6.",
-   "short": "charge à la fin de la phase de Charge adverse"
+   "short": "charge à la fin de la phase de Charge adverse",
+   "use": "Contre-charger un ennemi qui vient de charger une de tes unités."
   },
   {
    "name": "Go to Ground",
@@ -135,7 +140,8 @@
    "when": "Quand une de tes unités d'infanterie est ciblée par un tir.",
    "target": "Une unité d'infanterie.",
    "effect": "Couvert et invulnérable 6+ pour la phase.",
-   "short": "couvert + invulnérable 6+ contre un tir"
+   "short": "couvert + invulnérable 6+ contre un tir",
+   "use": "Protéger une infanterie qui se fait tirer dessus."
   },
   {
    "name": "Crushing Impact",
@@ -144,7 +150,8 @@
    "when": "Après la charge d'un monstre ou d'un véhicule.",
    "target": "Une unité ennemie au contact.",
    "effect": "Lance autant de D6 que l'Endurance de ton unité. Chaque 5+ = 1 blessure mortelle (6 maximum). Chaque 1 = 1 blessure mortelle pour toi.",
-   "short": "après sa charge : 1 blessure mortelle par 5+"
+   "short": "après sa charge : 1 blessure mortelle par 5+",
+   "use": "Abîmer l'ennemi juste après la charge d'un véhicule ou d'un monstre, avant le combat."
   },
   {
    "name": "Epic Challenge",
@@ -153,7 +160,8 @@
    "when": "Phase de Combat.",
    "target": "Un de tes personnages.",
    "effect": "Il gagne [Precision] : il peut frapper un personnage ennemi caché dans son escouade.",
-   "short": "Precision contre un personnage"
+   "short": "Precision contre un personnage",
+   "use": "Tuer un personnage ennemi caché dans son escouade."
   },
   {
    "name": "Counteroffensive",
@@ -162,7 +170,8 @@
    "when": "Phase de Combat, après qu'une unité ennemie a combattu.",
    "target": "Une de tes unités qui n'a pas encore combattu.",
    "effect": "Elle combat juste après.",
-   "short": "combat juste après l'ennemi"
+   "short": "combat juste après l'ennemi",
+   "use": "Frapper avant qu'une autre unité ennemie ne combatte."
   }
  ],
  "stratRule": "Chaque stratagème ne s'utilise qu'une fois par phase, et une unité ne peut être la cible que d'un seul stratagème par phase."

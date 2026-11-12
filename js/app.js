@@ -112,7 +112,7 @@
       return '<div class="card"><div class="det-top"><h3>' + esc(e.name) + '</h3><span class="pts">' + esc(e.pts) + ' pts</span></div><p>' + esc(t || e.text || 'Texte à vérifier dans BattleBase.') + '</p>' + (t && e.text ? '<details class="off"><summary>Texte officiel (anglais)</summary><p class="small">' + md(e.text) + '</p></details>' : '') + '</div>';
     }).join('') + '</div>';
     h += '<div class="when-title">Stratagèmes</div>';
-    if (ours && ours.strats.length) h += '<div class="grid g2">' + ours.strats.map(function (s) { return stratCard(Object.assign({ src: ours.key, srcLabel: ours.label }, s), 'ds-'); }).join('') + '</div>';
+    if (ours && ours.strats.length) h += '<div class="st-list">' + ours.strats.map(function (s) { return stratCard(Object.assign({ src: ours.key, srcLabel: ours.label }, s), 'ds-'); }).join('') + '</div>';
     else h += '<div class="note">Les stratagèmes de ce détachement ne sont pas encore dans l\'app (la base communautaire ne les contient pas). Envoie une capture BattleBase du détachement à Claude pour les ajouter.</div>';
     if (d.tags.length) {
       var conf = availDets().filter(function (x) { return x.name !== d.name && x.tags.some(function (t) { return d.tags.indexOf(t) >= 0; }); });
@@ -131,18 +131,22 @@
       }).join('') + '</div>';
   }
   function stratCard(s, pre) {
-    var tip = (D.list.stratTips || {})[s.name] || s.tip;
-    return '<div class="card strat" id="' + (pre || 's-') + slug(s.name) + '"><div class="strat-head"><div><span class="src ' + s.src + '">' + esc(s.srcLabel) + '</span><h3 style="margin-top:6px">' + esc(s.name) + '</h3></div><span class="cp' + (s.cp > 1 ? ' two' : '') + '">' + s.cp + ' PC</span></div>' +
-      '<dl class="kv"><dt>Quand</dt><dd>' + esc(s.when) + '</dd><dt>Cible</dt><dd>' + esc(s.target) + '</dd><dt>Effet</dt><dd>' + esc(s.effect) + '</dd></dl>' +
-      (tip ? '<div class="tip">' + esc(tip) + '</div>' : '') + '</div>';
+    var tip = (D.list.stratTips || {})[s.name] || s.tip, u = s.use || s.short || '';
+    u = u.charAt(0).toUpperCase() + u.slice(1);
+    return '<details class="st" id="' + (pre || 's-') + slug(s.name) + '"><summary>' +
+      '<span class="cpi' + (s.cp > 1 ? ' two' : '') + '">' + s.cp + ' PC</span>' +
+      '<span class="st-main"><span class="st-name">' + esc(s.name) + '</span><span class="st-use">' + esc(u) + '</span></span>' +
+      '<span class="st-src src ' + s.src + '" title="' + esc(s.srcLabel) + '"></span><span class="st-chev" aria-hidden="true"></span></summary>' +
+      '<div class="st-body"><dl class="kv"><dt>Quand</dt><dd>' + esc(s.when) + '</dd><dt>Cible</dt><dd>' + esc(s.target) + '</dd><dt>Effet</dt><dd>' + esc(s.effect) + '</dd><dt>Source</dt><dd>' + esc(s.srcLabel === 'Base' ? 'Stratagème de base' : s.srcLabel) + '</dd></dl>' +
+      (tip ? '<div class="tip">' + esc(tip) + '</div>' : '') + '</div></details>';
   }
   function pageStrats() {
     var all = allStrats(), groups = [['mine', 'Pendant ton tour'], ['theirs', 'Pendant le tour adverse'], ['any', 'Dans n\'importe quel tour']];
     var legend = D.list.detachments.map(function (n) { var d = D.det[n]; return d ? '<span class="src ' + d.key + '">' + esc(d.label) + '</span>' : ''; }).join('') + '<span class="src core">Base</span>';
-    return '<h2>Stratagèmes (PC)</h2><p class="lede">' + esc(D.rules.stratRule) + ' Les stratagèmes de détachement ne marchent que sur tes unités Adeptus Astartes.</p><div class="legend">' + legend + '</div>' +
+    return '<h2>Stratagèmes (PC)</h2><p class="lede">Touche un stratagème pour voir quand l\'utiliser, sur qui, et son effet exact. ' + esc(D.rules.stratRule) + '</p><div class="legend">' + legend + '</div>' +
       groups.map(function (g) {
         var l = all.filter(function (s) { return s.moment === g[0]; });
-        return l.length ? '<div class="when-title">' + g[1] + '</div><div class="grid g2">' + l.map(function (s) { return stratCard(s); }).join('') + '</div>' : '';
+        return l.length ? '<div class="when-title">' + g[1] + '</div><div class="st-list">' + l.map(function (s) { return stratCard(s); }).join('') + '</div>' : '';
       }).join('');
   }
 
