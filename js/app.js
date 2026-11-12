@@ -8,8 +8,8 @@
   var D = {};               // données chargées
   var PAGES = [
     ['tour', 'Tour de jeu'], ['plan', 'Plan de jeu'], ['scenarios', 'Scénarios'], ['doctrines', 'Doctrines'],
-    ['detachements', 'Détachements'], ['ameliorations', 'Améliorations'], ['strats', 'Stratagèmes'],
-    ['unites', 'Unités'], ['mots-cles', 'Mots-clés']
+    ['detachements', 'Détachements'], ['ameliorations', 'Améliorations'],
+    ['unites', 'Unités'], ['mots-cles', 'Mots-clés'], ['strats', 'Stratagèmes']
   ];
   var $ = function (id) { return document.getElementById(id); };
 
@@ -256,7 +256,6 @@
         return '<button type="button" data-list="' + esc(l.id) + '" class="' + (l.id === L.id ? 'on' : '') + '">' + esc(l.name) + '<small>' + esc(l.points) + (l.id === L.id ? ' · liste active' : '') + '</small></button>';
       }).join('') + '<p style="color:#666;font-size:13px;max-width:280px;text-align:center;margin:8px 0 0">Pour ajouter une liste, envoie l\'export ou les captures BattleBase à Claude.</p></div>'],
       ['Unités', links(L.units.map(function (u) { return ['u-' + u.id, esc(u.menu || u.label)]; }))],
-      ['Stratagèmes', links(allStrats().map(function (s) { return ['s-' + slug(s.name), esc(s.name) + ' <span class="m-cp">' + s.cp + ' PC</span>']; }))],
       ['Détachements', links(availDets().map(function (d) { return ['d-' + slug(d.name), (D.list.detachments.indexOf(d.name) >= 0 ? '★ ' : '') + esc(d.name) + ' <span class="m-cp">' + d.dp + ' DP</span>']; }))],
       ['Sections', links(PAGES.map(function (p) { return [p[0], p[1]]; }))],
       ['Mises à jour', updPanel()]
