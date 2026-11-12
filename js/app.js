@@ -460,12 +460,32 @@
     return out;
   }
 
+
+  /* ---------- nouvelle version de l'app : détection au retour au premier plan ---------- */
+  var loadedVersion = null;
+  function fetchVersion() { return fetch('version.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { return j && j.version; }).catch(function () { return null; }); }
+  function showUpdateToast() {
+    if ($('vToast')) return;
+    var t = document.createElement('div');
+    t.id = 'vToast'; t.className = 'v-toast'; t.setAttribute('role', 'status');
+    t.innerHTML = '<span>Nouvelle version de l\'app disponible</span><button type="button" id="vGo">Mettre à jour</button>';
+    document.body.appendChild(t);
+    $('vGo').addEventListener('click', relaunch);
+  }
+  function checkVersion() {
+    if (!navigator.onLine) return;
+    fetchVersion().then(function (v) { if (!v) return; if (loadedVersion === null) loadedVersion = v; else if (v !== loadedVersion) showUpdateToast(); });
+  }
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') checkVersion(); });
+  setInterval(checkVersion, 10 * 60 * 1000);
+
   /* ---------- démarrage ---------- */
   function start() {
     render();
     var skip = false; try { skip = sessionStorage.getItem('cl-skip-start') === '1'; sessionStorage.removeItem('cl-skip-start'); } catch (er) {}
     if (!skip) show();
   }
+  checkVersion();
   load().then(start).catch(function (e) {
     $('app').innerHTML = '<div class="note">Impossible de charger les données (' + esc(e.message) + '). Ouvre l\'app une fois avec du réseau.</div>';
   });
