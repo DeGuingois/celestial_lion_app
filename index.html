@@ -207,6 +207,9 @@ footer{padding-bottom:70px}
 .flash{animation:flash 1.4s ease-out}
 .card[id]:focus{outline:none}
 @media (prefers-reduced-motion:reduce){.m-ov,.m-ov .m-panel ul{transition:none}.flash{animation:none}}
+.page{display:none}
+.page.active{display:block}
+section.page{padding-top:28px}
 footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:14px}
 @media (max-width:440px){.stats span{font-size:16px}}
 </style>
@@ -227,24 +230,11 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
   </div>
 </header>
 
-<nav class="toc" aria-label="Sections">
-  <div class="wrap">
-    <a href="#tour">Tour de jeu</a>
-    <a href="#plan">Plan</a>
-    <a href="#scenarios">Scénarios</a>
-    <a href="#doctrines">Doctrines</a>
-    <a href="#detachements">Détachements</a>
-    <a href="#ameliorations">Améliorations</a>
-    <a href="#strats">Stratagèmes</a>
-    <a href="#unites">Unités</a>
-    <a href="#mots-cles">Mots-clés</a>
-  </div>
-</nav>
 
 <main class="wrap">
 
 <!-- ===================== TOUR DE JEU ===================== -->
-<section id="tour">
+<section class="page" id="tour">
   <h2>Ton tour, phase par phase</h2>
   <p class="lede">À chaque tour, tu fais ces 5 phases dans l'ordre. Ce qui est en or, c'est ce qu'il ne faut pas oublier.</p>
   <ol class="phases">
@@ -283,7 +273,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
 </section>
 
 <!-- ===================== PLAN ===================== -->
-<section id="plan">
+<section class="page" id="plan">
   <h2>Plan de jeu</h2>
   <p class="lede">On gagne en tenant les objectifs, pas en tuant tout. Ton armée est une enclume qui ne bouge pas, avec deux marteaux.</p>
   <div class="grid g2 plan">
@@ -295,7 +285,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
 </section>
 
 <!-- ===================== SCENARIOS ===================== -->
-<section id="scenarios">
+<section class="page" id="scenarios">
   <h2>Scénarios</h2>
   <p class="lede">Plans de jeu préparés contre des menaces précises. Touche un scénario pour l'ouvrir.</p>
 
@@ -361,7 +351,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
 </section>
 
 <!-- ===================== DOCTRINES ===================== -->
-<section id="doctrines">
+<section class="page" id="doctrines">
   <h2>Les Doctrines</h2>
   <p class="lede">Règle d'armée. Au début de ta phase de Commandement, tu en choisis une. Elle s'applique à toutes tes unités Adeptus Astartes jusqu'à ta phase de Commandement suivante. <b>Chacune ne s'utilise qu'une fois par partie.</b> Le Knight n'en profite pas.</p>
   <div class="grid g3 doc">
@@ -372,7 +362,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
 </section>
 
 <!-- ===================== DETACHEMENTS ===================== -->
-<section id="detachements">
+<section class="page" id="detachements">
   <h2>Règles des détachements</h2>
   <p class="lede">Ces bonus sont actifs en permanence, sans dépenser de PC.</p>
   <div class="grid g3">
@@ -383,7 +373,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
 </section>
 
 <!-- ===================== AMELIORATIONS ===================== -->
-<section id="ameliorations">
+<section class="page" id="ameliorations">
   <h2>Améliorations</h2>
   <p class="lede">3 améliorations sur les 4 autorisées.</p>
   <div class="grid g3">
@@ -394,7 +384,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
 </section>
 
 <!-- ===================== STRATAGEMES ===================== -->
-<section id="strats">
+<section class="page" id="strats">
   <h2>Stratagèmes (PC)</h2>
   <p class="lede">Classés par moment d'utilisation. Les stratagèmes de détachement ne marchent que sur tes unités Adeptus Astartes, pas sur le Knight. Les stratagèmes de base marchent pour tout le monde.</p>
   <div class="legend"><span class="src ic">Ironclad</span><span class="src gs">Gravis Siege</span><span class="src ts">Terminator</span><span class="src core">Base</span></div>
@@ -473,7 +463,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
 </section>
 
 <!-- ===================== UNITES ===================== -->
-<section id="unites">
+<section class="page" id="unites">
   <h2>Tes unités</h2>
   <p class="lede">M Mouvement · E Endurance · Svg Sauvegarde · PV Points de vie · CO Contrôle d'objectif · Inv Invulnérable.</p>
 
@@ -652,7 +642,7 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
   </div>
 </section>
 
-<section id="mots-cles">
+<section class="page" id="mots-cles">
   <h2>Mots-clés d'armes</h2>
   <p class="lede">Touche un mot-clé dans les tableaux pour voir sa règle. Les mots-clés en pointillés sont des bonus qui viennent d'une règle de l'unité, du détachement ou d'une amélioration.</p>
   <div class="grid g2"><div class="card"><h3>Rapid Fire X</h3><p>À la moitié de la portée de l&#x27;arme ou moins, elle fait X attaques de plus.</p></div><div class="card"><h3>Blast X</h3><p>Pour chaque tranche complète de 5 figurines dans l&#x27;unité ciblée, l&#x27;arme gagne X attaques. Exemple : Blast 2 contre 12 figurines = +4 attaques.</p></div><div class="card"><h3>Torrent</h3><p>Chaque attaque touche automatiquement la cible : pas de jet pour toucher.</p></div><div class="card"><h3>Heavy</h3><p>+1 pour toucher si l&#x27;unité n&#x27;a pas bougé pendant ce tour.</p></div><div class="card"><h3>Assault</h3><p>L&#x27;arme peut tirer même si l&#x27;unité a fait une Avance.</p></div><div class="card"><h3>Sustained Hits X</h3><p>Chaque 6 pour toucher (touche critique) donne X touches supplémentaires.</p></div><div class="card"><h3>Lethal Hits</h3><p>Chaque 6 pour toucher blesse automatiquement : pas de jet pour blesser.</p></div><div class="card"><h3>Devastating Wounds</h3><p>Chaque 6 pour blesser (blessure critique) ne permet aucune sauvegarde, même invulnérable.</p></div><div class="card"><h3>Melta X</h3><p>À la moitié de la portée de l&#x27;arme ou moins, chaque attaque fait X dégâts de plus.</p></div><div class="card"><h3>Twin-linked</h3><p>Tu relances les jets pour blesser ratés.</p></div><div class="card"><h3>Close-quarters</h3><p>Arme de poing : elle peut tirer même quand l&#x27;unité est au contact d&#x27;un ennemi.</p></div><div class="card"><h3>Anti-Vehicle 2+</h3><p>Contre un véhicule, un jet pour blesser de 2+ est une blessure critique : il blesse automatiquement.</p></div><div class="card"><h3>Champion of the First Company</h3><p>Amélioration du Capitaine : toute son unité a Lethal Hits au corps à corps.</p></div><div class="card"><h3>Terminatus Assault</h3><p>Si l&#x27;unité a chargé ce tour : marteaux Sustained Hits 1 contre monstres et véhicules, griffes Sustained Hits 1 contre le reste.</p></div><div class="card"><h3>Fury of the First</h3><p>Les attaques de la Terminator Squad contre une cible à 9&quot; ou moins ont +1 PA (tir et mêlée).</p></div><div class="card"><h3>Bolter Discipline</h3><p>Au tir, +1 pour toucher si les Intercesseurs ou leur cible sont à portée d&#x27;un objectif.</p></div><div class="card"><h3>Ballistus Strike</h3><p>Les tirs du Ballistus contre une cible à 24&quot; ou moins ont Sustained Hits 1.</p></div><div class="card"><h3>Enduring Vengeance</h3><p>Règle du détachement Ironclad Champions : les Dreadnoughts relancent les jets de touche de 1.</p></div></div>
@@ -714,17 +704,32 @@ footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid va
   tr.addEventListener('scroll',function(){window.requestAnimationFrame(mark);});
   ov.addEventListener('click',function(e){
     var a=e.target.closest('a');if(!a)return;e.preventDefault();
-    var id=a.getAttribute('href').slice(1),el=document.getElementById(id);
-    if(el){
-      var y=el.getBoundingClientRect().top+window.pageYOffset-16;
-      window.scrollTo({top:y,behavior:'instant'});      /* saut caché derrière le menu noir */
-      try{history.replaceState(null,'','#'+id);}catch(err){}
-      el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
-    }
-    hide(function(){if(el){el.setAttribute('tabindex','-1');el.focus({preventScroll:true});}});
+    var id=a.getAttribute('href').slice(1);
+    if(location.hash==='#'+id){route();}else{location.hash=id;}   /* la page change derrière le menu noir */
+    hide(function(){var el=document.getElementById(id);if(el){el.setAttribute('tabindex','-1');el.focus({preventScroll:true});}});
   });
   document.addEventListener('keydown',function(e){if(ov.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')go(Math.min(idx()+1,2));if(e.key==='ArrowLeft')go(Math.max(idx()-1,0));});
 })();
+</script>
+
+<script>
+/* Une page par section : la section affichée dépend du #lien (Tour de jeu par défaut). */
+var PAGES=["tour", "plan", "scenarios", "doctrines", "detachements", "ameliorations", "strats", "unites", "mots-cles"];
+function route(){
+  var id=(location.hash||'').slice(1)||'tour';
+  var el=document.getElementById(id);
+  var page=el&&(el.classList.contains('page')?el:el.closest('.page'));
+  if(!page){page=document.getElementById('tour');el=page;}
+  document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('active',p===page);});
+  if(el===page){window.scrollTo({top:0,behavior:'instant'});}
+  else{
+    var d=el.closest('details');if(d)d.open=true;
+    window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-16,behavior:'instant'});
+    el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+  }
+}
+window.addEventListener('hashchange',route);
+route();
 </script>
 <script>
 if ('serviceWorker' in navigator) { window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); }); }
