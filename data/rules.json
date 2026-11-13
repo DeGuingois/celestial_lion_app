@@ -55,6 +55,10 @@
   "fullthrottle": [
    "Full-throttle Assault",
    "Après une charge, les armes de mêlée des Outriders gagnent +1 dégât et Sustained Hits 1."
+  ],
+  "biologis": [
+   "Vivispectral Analysis Targeting",
+   "Apothecary Biologis : les attaques de son unité ont Lethal Hits contre tout ce qui n'est pas un véhicule (chaque 6 pour toucher blesse automatiquement)."
   ]
  },
  "doctrines": {

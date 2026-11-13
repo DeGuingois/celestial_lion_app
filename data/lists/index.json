@@ -1,6 +1,12 @@
 {
- "default": "celestial-lions-2000",
+ "default": "iron-dogs-2000",
  "lists": [
+  {
+   "id": "iron-dogs-2000",
+   "name": "Celestial Lion - Iron Dogs 2000pts",
+   "points": "2000 pts",
+   "file": "iron-dogs-2000.json"
+  },
   {
    "id": "celestial-lions-2000",
    "name": "Celestial Lions Mecha",

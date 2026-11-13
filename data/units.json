@@ -1153,6 +1153,72 @@
     }
    ],
    "source": "Imperium - Imperial Knights - Library.json"
+  },
+  "Apothecary Biologis": {
+   "name": "Apothecary Biologis",
+   "pts": 60,
+   "models": [
+    {
+     "name": "Apothecary Biologis",
+     "M": "5\"",
+     "T": "6",
+     "Sv": "3+",
+     "W": "5",
+     "Ld": "6+",
+     "OC": "1",
+     "Inv": ""
+    }
+   ],
+   "abilities": [
+    {
+     "name": "Vivispectral Analysis Targeting",
+     "text": "This unit's attacks have [LETHAL HITS: non-VEHICLE]."
+    },
+    {
+     "name": "Support",
+     "text": "This model can be attached to a unit (see BattleBase for the list of units). Source : capture BattleBase du 12/11/2026."
+    }
+   ],
+   "rules": [
+    "Support"
+   ],
+   "weapons": [
+    {
+     "name": "Absolvor Bolt Pistol",
+     "type": "ranged",
+     "profiles": [
+      {
+       "label": null,
+       "range": "18\"",
+       "A": "1",
+       "skill": "3+",
+       "S": "5",
+       "AP": "-2",
+       "D": "2",
+       "keywords": [
+        "Close-quarters"
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Servo-armature",
+     "type": "melee",
+     "profiles": [
+      {
+       "label": null,
+       "range": "Melee",
+       "A": "4",
+       "skill": "3+",
+       "S": "5",
+       "AP": "0",
+       "D": "1",
+       "keywords": []
+      }
+     ]
+    }
+   ],
+   "source": "Imperium - Space Marines.json"
   }
  }
 }
