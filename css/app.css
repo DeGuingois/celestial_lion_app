@@ -268,3 +268,5 @@ details.info summary:focus-visible{outline:2px solid var(--accent);outline-offse
 .info-b{padding:0 12px 12px;font-size:15px}
 .info-b p{margin:6px 0}
 .info-b ul{margin:6px 0;padding-left:18px}
+ol.phases .cpi,.info-b .cpi{display:inline-block;padding:2px 5px;margin:0 2px}
+ol.phases details.info{margin-top:8px}
