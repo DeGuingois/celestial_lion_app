@@ -79,7 +79,8 @@
   function pageDoctrines() {
     var d = D.rules.doctrines;
     return '<h2>Les Doctrines</h2><p class="lede">' + esc(d.intro) + '</p><div class="grid g3 doc">' +
-      d.list.map(function (x) { return '<div class="card"><span class="tag">' + esc(x.tag) + '</span><h3>' + esc(x.title) + '</h3><p>' + esc(x.text) + '</p><p class="small">Quand : ' + esc(x.when) + '</p></div>'; }).join('') + '</div>';
+      d.list.map(function (x) { return '<div class="card"><span class="tag">' + esc(x.tag) + '</span><h3>' + esc(x.title) + '</h3><p>' + esc(x.text) + '</p><p class="small">Quand : ' + esc(x.when) + '</p></div>'; }).join('') + '</div>' +
+      (D.list.doctrinesNote || '');   // conseil propre à la liste (HTML)
   }
   function availDets() {
     var f = D.list.faction, all = (D.detAll && D.detAll[f]) || [];
