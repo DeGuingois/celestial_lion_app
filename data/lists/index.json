@@ -6,6 +6,12 @@
    "name": "Celestial Lions 2000pts",
    "points": "1995 / 2000 pts",
    "file": "celestial-lions-2000.json"
+  },
+  {
+   "id": "cl-2k-mecha",
+   "name": "CL - 2K - Mecha",
+   "points": "1425 / 2000 pts",
+   "file": "cl-2k-mecha.json"
   }
  ]
 }
