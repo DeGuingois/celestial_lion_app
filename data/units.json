@@ -1245,9 +1245,31 @@
      "Inv": ""
     }
    ],
-   "abilities": [],
+   "abilities": [
+    {
+     "name": "Terror Troops (Aura)",
+     "text": "While an enemy model is within 3\" of this unit, that enemy model has -1 OC."
+    },
+    {
+     "name": "Fearsome Assault",
+     "text": "At the start of the Fight phase, each enemy unit **engaged** with a unit with this ability makes a **battle-shock roll**, with -1 to that battle-shock roll."
+    },
+    {
+     "name": "Grapnel Launchers",
+     "text": "When this unit makes a move, this unit can:\n▪ Move through all types of model.\n▪ Ignore all vertical distance for the purposes of how far this unit has moved."
+    },
+    {
+     "name": "Grav-chutes",
+     "text": "This unit has **Deep Strike**."
+    },
+    {
+     "name": "Keywords",
+     "text": "Infantry, Phobos, Smoke, Explosives, Imperium, Adeptus Astartes. Source : capture BattleBase du 21/11/2026."
+    }
+   ],
    "rules": [
-    "Scouts 6\""
+    "Scouts 6\"",
+    "Deep Strike"
    ],
    "weapons": [
     {
